@@ -38,15 +38,15 @@ npm i --save-dev [package] [package] ...
 - eslint-config-prettier
 - eslint-config-next
 
+> **Note**
+>
+> ```bash
+> npm run dev
+> ```
+>
+> Open [localhost:3000](http://localhost:3000) with your browser to see the result.
+
 ## 3.
-
-```bash
-npm run dev
-```
-
-Open [localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## 4.
 
 Make files.
 
