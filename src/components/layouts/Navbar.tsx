@@ -26,7 +26,7 @@ export default function Navbar() {
           </li>
         </ul>
         <div
-          className={`z-40 grid place-content-center fixed top-0 left-0 w-full h-screen
+          className={`z-40 flex items-center justify-center absolute inset-0 w-full h-screen
             transition-transform origin-top-right duration-200 ease-in-out ${
               mounted ? "scale-100" : "scale-0"
             } bg-zinc-50 dark:bg-zinc-800 dark:text-white backdrop-blur`}

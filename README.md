@@ -95,6 +95,30 @@ Edit files.
 - [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 - [PostCSS](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)
 
+## Tailwind CSS
+
+`h-screen` doesn't work correct on iOS.
+
+You need to modify `tailwind.config.js`. (This is effective on iOS 15.4 and later)
+
+```javascript
+...
+theme: {
+    extend: {
+      height: {
+        screen: ["100vh", "100dvh"],
+      },
+      minHeight: {
+        screen: ["100vh", "100dvh"],
+      },
+      maxHeight: {
+        screen: ["100vh", "100dvh"],
+      },
+    },
+  },
+...
+```
+
 ## Instruction
 
 ### src/pages/
