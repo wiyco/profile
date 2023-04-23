@@ -2,17 +2,30 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import PageHead from "@/components/PageHead";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
     <>
       <PageHead title="Home" description="This is site." />
-      <div className="z-10 w-full items-center justify-normal font-mono text-sm">
-        <h2 className="text-lg">Topic</h2>
-        <div className="">
-          <p>This is a test topic.</p>
-          <p>wanna wanna.</p>
+      <div className="z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-8">
+        <span className="self-center p-4 text-2xl border-b border-zinc-800 dark:border-zinc-100">
+          <h2 className="">Topic</h2>
+        </span>
+        <div className="self-start flex-1 w-full">
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
+          <p>This is demo topic.</p>
         </div>
       </div>
     </>

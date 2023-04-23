@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Undo } from "iconoir-react";
+import { ArrowLeftCircle } from "iconoir-react";
 
 export default function PageBackButton() {
   const router = useRouter();
@@ -12,7 +12,7 @@ export default function PageBackButton() {
       type="button"
       onClick={() => router.back()}
     >
-      <Undo />
+      <ArrowLeftCircle />
     </button>
   );
 }

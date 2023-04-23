@@ -1,10 +1,6 @@
 import { GitHub, Twitter, Instagram } from "iconoir-react";
 
-type FooterProps = {
-  classNameAdd: string;
-};
-
-export default function Footer({ classNameAdd }: FooterProps) {
+export default function Footer() {
   const navItems = [
     {
       head: "Map",
@@ -31,10 +27,8 @@ export default function Footer({ classNameAdd }: FooterProps) {
   ];
 
   return (
-    <footer
-      className={`z-40 w-full p-4 bg-zinc-800 text-white border-t border-zinc-100 dark:border-zinc-800 ${classNameAdd}`}
-    >
-      <div className="text-sm pt-8">
+    <footer className="z-40 w-full p-4 bg-zinc-800 text-white border-t border-zinc-100 dark:border-zinc-800">
+      <div className="mt-7 text-sm">
         <ul className="flex flex-row items-start justify-evenly">
           {navItems.map((item, index) => (
             <li className="" key={`foot-nav-${index}`}>
