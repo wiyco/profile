@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { useState } from "react";
-import { Home, Archive } from "iconoir-react";
+import { Home, Book, JournalPage } from "iconoir-react";
 import ThemeButton from "@/components/buttons/ThemeButton";
 import MenuButton from "@/components/buttons/MenuButton";
 
 export default function Navbar() {
   const navItems = [
     { label: "home", icon: <Home /> },
-    { label: "archive", icon: <Archive /> },
+    { label: "archive", icon: <Book /> },
+    { label: "blog", icon: <JournalPage /> },
   ];
 
   const [mounted, setMounted] = useState<boolean>(false);
