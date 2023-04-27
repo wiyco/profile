@@ -37,7 +37,7 @@ export default function Navbar() {
               <li
                 className="inline-flex w-full"
                 key={`nav-mobile-${index}`}
-                title={item.label.charAt(0).toUpperCase() + item.label.slice(1)}
+                title={`${item.label.charAt(0).toUpperCase()}${item.label.slice(1)}`}
               >
                 <Link href={`/${item.label === "home" ? "" : item.label}`}>
                   <span className="flex items-center justify-center space-x-4">
@@ -61,7 +61,7 @@ export default function Navbar() {
             <li
               className="inline-flex"
               key={`nav-${index}`}
-              title={item.label.charAt(0).toUpperCase() + item.label.slice(1)}
+              title={`${item.label.charAt(0).toUpperCase()}${item.label.slice(1)}`}
             >
               <Link href={`/${item.label === "home" ? "" : item.label}`}>
                 <span className="">{item.icon}</span>

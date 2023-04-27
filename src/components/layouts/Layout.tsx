@@ -2,11 +2,11 @@ import { ReactNode } from "react";
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 
-type LayoutProps = {
+type layoutProps = {
   children: ReactNode;
 };
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: layoutProps) {
   return (
     <div className="flex flex-col items-center justify-between space-y-4 w-full min-h-screen bg-zinc-50 dark:bg-zinc-900">
       <Header />

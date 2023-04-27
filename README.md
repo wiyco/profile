@@ -67,7 +67,7 @@ Edit files.
   ...
   "baseUrl": ".",
   "paths": {
-    "@/*": ["src/*"]
+    "@/*": ["./src/*"]
   }
   ...
 }
@@ -118,6 +118,53 @@ theme: {
   },
 ...
 ```
+
+## Color Theme
+
+This project can switch the color themes by [next-theme](https://www.npmjs.com/package/next-themes) and uses the [color palette of Tailwind CSS](https://tailwindcss.com/docs/customizing-colors) as the theme colors.
+
+### `tailwind.config.js`
+
+```javascript
+module.exports = {
+  ...
+  darkMode: "class",
+}
+```
+
+### `_app.tsx`
+
+```tsx
+<ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
+  ...
+</ThemeProvider>
+```
+
+### Color palette of theme
+
+```SCSS
+light {
+  backgroud-color: --bg-zinc-50;
+}
+dark {
+  backgroud-color: --bg-zinc-900;
+  text-color: --text-white;
+}
+footer {
+  backgroud-color: --bg-zinc-800;
+  text-color: --text-white;
+}
+```
+
+```html
+<element className="bg-zinc-50 dark:bg-zinc-900 dark:text-white" />
+```
+
+## Next.JS
+
+This repo. uses **SSG** to render pages.
+
+You can find more details on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching/overview).
 
 ## Instruction
 

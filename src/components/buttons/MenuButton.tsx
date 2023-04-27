@@ -1,11 +1,11 @@
 import { Menu, Cancel } from "iconoir-react";
 
-type NavbarProps = {
+type menuButtonProps = {
   setMounted: Function;
   mounted: boolean;
 };
 
-export default function MenuButton({ setMounted, mounted }: NavbarProps) {
+export default function MenuButton({ setMounted, mounted }: menuButtonProps) {
   return (
     <button
       className=""

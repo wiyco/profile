@@ -11,7 +11,7 @@ export default function ThemeButton() {
   return (
     <button
       className=""
-      title="Color Mode"
+      title="Color Theme"
       aria-label="Switch Theme"
       type="button"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
