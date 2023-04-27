@@ -162,7 +162,7 @@ footer {
 
 ## Next.JS
 
-This repo. uses **SSG** to render pages.
+This project uses [SSG](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) to render pages and also uses [Dynamic Routes](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths) as generate the URI.
 
 You can find more details on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching/overview).
 
