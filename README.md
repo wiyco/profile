@@ -224,7 +224,11 @@ Created these functions.
 
 ### `getposts`
 
-The `getposts` returns all of posts data. Also limited to `15` rows per an access.
+The `getposts` returns all of posts data.
+
+> **Note**
+>
+> Also limited to `15` rows per an access.
 
 Here's the function of `getposts`.
 
@@ -249,7 +253,11 @@ $$;
 
 ### `getpost`
 
-The `getpost` returns a specific post data. You can get the data by passing a parameter of `slug`. (Ex: post_id like `blog/1`, `blog/2`)
+The `getpost` returns a specific post data. You can get the data by passing a parameter of `slug`.
+
+> **Note**
+>
+> `post_id` like `blog/1`, `blog/2`
 
 Here's the function of `getpost`.
 
@@ -271,9 +279,13 @@ as $$
 $$;
 ```
 
-You can get the JSON data with [API routes](https://nextjs.org/docs/api-routes/introduction).
+You can get the JSON data using with [API routes](https://nextjs.org/docs/api-routes/introduction).
 
-Get the posts data from [localhost:3000/api/v1/posts](localhost:3000/api/v1/posts). Also you can get the single page from [localhost:3000/api/v1/post?s=1](localhost:3000/api/v1/post?s=1) (s=[slug]).
+You can get the posts data from [localhost:3000/api/v1/posts](localhost:3000/api/v1/posts). Also you can get the single page from [localhost:3000/api/v1/post?s=1](localhost:3000/api/v1/post?s=1).
+
+> **Note**
+>
+> `s=[slug]`
 
 ---
 
