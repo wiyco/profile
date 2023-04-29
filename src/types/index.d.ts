@@ -1,10 +1,3 @@
-export type jsonPlaceholderData = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};
-
 export type postData = {
   id: number;
   created_at: string;
