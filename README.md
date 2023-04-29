@@ -166,6 +166,117 @@ This project uses [SSG](https://nextjs.org/docs/basic-features/data-fetching/get
 
 You can find more details on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching/overview).
 
+## Supabase
+
+This project uses [Supabase](https://supabase.com/) for DB.
+
+To get the data, uses [Database Functions](https://supabase.com/docs/guides/database/functions) and calls with `rpc()` method.
+
+DB has 3 tables.
+
+- `posts`
+- `post`
+- `users`
+
+Here's an ER diagram.
+
+![ERD](https://www.dropbox.com/s/ectb0kjn8gcnu8j/profile-supabase-erd.jpg?raw=1)
+
+### `posts`
+
+```sql
+create table posts (
+  id int4 not null primary key references post(id) on delete cascade on update cascade,
+  thumbnail text not null default ''
+)
+```
+
+### `post`
+
+```sql
+create table post (
+  id int4 not null generated always as identity primary key,
+  title text not null default '',
+  body text not null default '',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  user_id int4 default null references users(id)
+)
+```
+
+### `users`
+
+```sql
+create table users (
+  id int4 not null generated always as identity primary key,
+  name text not null default '',
+  avatar uuid not null default uuid_generate_v4(),
+  created_at timestamptz not null default now()
+)
+```
+
+## Database Functions
+
+Created these functions.
+
+- `getposts`
+- `getpost`
+
+### `getposts`
+
+The `getposts` returns all of posts data. Also limited to `15` rows per an access.
+
+Here's the function of `getposts`.
+
+```sql
+create or replace function public.getposts()
+returns table (
+  id int4,
+  thumbnail text,
+  created_at timestamptz,
+  updated_at timestamptz,
+  title text,
+  body text,
+  user_id int4,
+  user_name text,
+  avatar uuid
+)
+language sql
+as $$
+  select posts.id, posts.thumbnail, post.created_at, post.updated_at, post.title, post.body, post.user_id, users.name as user_name, users.avatar from posts inner join post on posts.id = post.id left outer join users on post.user_id = users.id order by updated_at desc
+$$;
+```
+
+### `getpost`
+
+The `getpost` returns a specific post data. You can get the data by passing a parameter of `slug`. (Ex: post_id like `blog/1`, `blog/2`)
+
+Here's the function of `getpost`.
+
+```sql
+create or replace function public.getpost(slug int4)
+returns table (
+  id int4,
+  created_at timestamptz,
+  updated_at timestamptz,
+  title text,
+  body text,
+  user_id int4,
+  user_name text,
+  avatar text
+)
+language sql
+as $$
+  select post.id, post.created_at, post.updated_at, post.title, post.body, post.user_id, users.name as user_name, users.avatar from post left outer join users on post.user_id = users.id where post.id = slug
+$$;
+```
+
+You can get the JSON data with [API routes](https://nextjs.org/docs/api-routes/introduction).
+
+Get the posts data from [localhost:3000/api/v1/posts](localhost:3000/api/v1/posts). Also you can get the single page from [localhost:3000/api/v1/post?s=1](localhost:3000/api/v1/post?s=1) (s=[slug]).
+
+---
+
 ## Instruction
 
 ### src/pages/

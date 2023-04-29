@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { postsData } from "@/types";
-import { getPosts } from "@/hooks/getSupabase";
+import { jsonPlaceholderData } from "@/types";
+import { getPosts } from "@/hooks/getJsonPlaceholder";
 import PageMeta from "@/components/PageMeta";
 import Card from "@/components/cards/Card";
 
-export default function Blog({ posts }: { posts: Array<postsData> }) {
+export default function Blog({ posts }: { posts: Array<jsonPlaceholderData> }) {
   return (
     <>
       <PageMeta title="Blog" description="wiyco's blog." />
@@ -14,10 +14,10 @@ export default function Blog({ posts }: { posts: Array<postsData> }) {
           <h2 className="">Blog</h2>
         </span>
         <div className="self-start flex-1 w-full p-2">
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 content-start">
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 content-start">
             {posts.map((post, index) => (
               <li className="" key={index} title={post.title}>
-                <Card post={post} />
+                <Card post={`${post}/test`} />
               </li>
             ))}
           </ul>
@@ -32,8 +32,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: posts,
+      posts,
     },
-    revalidate: 300,
+    revalidate: 120,
   };
 }

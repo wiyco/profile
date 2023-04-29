@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-import { postData } from "@/types";
-import { getPosts, getPost } from "@/hooks/getSupabase";
+import { jsonPlaceholderData } from "@/types";
+import { getPosts, getPost } from "@/hooks/getJsonPlaceholder";
 import PageMeta from "@/components/PageMeta";
 
 type postContext = {
   slug: string;
 };
 
-export default function Post({ post }: { post: postData }) {
+export default function Post({ post }: { post: jsonPlaceholderData }) {
   const paragraphs: Array<string> = post.body.split("\n");
 
   return (
