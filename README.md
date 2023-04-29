@@ -257,7 +257,7 @@ The `getpost` returns a specific post data. You can get the data by passing a pa
 
 > **Note**
 >
-> `post_id` like `blog/1`, `blog/2`
+> `slug` like `post_id` of `blog/1`, `blog/2`
 
 Here's the function of `getpost`.
 
@@ -271,7 +271,7 @@ returns table (
   body text,
   user_id int4,
   user_name text,
-  avatar text
+  avatar uuid
 )
 language sql
 as $$
@@ -279,9 +279,11 @@ as $$
 $$;
 ```
 
-You can get the JSON data using with [API routes](https://nextjs.org/docs/api-routes/introduction).
+You can get the JSON data by [API routes](https://nextjs.org/docs/api-routes/introduction).
 
-You can get the posts data from [localhost:3000/api/v1/posts](http://localhost:3000/api/v1/posts). Also you can get the single page from [localhost:3000/api/v1/post?s=1](http://localhost:3000/api/v1/post?s=1).
+The posts data from [localhost:3000/api/v1/posts](http://localhost:3000/api/v1/posts).
+
+A single page from [localhost:3000/api/v1/post?s=1](http://localhost:3000/api/v1/post?s=1).
 
 > **Note**
 >
