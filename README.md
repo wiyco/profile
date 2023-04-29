@@ -281,7 +281,7 @@ $$;
 
 You can get the JSON data using with [API routes](https://nextjs.org/docs/api-routes/introduction).
 
-You can get the posts data from [localhost:3000/api/v1/posts](localhost:3000/api/v1/posts). Also you can get the single page from [localhost:3000/api/v1/post?s=1](localhost:3000/api/v1/post?s=1).
+You can get the posts data from [localhost:3000/api/v1/posts](http://localhost:3000/api/v1/posts). Also you can get the single page from [localhost:3000/api/v1/post?s=1](http://localhost:3000/api/v1/post?s=1).
 
 > **Note**
 >
