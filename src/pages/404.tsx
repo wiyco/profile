@@ -17,7 +17,7 @@ export default function Custom404() {
           <p className="">Not found</p>
         </div>
         <div className="self-end flex-1 flex items-end justify-center">
-          <span className="inline-flex text-lg">
+          <span className="inline-flex text-xl">
             <PageBackButton />
           </span>
         </div>

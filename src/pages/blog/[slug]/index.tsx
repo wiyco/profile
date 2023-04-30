@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Clock, ClockRotateRight } from "iconoir-react";
 import { postData } from "@/types";
 import { getPosts, getPost } from "@/hooks/getSupabase";
 import PageMeta from "@/components/PageMeta";
@@ -19,11 +20,39 @@ export default function Post({ post }: { post: postData }) {
           <h2 className="">{post.title}</h2>
         </span>
         <div className="self-start flex-1 w-full p-2">
-          {paragraphs.map((paragraph, index) => (
-            <p className="" key={index}>
-              {paragraph}
-            </p>
-          ))}
+          <div className="text-sm block md:flex items-center justify-center md:space-x-8">
+            <div className="flex items-center justify-center space-x-2">
+              <span className="text-xs">
+                <Clock />
+              </span>
+              <span className="flex items-center justify-center space-x-2">
+                {`${new Date(post.created_at).toLocaleString("en-US", {
+                  timeZone: "America/New_York",
+                  dateStyle: "short",
+                  timeStyle: "short",
+                })}`}
+              </span>
+            </div>
+            <div className="flex items-center justify-center space-x-2">
+              <span className="text-xs">
+                <ClockRotateRight />
+              </span>
+              <span className="">
+                {`${new Date(post.updated_at).toLocaleString("en-US", {
+                  timeZone: "America/New_York",
+                  dateStyle: "short",
+                  timeStyle: "short",
+                })}`}
+              </span>
+            </div>
+          </div>
+          <div className="mt-8">
+            {paragraphs.map((paragraph, index) => (
+              <p className="" key={index}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </>

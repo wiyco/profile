@@ -4,3 +4,7 @@
 
 :root {
 }
+
+p {
+  @apply mt-4;
+}

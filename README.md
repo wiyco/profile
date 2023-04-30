@@ -289,6 +289,30 @@ A single page from [localhost:3000/api/v1/post?s=1](http://localhost:3000/api/v1
 >
 > `s=[slug]`
 
+## Avatar
+
+To get `avatar` images from an external URL, you need to modify `next.config.js`.
+
+Here's an example of parameter.
+
+```javascript
+module.exports = {
+  ...
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "example.com",
+        port: "",
+        pathname: "/account123/**",
+      },
+    ],
+  },
+}
+```
+
+Check more details on [next/image Un-configured Host](https://nextjs.org/docs/messages/next-image-unconfigured-host).
+
 ---
 
 ## Instruction
