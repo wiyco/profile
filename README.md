@@ -162,15 +162,19 @@ footer {
 
 ## Next.JS
 
-This project uses [SSG](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) to render pages and also uses [Dynamic Routes](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths) as generate the URI.
+This project uses [SSR](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) to render pages. Although I wanted to use [SSG](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) as render pages and [Dynamic Routes](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths) as generate a URI but `Vercel`'s caching works too strong and won't let to [`revalidate`](https://nextjs.org/docs/api-reference/data-fetching/get-static-props#revalidate).
 
-You can find more details on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching/overview).
+> **Note**
+>
+> Let me know if you have a better way. As the `blog` page have more content, I'll eventually have to consider the other way for optimum performance.
+
+You can check more details on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching/overview).
 
 ## Supabase
 
-This project uses [Supabase](https://supabase.com/) for DB.
+This project uses [Supabase](https://supabase.com/) as DB.
 
-To get the data, uses [Database Functions](https://supabase.com/docs/guides/database/functions) and calls with `rpc()` method.
+Uses [Database Functions](https://supabase.com/docs/guides/database/functions) and also clients call with the `rpc()` method.
 
 DB has 3 tables.
 
@@ -230,7 +234,7 @@ The `getposts` returns all of posts data.
 >
 > Also limited to `15` rows per an access.
 
-Here's the function of `getposts`.
+Here's a function of `getposts`.
 
 ```sql
 create or replace function public.getposts()
@@ -253,13 +257,13 @@ $$;
 
 ### `getpost`
 
-The `getpost` returns a specific post data. You can get the data by passing a parameter of `slug`.
+The `getpost` returns a specific post data. You can get a post data by passing a parameter of `slug`.
 
 > **Note**
 >
-> `slug` like `post_id` of `blog/1`, `blog/2`
+> `slug` like `post_id` as `/1`, `/2`
 
-Here's the function of `getpost`.
+Here's a function of `getpost`.
 
 ```sql
 create or replace function public.getpost(slug int4)
@@ -279,11 +283,11 @@ as $$
 $$;
 ```
 
-You can get the JSON data by [API routes](https://nextjs.org/docs/api-routes/introduction).
+You can get JSON data as using by [API routes](https://nextjs.org/docs/api-routes/introduction).
 
-The posts data from [localhost:3000/api/v1/posts](http://localhost:3000/api/v1/posts).
+The posts data on [localhost:3000/api/v1/posts](http://localhost:3000/api/v1/posts).
 
-A single page from [localhost:3000/api/v1/post?s=1](http://localhost:3000/api/v1/post?s=1).
+A single page on [localhost:3000/api/v1/post?s=1](http://localhost:3000/api/v1/post?s=1).
 
 > **Note**
 >
@@ -293,7 +297,7 @@ A single page from [localhost:3000/api/v1/post?s=1](http://localhost:3000/api/v1
 
 To get `avatar` images from an external URL, you need to modify `next.config.js`.
 
-Here's an example of parameter.
+Here's an example values.
 
 ```javascript
 module.exports = {

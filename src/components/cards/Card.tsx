@@ -12,6 +12,7 @@ export default function Card({ post }: { post: postsData }) {
             src={post.thumbnail === "" ? `/media-image.svg` : post.thumbnail}
             alt={post.thumbnail === "" ? `No image` : post.thumbnail}
             fill
+            priority
           />
         </span>
         <div className="flex-1 flex flex-col items-stretch justify-between">
@@ -37,6 +38,7 @@ export default function Card({ post }: { post: postsData }) {
                   }
                   alt={post.avatar === "" ? "Anon. avatar" : `${post.user_name} avatar`}
                   fill
+                  sizes="(max-height: 1.25rem)"
                 />
               </span>
               <span className="">{post.user_name === "" ? "Anon." : `${post.user_name}`}</span>
