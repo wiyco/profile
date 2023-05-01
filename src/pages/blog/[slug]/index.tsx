@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Clock, ClockRotateRight } from "iconoir-react";
 import { postData } from "@/types";
-import { getPost } from "@/hooks/getSupabase";
+import { getPosts, getPost } from "@/hooks/getSupabase";
 import PageMeta from "@/components/PageMeta";
 
 type postContext = {
@@ -57,23 +57,17 @@ export default function Post({ post }: { post: postData }) {
   );
 }
 
-// export async function getStaticPaths() {
-//   const posts = await getPosts();
-
-//   return {
-//     paths: posts.map((post) => ({
-//       params: {
-//         slug: post.id.toString(),
-//       },
-//     })),
-//     fallback: false,
-//   };
-// }
-
 export async function getStaticPaths() {
+  const posts = await getPosts();
+
   return {
-    paths: [],
-    fallback: "blocking",
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.id.toString(),
+      },
+    })),
+    fallback: false,
+    revalidate: 300,
   };
 }
 
