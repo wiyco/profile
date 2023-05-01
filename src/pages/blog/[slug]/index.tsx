@@ -66,8 +66,7 @@ export async function getStaticPaths() {
         slug: post.id.toString(),
       },
     })),
-    fallback: false,
-    revalidate: 300,
+    fallback: "blocking",
   };
 }
 
