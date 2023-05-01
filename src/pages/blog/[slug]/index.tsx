@@ -57,13 +57,35 @@ export default function Post({ post }: { post: postData }) {
   );
 }
 
-export async function getServerSideProps({ params }: { params: postContext }) {
+// export async function getStaticPaths() {
+//   const posts = await getPosts();
+
+//   return {
+//     paths: posts.map((post) => ({
+//       params: {
+//         slug: post.id.toString(),
+//       },
+//     })),
+//     fallback: false,
+//   };
+// }
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: "blocking",
+    revalidate: 300,
+  };
+}
+
+export async function getStaticProps({ params }: { params: postContext }) {
   const post = await getPost(params.slug);
-  if (!post) return { redirect: { destination: "/blog", permanent: false } };
+  if (!post) return { redirect: { destination: "/404", permanent: false } };
 
   return {
     props: {
       post: post,
     },
+    revalidate: 300,
   };
 }

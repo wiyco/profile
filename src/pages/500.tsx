@@ -5,7 +5,7 @@ import PageBackButton from "@/components/buttons/PageBackButton";
 export default function Custom500() {
   return (
     <>
-      <PageMeta title="404" description="Page not found." />
+      <PageMeta title="500" description="Internal Server Error" />
       <div className="z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
         <span className="self-center p-4 text-2xl border-b border-zinc-700 dark:border-zinc-200">
           <h2 className="">500</h2>

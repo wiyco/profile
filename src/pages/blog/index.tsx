@@ -25,12 +25,13 @@ export default function Blog({ posts }: { posts: Array<postsData> }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const posts = await getPosts();
 
   return {
     props: {
       posts: posts,
     },
+    revalidate: 300,
   };
 }
