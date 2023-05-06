@@ -21,7 +21,7 @@ export default function Post({ post }: { post: postData }) {
         </span>
         <div className="text-sm block md:flex items-center justify-center space-x-0 md:space-x-6 space-y-2 md:space-y-0">
           <div className="flex items-center justify-start space-x-2">
-            <span className="text-xs">
+            <span className="text-xs inline-flex">
               <Clock />
             </span>
             <span className="">
@@ -33,7 +33,7 @@ export default function Post({ post }: { post: postData }) {
             </span>
           </div>
           <div className="flex items-center justify-start space-x-2">
-            <span className="text-xs">
+            <span className="text-xs inline-flex">
               <ClockRotateRight />
             </span>
             <span className="">

@@ -12,7 +12,9 @@ export default function PageBackButton() {
       type="button"
       onClick={() => router.back()}
     >
-      <ArrowLeftCircle />
+      <span className="">
+        <ArrowLeftCircle />
+      </span>
     </button>
   );
 }

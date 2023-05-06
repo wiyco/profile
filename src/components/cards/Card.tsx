@@ -28,7 +28,7 @@ export default function Card({ post }: { post: postsData }) {
           </div>
           <div className="text-sm w-full px-3 mb-4 flex flex-col items-end justify-between space-y-2">
             <div className="flex items-center justify-center space-x-2">
-              <span className="h-5 relative aspect-square object-contain rounded-full bg-zinc-200 dark:bg-zinc-700">
+              <span className="h-5 inline-flex relative aspect-square object-contain rounded-full bg-zinc-200 dark:bg-zinc-700">
                 <Image
                   className="rounded-full"
                   src={
@@ -44,7 +44,7 @@ export default function Card({ post }: { post: postsData }) {
               <span className="">{post.user_name === "" ? "Anon." : `${post.user_name}`}</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
-              <span className="text-xs">
+              <span className="text-xs inline-flex">
                 <ClockRotateRight />
               </span>
               <span className="">

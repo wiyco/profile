@@ -17,7 +17,7 @@ export default function Custom500() {
           <p className="">Internal Server Error</p>
         </div>
         <div className="self-end flex-1 flex items-end justify-center">
-          <span className="inline-flex text-xl">
+          <span className="inline-flex text-lg">
             <PageBackButton />
           </span>
         </div>
