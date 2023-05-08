@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "iconoir-react";
+import { NavArrowLeft, NavArrowRight } from "iconoir-react";
 
 type PaginationProps = {
   setPageIndex: Function;
@@ -17,9 +17,9 @@ export default function Pagination({ setPageIndex, pageIndex, hasMore }: Paginat
         type="button"
         onClick={() => setPageIndex(pageIndex <= 0 ? 0 : pageIndex - 1)}
       >
-        <span className="flex items-center justify-center space-x-3">
+        <span className="flex items-center justify-center space-x-2">
           <span className="inline-flex">
-            <ArrowLeft />
+            <NavArrowLeft />
           </span>
           <span className="">Previous</span>
         </span>
@@ -31,10 +31,10 @@ export default function Pagination({ setPageIndex, pageIndex, hasMore }: Paginat
         type="button"
         onClick={() => setPageIndex(pageIndex + 1)}
       >
-        <span className="flex items-center justify-center space-x-3">
+        <span className="flex items-center justify-center space-x-2">
           <span className="">Next</span>
           <span className="inline-flex">
-            <ArrowRight />
+            <NavArrowRight />
           </span>
         </span>
       </button>

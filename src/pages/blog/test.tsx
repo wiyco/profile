@@ -9,23 +9,14 @@ import Card from "@/components/cards/Card";
 import Pagination from "@/components/navigations/Pagination";
 
 type blogProps = {
+  index: number;
   posts: Array<jsonPlaceholderData>;
-  _posts: Array<jsonPlaceholderData>;
+  hasMore: boolean;
 };
 
-export default function Blog({ posts, _posts }: blogProps) {
+export default function Blog({ index, posts, hasMore }: blogProps) {
   const router = useRouter();
-
-  const [pageIndex, setPageIndex] = useState<number>(0);
-  const [hasMore, setHasMore] = useState<boolean>(false);
-  const [pagePosts, setPagePosts] = useState<Array<jsonPlaceholderData>>(posts);
-
-  const fetcher = async () => {
-    posts = await getPagePosts(pageIndex);
-    setPagePosts(posts);
-    _posts = await getPagePosts(pageIndex + 1);
-    _posts.length ? setHasMore(true) : setHasMore(false);
-  };
+  const [pageIndex, setPageIndex] = useState<number>(index);
 
   useEffect(() => {
     router.push(
@@ -37,19 +28,18 @@ export default function Blog({ posts, _posts }: blogProps) {
       undefined,
       { shallow: false }
     );
-    fetcher();
   }, [pageIndex]);
 
   return (
     <>
-      <PageMeta title="Blog" description="wiyco's blog." />
+      <PageMeta title="Blog/Test" description="wiyco's blog.(Test)" />
       <div className="z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
         <span className="self-center p-4 text-2xl border-b border-zinc-700 dark:border-zinc-200">
           <h2 className="">Blog/test</h2>
         </span>
         <div className="self-start flex-1 w-full p-2">
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 content-start">
-            {pagePosts.map((post, index) => (
+            {posts.map((post, index) => (
               <li className="" key={index} title={post.title}>
                 <Card post={post} />
               </li>
@@ -64,16 +54,21 @@ export default function Blog({ posts, _posts }: blogProps) {
   );
 }
 
-export async function getStaticProps() {
-  const posts = await getPagePosts(0);
-  const _posts = await getPagePosts(1);
+export async function getServerSideProps(context: any) {
+  const index = (Number(context.query.p) ?? 1) - 1 <= 0 ? 0 : (Number(context.query.p) ?? 1) - 1;
+  const posts = await getPagePosts(index);
+  const _posts = await getPagePosts(index + 1);
+  const hasMore = _posts.length ? true : false;
+
+  context.res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=300");
 
   return {
     props: {
+      index: index,
       posts: posts,
       _posts: _posts,
+      hasMore: hasMore,
     },
-    revalidate: 60,
   };
 }
 
