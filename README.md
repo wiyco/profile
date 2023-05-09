@@ -166,7 +166,7 @@ This project uses [SSR](https://nextjs.org/docs/basic-features/data-fetching/get
 
 > **Note**
 >
-> Let me know if you have a better way. As the `blog` page have more content, I'll eventually have to consider the other way for optimum performance.
+> Let me know if you have a better way. As the `blog` page have more content, I'll eventually have to consider another way for optimum performance.
 
 You can check more details on [Data Fetching](https://nextjs.org/docs/basic-features/data-fetching/overview).
 
@@ -232,7 +232,7 @@ The `getposts` returns all of posts data.
 
 > **Note**
 >
-> Also limited to `15` rows per an access.
+> Also limited to `9` rows per an access.
 
 Here's a function of `getposts`.
 
