@@ -162,7 +162,7 @@ footer {
 
 ## Next.JS
 
-This project uses [SSR](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) to render pages. Although I wanted to use [SSG](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) as render pages and [Dynamic Routes](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths) as generate a URI but `Vercel`'s caching works too strong and won't let to [`revalidate`](https://nextjs.org/docs/api-reference/data-fetching/get-static-props#revalidate).
+This project uses [SSR](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) to render pages. Although I wanted to use [SSG](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) and [Dynamic Routes](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths) as generate a URI but `Vercel`'s caching works too strong and won't let to [`revalidate`](https://nextjs.org/docs/api-reference/data-fetching/get-static-props#revalidate).
 
 > **Note**
 >

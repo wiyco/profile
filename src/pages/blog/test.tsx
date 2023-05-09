@@ -8,13 +8,13 @@ import PageMeta from "@/components/PageMeta";
 import Card from "@/components/cards/Card";
 import Pagination from "@/components/navigations/Pagination";
 
-type blogProps = {
+type testProps = {
   index: number;
   posts: Array<jsonPlaceholderData>;
   hasMore: boolean;
 };
 
-export default function Test({ index, posts, hasMore }: blogProps) {
+export default function Test({ index, posts, hasMore }: testProps) {
   const router = useRouter();
   const [pageIndex, setPageIndex] = useState<number>(index);
 
