@@ -14,9 +14,7 @@ type blogProps = {
   hasMore: boolean;
 };
 
-export const config = { runtime: 'edge' };
-
-export default function Blog({ index, posts, hasMore }: blogProps) {
+export default function Test({ index, posts, hasMore }: blogProps) {
   const router = useRouter();
   const [pageIndex, setPageIndex] = useState<number>(index);
 
