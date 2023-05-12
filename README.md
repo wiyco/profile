@@ -319,19 +319,19 @@ Check more details on [next/image Un-configured Host](https://nextjs.org/docs/me
 
 ## Icons
 
-All of the icons which can get from `npm` as `packages` have some issues. In [`iconoir`](https://github.com/iconoir-icons/iconoir/tree/main/packages/iconoir-react), all icons were loaded when `import` even one of the icons.(about `1200 modules`)
+All of the icons which can get from `npm` as `packages` have some issues. In [`iconoir`](https://github.com/iconoir-icons/iconoir/tree/main/packages/iconoir-react), all icons were loaded when `import` even one of the icons.
 
-[issue #3](https://github.com/wiyco/profile/issues/3)
+For more details, check the [profile/issues#3](https://github.com/wiyco/profile/issues/3).
 
-To resolve this, I used [@svgr/webpack](https://react-svgr.com/docs/options/). This could reduce modules avg.1200 to avg.200.
+To resolve this, I used [`@svgr/webpack`](https://react-svgr.com/docs/options/). This solved the [profile/issues#3](https://github.com/wiyco/profile/issues/3) and reduced modules that `avg. 1200` to `avg. 200`.
 
 ## Pagination
 
 This project uses `query` params based pagination.
 
-When you access the `blog` page, `next/router` will redirect with page number like `/blog?p=1`. If you access with page number like `/blog?p=4`, you can see `page No.4` of `blog` page.
+When you access the `blog` page, `next/router` will redirect with page number like `/blog?p=1`. If you access with page number like `/blog?p=4`, you can see the page `No.4` of `blog` page.
 
-You can see the test page on [localhost:3000/blog/test](http://localhost:3000/blog/test)
+You can see the `test` page on [localhost:3000/blog/test](http://localhost:3000/blog/test).
 
 > **Note**
 >
