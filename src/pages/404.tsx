@@ -1,4 +1,4 @@
-import { FileNotFound } from "iconoir-react";
+import FileNotFound from "public/icons/file-not-found.svg";
 import PageMeta from "@/components/PageMeta";
 import PageBackButton from "@/components/buttons/PageBackButton";
 
@@ -12,7 +12,7 @@ export default function Custom404() {
         </span>
         <div className="self-start flex-1 w-full p-2 flex flex-col items-center justify-center">
           <span className="inline-flex text-2xl">
-            <FileNotFound />
+            <FileNotFound className="stroke-current" />
           </span>
           <p className="">Not Found</p>
         </div>

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ArrowLeftCircle } from "iconoir-react";
+import ArrowLeftCircle from "public/icons/arrow-left-circle.svg";
 
 export default function PageBackButton() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function PageBackButton() {
       onClick={() => router.back()}
     >
       <span className="">
-        <ArrowLeftCircle />
+        <ArrowLeftCircle className="stroke-current" />
       </span>
     </button>
   );

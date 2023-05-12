@@ -1,4 +1,4 @@
-import { CloudError } from "iconoir-react";
+import CloudError from "public/icons/cloud-error.svg";
 import PageMeta from "@/components/PageMeta";
 import PageBackButton from "@/components/buttons/PageBackButton";
 
@@ -12,7 +12,7 @@ export default function Custom500() {
         </span>
         <div className="self-start flex-1 w-full p-2 flex flex-col items-center justify-center">
           <span className="inline-flex text-2xl">
-            <CloudError />
+            <CloudError className="stroke-current" />
           </span>
           <p className="">Internal Server Error</p>
         </div>
