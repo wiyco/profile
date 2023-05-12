@@ -317,6 +317,14 @@ module.exports = {
 
 Check more details on [next/image Un-configured Host](https://nextjs.org/docs/messages/next-image-unconfigured-host).
 
+## Icons
+
+All of the icons which can get from `npm` as `packages` have some issues. In [`iconoir`](https://github.com/iconoir-icons/iconoir/tree/main/packages/iconoir-react), all icons were loaded when `import` even one of the icons.(about `1200 modules`)
+
+[issue #3](https://github.com/wiyco/profile/issues/3)
+
+To resolve this, I used [@svgr/webpack](https://react-svgr.com/docs/options/). This could reduce modules 1200 to 200.
+
 ---
 
 ## Instruction
