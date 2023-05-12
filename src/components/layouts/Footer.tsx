@@ -1,4 +1,6 @@
-import { GitHub, Twitter, Instagram } from "iconoir-react";
+import GitHub from "public/icons/github.svg";
+import Twitter from "public/icons/twitter.svg";
+import Instagram from "public/icons/instagram.svg";
 
 export default function Footer() {
   const navItems = [
@@ -57,7 +59,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <span className="">
-                  <GitHub />
+                  <GitHub className="stroke-white" />
                 </span>
               </a>
             </li>
@@ -69,7 +71,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <span className="">
-                  <Twitter />
+                  <Twitter className="stroke-white" />
                 </span>
               </a>
             </li>
@@ -81,7 +83,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <span className="">
-                  <Instagram />
+                  <Instagram className="stroke-white" />
                 </span>
               </a>
             </li>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, ClockRotateRight } from "iconoir-react";
+import Clock from "public/icons/clock.svg";
+import ClockRotateRight from "public/icons/clock-rotate-right.svg";
 import { postData } from "@/types";
 import { getPosts, getPost } from "@/hooks/getSupabase";
 import PageMeta from "@/components/PageMeta";
@@ -22,7 +23,7 @@ export default function Post({ post }: { post: postData }) {
         <div className="text-sm block md:flex items-center justify-center space-x-0 md:space-x-6 space-y-2 md:space-y-0">
           <div className="flex items-center justify-start space-x-2">
             <span className="text-xs inline-flex">
-              <Clock />
+              <Clock className="stroke-current" />
             </span>
             <span className="">
               {`${new Date(post.created_at).toLocaleString("en-US", {
@@ -34,7 +35,7 @@ export default function Post({ post }: { post: postData }) {
           </div>
           <div className="flex items-center justify-start space-x-2">
             <span className="text-xs inline-flex">
-              <ClockRotateRight />
+              <ClockRotateRight className="stroke-current" />
             </span>
             <span className="">
               {`${new Date(post.updated_at).toLocaleString("en-US", {

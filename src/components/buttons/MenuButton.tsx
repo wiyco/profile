@@ -1,4 +1,5 @@
-import { Menu, Cancel } from "iconoir-react";
+import Menu from "public/icons/menu.svg";
+import Cancel from "public/icons/cancel.svg";
 
 type menuButtonProps = {
   setMounted: Function;
@@ -14,7 +15,9 @@ export default function MenuButton({ setMounted, mounted }: menuButtonProps) {
       type="button"
       onClick={() => setMounted(!mounted)}
     >
-      <span className="">{mounted ? <Cancel /> : <Menu />}</span>
+      <span className="">
+        {mounted ? <Cancel className="stroke-current" /> : <Menu className="stroke-current" />}
+      </span>
     </button>
   );
 }

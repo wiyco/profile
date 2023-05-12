@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ClockRotateRight } from "iconoir-react";
+import ClockRotateRight from "public/icons/clock-rotate-right.svg";
 import { postsData } from "@/types";
 
 export default function Card({ post }: { post: postsData }) {
@@ -45,7 +45,7 @@ export default function Card({ post }: { post: postsData }) {
             </div>
             <div className="flex items-center justify-center space-x-2">
               <span className="text-xs inline-flex">
-                <ClockRotateRight />
+                <ClockRotateRight className="stroke-current" />
               </span>
               <span className="">
                 {`${new Date(post.updated_at).toLocaleString("en-US", {
