@@ -327,11 +327,11 @@ To resolve this, I used [@svgr/webpack](https://react-svgr.com/docs/options/). T
 
 ## Pagination
 
-This project uses query params base pagination.
+This project uses `query` params based pagination.
 
 When you access the `blog` page, `next/router` will redirect with page number like `/blog?p=1`. If you access with page number like `/blog?p=4`, you can see `page No.4` of `blog` page.
 
-You can see the test page on [localhost:3000/blog/test](localhost:3000/blog/test)
+You can see the test page on [localhost:3000/blog/test](http://localhost:3000/blog/test)
 
 > **Note**
 >
