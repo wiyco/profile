@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import Image from "next/image";
 import { jsonPlaceholderData } from "@/types";
 import { getPosts } from "@/hooks/getJsonPlaceholder";
 import PageMeta from "@/components/PageMeta";

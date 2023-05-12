@@ -1,9 +1,33 @@
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { postsData } from "@/types";
 import { getPosts } from "@/hooks/getSupabase";
 import PageMeta from "@/components/PageMeta";
 import Card from "@/components/cards/Card";
+import Pagination from "@/components/navigations/Pagination";
 
-export default function Blog({ posts }: { posts: Array<postsData> }) {
+type blogProps = {
+  index: number;
+  posts: Array<postsData>;
+  hasMore: boolean;
+};
+
+export default function Blog({ index, posts, hasMore }: blogProps) {
+  const router = useRouter();
+  const [pageIndex, setPageIndex] = useState<number>(index);
+
+  useEffect(() => {
+    router.push(
+      {
+        query: {
+          p: pageIndex + 1,
+        },
+      },
+      undefined,
+      { shallow: false }
+    );
+  }, [pageIndex]);
+
   return (
     <>
       <PageMeta title="Blog" description="wiyco's blog." />
@@ -20,18 +44,34 @@ export default function Blog({ posts }: { posts: Array<postsData> }) {
             ))}
           </ul>
         </div>
+        <div className="self-center flex-1 w-full flex items-end justify-between">
+          <Pagination setPageIndex={setPageIndex} pageIndex={pageIndex} hasMore={hasMore} />
+        </div>
       </div>
     </>
   );
 }
 
-export async function getStaticProps() {
-  const posts = await getPosts();
+export async function getServerSideProps(context: any) {
+  const index = (Number(context.query.p) ?? 1) - 1 <= 0 ? 0 : (Number(context.query.p) ?? 1) - 1;
+  const posts = await getPagePosts(index);
+  const _posts = await getPagePosts(index + 1);
+  const hasMore = _posts.length ? true : false;
+
+  context.res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=300");
 
   return {
     props: {
+      index: index,
       posts: posts,
+      _posts: _posts,
+      hasMore: hasMore,
     },
-    revalidate: 60,
   };
+}
+
+async function getPagePosts(pageIndex: number): Promise<Array<postsData>> {
+  const posts = await getPosts(pageIndex * (Number(process.env.NEXT_PUBLIC_SUPABASE_LIMIT) ?? 9));
+
+  return [...posts];
 }
