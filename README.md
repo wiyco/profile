@@ -323,7 +323,19 @@ All of the icons which can get from `npm` as `packages` have some issues. In [`i
 
 [issue #3](https://github.com/wiyco/profile/issues/3)
 
-To resolve this, I used [@svgr/webpack](https://react-svgr.com/docs/options/). This could reduce modules 1200 to 200.
+To resolve this, I used [@svgr/webpack](https://react-svgr.com/docs/options/). This could reduce modules avg.1200 to avg.200.
+
+## Pagination
+
+This project uses query params base pagination.
+
+When you access the `blog` page, `next/router` will redirect with page number like `/blog?p=1`. If you access with page number like `/blog?p=4`, you can see `page No.4` of `blog` page.
+
+You can see the test page on [localhost:3000/blog/test](localhost:3000/blog/test)
+
+> **Note**
+>
+> `p=[pageNumber]`
 
 ---
 
