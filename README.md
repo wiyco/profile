@@ -64,12 +64,10 @@ Edit files.
 
 ```json
 "compilerOptions": {
-  ...
   "baseUrl": ".",
   "paths": {
     "@/*": ["./src/*"]
   }
-  ...
 }
 ```
 
@@ -77,7 +75,6 @@ Edit files.
 
 ```json
 "scripts": {
-  ...
   "export": "next build && next export",
   "eslint:fix": "eslint src --ext .js,jsx,.ts,.tsx --fix",
   "stylelint:fix": "stylelint src/**/*.{css,scss} --fix",
@@ -102,9 +99,7 @@ Edit files.
 You need to modify `tailwind.config.js`. (This is effective on iOS 15.4 and later)
 
 ```javascript
-...
 module.exports = {
-  ...
   theme: {
     extend: {
       height: {
@@ -118,7 +113,7 @@ module.exports = {
       },
     },
   },
-}
+};
 ```
 
 ## Color Theme
@@ -129,22 +124,21 @@ This project can switch the color themes by [next-theme](https://www.npmjs.com/p
 
 ```javascript
 module.exports = {
-  ...
   darkMode: "class",
-}
+};
 ```
 
 ### `_app.tsx`
 
 ```tsx
 <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
-  ...
+  {children}
 </ThemeProvider>
 ```
 
 ### Color palette of theme
 
-```SCSS
+```scss
 light {
   backgroud-color: --bg-zinc-50;
 }
@@ -303,7 +297,6 @@ Here's an example values.
 
 ```javascript
 module.exports = {
-  ...
   images: {
     remotePatterns: [
       {
@@ -314,7 +307,7 @@ module.exports = {
       },
     ],
   },
-}
+};
 ```
 
 Check more details on [next/image Un-configured Host](https://nextjs.org/docs/messages/next-image-unconfigured-host).
@@ -331,7 +324,6 @@ To resolve this, I used [`@svgr/webpack`](https://react-svgr.com/docs/options/).
 
 ```javascript
 module.exports = {
-  ...
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -354,7 +346,7 @@ module.exports = {
     });
     return config;
   },
-}
+};
 ```
 
 ## Pagination
@@ -371,7 +363,7 @@ When you access the `blog` page, [`next/router`](https://nextjs.org/docs/pages/a
 > NEXT_PUBLIC_SUPABASE_LIMIT=6
 > ```
 >
-> This example will display 6 cards per page.
+> The above value will display 6 cards per page.
 
 You can see the `test` page on [localhost:3000/blog/test](http://localhost:3000/blog/test).
 
