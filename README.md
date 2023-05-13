@@ -103,7 +103,9 @@ You need to modify `tailwind.config.js`. (This is effective on iOS 15.4 and late
 
 ```javascript
 ...
-theme: {
+module.exports = {
+  ...
+  theme: {
     extend: {
       height: {
         screen: ["100vh", "100dvh"],
@@ -116,7 +118,7 @@ theme: {
       },
     },
   },
-...
+}
 ```
 
 ## Color Theme
@@ -325,11 +327,51 @@ For more details, check the [profile/issues#3](https://github.com/wiyco/profile/
 
 To resolve this, I used [`@svgr/webpack`](https://react-svgr.com/docs/options/). This solved the [profile/issues#3](https://github.com/wiyco/profile/issues/3) and reduced modules that `avg. 1200` to `avg. 200`.
 
+### `next.config.js`
+
+```javascript
+module.exports = {
+  ...
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/i,
+      use: [
+        {
+          loader: "@svgr/webpack",
+          options: {
+            icon: "1.5em", // default size of iconoir is 1.5em
+            svgo: false,
+            replaceAttrValues: {
+              "#000000": "{props.color}",
+              black: "{props.color}",
+              "#FFFFFF": "{props.color}",
+              white: "{props.color}",
+            },
+          },
+        },
+      ],
+    });
+    return config;
+  },
+}
+```
+
 ## Pagination
 
 This project uses `query` params based pagination.
 
-When you access the `blog` page, `next/router` will redirect with page number like `/blog?p=1`. If you access with page number like `/blog?p=4`, you can see the page `No.4` of `blog` page.
+When you access the `blog` page, [`next/router`](https://nextjs.org/docs/pages/api-reference/functions/use-router) will redirect with page number like `/blog?p=1`. If you access with page number like `/blog?p=4`, you can see the page `No.4` of `blog` page.
+
+> **Note**
+>
+> As you might know you can change the number of cards per page with `Environment Variables`.
+>
+> ```
+> NEXT_PUBLIC_SUPABASE_LIMIT=6
+> ```
+>
+> This example will display 6 cards per page.
 
 You can see the `test` page on [localhost:3000/blog/test](http://localhost:3000/blog/test).
 
