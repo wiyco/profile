@@ -5,10 +5,50 @@
 :root {
 }
 
-p {
+.page__ h2 {
+  @apply my-4 py-4 text-xl;
+}
+
+.page__ h3 {
+  @apply my-4 py-3 text-lg;
+}
+
+.page__ h4 {
+  @apply my-4 py-2 text-base;
+}
+
+.page__ h5 {
+  @apply my-4 py-1;
+}
+
+.page__ p {
   @apply mt-4;
 }
 
-.page__link--default {
+.page__ a {
   @apply hover:underline text-blue-500 dark:text-blue-400;
+}
+
+.page__ ul {
+  @apply pl-8 list-disc;
+}
+
+.page__ blockquote {
+  @apply pl-3 border-l-4 border-neutral-300 dark:border-neutral-700;
+}
+
+.page__ :not(pre) > code {
+  @apply p-1 rounded bg-neutral-200 dark:bg-neutral-800 text-sm;
+}
+
+.page__ pre {
+  @apply my-6 p-4 rounded bg-neutral-200 dark:bg-neutral-800 text-sm leading-3;
+}
+
+.page__ img {
+  @apply my-6;
+}
+
+.page__ iframe {
+  @apply my-6 w-full md:w-4/5 h-full aspect-video;
 }

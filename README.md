@@ -371,6 +371,87 @@ You can see the `test` page on [localhost:3000/blog/test](http://localhost:3000/
 >
 > `p=[pageNumber]`
 
+## Markdown
+
+This project uses [Markdown](https://www.markdownguide.org/basic-syntax/) for stylized page.
+
+Using markdown can easily stylized elements. I used [`react-markdown`](https://github.com/remarkjs/react-markdown) and [`rehype-raw`](https://github.com/rehypejs/rehype-raw) to render markdown & HTMLs.
+
+To maximize performance, some elements are replaced to Next's components.
+
+```tsx
+<ReactMarkdown
+  className="page__"
+  rehypePlugins={[rehypeRaw]}
+  components={{
+    h1: "h2",
+    h2: "h3",
+    h3: "h4",
+    h4: "h5",
+    a: (props) => LinkBlock(props),
+    img: (props) => ImageBlock(props),
+    iframe: (props) => IframeBlock(props),
+  }}
+>
+  {children}
+</ReactMarkdown>
+```
+
+```tsx
+function LinkBlock(props: any): ReactElement {
+  if (props.href.match("http")) {
+    return (
+      <a href={props.href} target="_blank" rel="noopener noreferrer">
+        {props.children}
+      </a>
+    );
+  } else {
+    return <Link href={props.href}>{props.children}</Link>;
+  }
+}
+```
+
+```tsx
+function ImageBlock(props: any): ReactElement {
+  return (
+    <span className="flex items-center justify-center">
+      <Image
+        className="w-full md:w-4/5 h-full"
+        src={props.src}
+        alt={props.alt}
+        width="0"
+        height="0"
+        sizes="100vw"
+        priority
+      />
+    </span>
+  );
+}
+```
+
+```tsx
+function IframeBlock(props: any): ReactElement {
+  return (
+    <div className="flex items-center justify-center">
+      <iframe
+        width={props.width}
+        height={props.height}
+        src={props.src}
+        title={props.title}
+        allow={props.allow}
+        allowFullScreen={props.allowfullscreen}
+      ></iframe>
+    </div>
+  );
+}
+```
+
+Check more details of supported markdown styles on [localhost:3000/markdown](http://localhost:3000/markdown).
+
+> **Note**
+>
+> I'll update the markdown styles as needed.
+
 ---
 
 ## Instruction

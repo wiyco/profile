@@ -6,8 +6,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "omxocowxdonmbrvtjdht.supabase.co",
-        port: "",
         pathname: "/storage/v1/object/public/public/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.dropbox.com",
       },
     ],
   },

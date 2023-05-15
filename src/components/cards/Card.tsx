@@ -34,11 +34,12 @@ export default function Card({ post }: { post: postsData }) {
                   src={
                     post.avatar === ""
                       ? `/people-tag.svg`
-                      : `https://omxocowxdonmbrvtjdht.supabase.co/storage/v1/object/public/public/avatars/${post.avatar}.webp`
+                      : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/public/avatars/${post.avatar}.webp`
                   }
                   alt={post.avatar === "" ? "Anon. avatar" : `${post.user_name} avatar`}
                   fill
                   sizes="(max-height: 1.25rem)"
+                  priority
                 />
               </span>
               <span className="">{post.user_name === "" ? "Anon." : `${post.user_name}`}</span>
