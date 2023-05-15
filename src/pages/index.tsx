@@ -1,7 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import PageMeta from "@/components/PageMeta";
-import { LinkBlock, ImageBlock, IframeBlock } from "@/components/blocks/MarkdownRenderer";
+import MarkdownRenderer from "@/components/blocks/MarkdownRenderer";
 
 export default function Home() {
   const md = `# Welcome to my profile website!
@@ -20,21 +20,7 @@ export default function Home() {
           <h1 className="">Home</h1>
         </span>
         <div className="self-start flex-1 w-full p-2">
-          <ReactMarkdown
-            className="page__"
-            rehypePlugins={[rehypeRaw]}
-            components={{
-              h1: "h2",
-              h2: "h3",
-              h3: "h4",
-              h4: "h5",
-              a: (props) => LinkBlock(props),
-              img: (props) => ImageBlock(props),
-              iframe: (props) => IframeBlock(props),
-            }}
-          >
-            {md}
-          </ReactMarkdown>
+          <MarkdownRenderer children={md} />
         </div>
       </div>
     </>
