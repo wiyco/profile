@@ -8,3 +8,7 @@
 p {
   @apply mt-4;
 }
+
+.page__link--default {
+  @apply hover:underline text-blue-500 dark:text-blue-400;
+}

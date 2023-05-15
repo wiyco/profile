@@ -35,7 +35,7 @@ export default function Footer() {
         <ul className="flex flex-row items-start justify-evenly">
           {navItems.map((item, index) => (
             <li className="" key={`foot-nav-${index}`}>
-              <h4 className="text-lg">{item.head}</h4>
+              <h2 className="text-lg">{item.head}</h2>
               <ul className="flex flex-col items-start justify-start space-y-2 mt-2">
                 {item.data.map((data, index) => (
                   <li className="" key={`foot-nav-child-${index}`}>

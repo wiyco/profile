@@ -14,7 +14,7 @@ export default function Post({ post }: { post: postData }) {
       <PageMeta title={`${post.title}`} description={`${post.body.charAt(120)}`} />
       <div className="z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
         <span className="self-center p-4 text-2xl border-b border-zinc-700 dark:border-zinc-200">
-          <h2 className="">{post.title}</h2>
+          <h1 className="">{post.title}</h1>
         </span>
         <div className="text-sm block md:flex items-center justify-center space-x-0 md:space-x-6 space-y-2 md:space-y-0">
           <div className="flex items-center justify-start space-x-2">

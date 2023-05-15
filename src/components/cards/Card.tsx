@@ -17,11 +17,11 @@ export default function Card({ post }: { post: postsData }) {
         </span>
         <div className="flex-1 flex flex-col items-stretch justify-between">
           <div className="px-6 py-4">
-            <h3 className="text-xl">
+            <h2 className="text-xl">
               <Link href={`/blog/${post.id}`}>
                 <span className="line-clamp-1">{post.title}</span>
               </Link>
-            </h3>
+            </h2>
             <div className="mt-4">
               <span className="text-base line-clamp-2">{post.body.replaceAll("\n", " ")}</span>
             </div>
