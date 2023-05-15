@@ -1,18 +1,15 @@
-import Link from "next/link";
-import Image from "next/image";
 import Clock from "public/icons/clock.svg";
 import ClockRotateRight from "public/icons/clock-rotate-right.svg";
 import { postData } from "@/types";
 import { getPost } from "@/hooks/getSupabase";
 import PageMeta from "@/components/PageMeta";
+import MarkdownRenderer from "@/components/blocks/MarkdownRenderer";
 
 export default function Post({ post }: { post: postData }) {
-  const paragraphs: Array<string> = post.body.split("\n");
-
   return (
     <>
       <PageMeta title={`${post.title}`} description={`${post.body.charAt(120)}`} />
-      <div className="z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
+      <div className="page__ z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
         <span className="self-center p-4 text-2xl border-b border-zinc-700 dark:border-zinc-200">
           <h1 className="">{post.title}</h1>
         </span>
@@ -43,11 +40,7 @@ export default function Post({ post }: { post: postData }) {
           </div>
         </div>
         <div className="self-start flex-1 w-full p-2">
-          {paragraphs.map((paragraph, index) => (
-            <p className="" key={index}>
-              {paragraph}
-            </p>
-          ))}
+          <MarkdownRenderer children={post.body} />
         </div>
       </div>
     </>
@@ -58,6 +51,8 @@ export async function getServerSideProps(context: any) {
   const slug = context.params.slug;
   const post = await getPost(slug);
   if (!post) return { notFound: true };
+
+  context.res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=300");
 
   return {
     props: {

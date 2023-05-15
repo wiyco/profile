@@ -1,61 +1,40 @@
-import Link from "next/link";
-import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import PageMeta from "@/components/PageMeta";
+import { LinkBlock, ImageBlock, IframeBlock } from "@/components/blocks/MarkdownRenderer";
 
 export default function Home() {
+  const md = `# Welcome to my profile website!
+  \n\nI tried to build a website from scratch. This is an original design! Did you like it?
+  \n\nAnd... You can access to the [Blog](/blog) page from top of right corner. Try it out!
+  \n\nBTW... This website were build w/ [Supabase](https://supabase.com/) & 
+  [Vercel](https://vercel.com/).
+  \n\nVery nice & awesome services!
+  \n\nTo more details, check [my project](https://github.com/wiyco/profile)!
+  `;
   return (
     <>
       <PageMeta title="" description="wiyco's website." />
-      <div className="z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
+      <div className="page__ z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
         <span className="self-center p-4 text-2xl border-b border-zinc-700 dark:border-zinc-200">
           <h1 className="">Home</h1>
         </span>
         <div className="self-start flex-1 w-full p-2">
-          <p>Welcome to my profile website! &#x1F609;</p>
-          <p>
-            I tried to build a website from scratch. This is an original design! Did you like it?
-          </p>
-          <p>
-            And... You can access to{" "}
-            <Link href={`/blog`} className="page__link--default">
-              the 'Blog' page
-            </Link>{" "}
-            from top of right corner. Try it out!
-          </p>
-          <p>
-            BTW... This website were build w/{" "}
-            <a
-              href="https://supabase.com/"
-              className="page__link--default"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Supabase
-            </a>{" "}
-            &{" "}
-            <a
-              href="https://vercel.com/"
-              className="page__link--default"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Vercel
-            </a>
-            .
-          </p>
-          <p>Very nice & awesome services!</p>
-          <p>
-            To more details, check{" "}
-            <a
-              href="https://github.com/wiyco/profile"
-              className="page__link--default"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              my project
-            </a>
-            !
-          </p>
+          <ReactMarkdown
+            className="page__"
+            rehypePlugins={[rehypeRaw]}
+            components={{
+              h1: "h2",
+              h2: "h3",
+              h3: "h4",
+              h4: "h5",
+              a: (props) => LinkBlock(props),
+              img: (props) => ImageBlock(props),
+              iframe: (props) => IframeBlock(props),
+            }}
+          >
+            {md}
+          </ReactMarkdown>
         </div>
       </div>
     </>

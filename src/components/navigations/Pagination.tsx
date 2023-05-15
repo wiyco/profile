@@ -1,4 +1,3 @@
-import Link from "next/link";
 import NavArrowLeft from "public/icons/nav-arrow-left.svg";
 import NavArrowRight from "public/icons/nav-arrow-right.svg";
 
