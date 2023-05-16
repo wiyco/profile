@@ -9,8 +9,8 @@ export default function Card({ post }: { post: postsData }) {
       <div className="flex flex-col items-stretch justify-stretch w-full h-full rounded overflow-hidden shadow-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
         <span className="relative aspect-video object-cover bg-zinc-200 dark:bg-zinc-700">
           <Image
-            src={post.thumbnail === "" ? `/media-image.svg` : post.thumbnail}
-            alt={post.thumbnail === "" ? `No image` : post.thumbnail}
+            src={post.thumbnail === "" ? "/media-image.svg" : post.thumbnail}
+            alt={post.thumbnail === "" ? "No image" : post.thumbnail}
             fill
             priority
           />

@@ -16,6 +16,9 @@ module.exports = {
       maxHeight: {
         screen: ["100vh", "100dvh"],
       },
+      aspectRatio: {
+        "4/3": "4 / 3",
+      },
     },
   },
   plugins: [],
