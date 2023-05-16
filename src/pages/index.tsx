@@ -1,5 +1,5 @@
-import PageMeta from "@/components/PageMeta";
 import MarkdownRenderer from "@/components/blocks/MarkdownRenderer";
+import PageMeta from "@/components/PageMeta";
 
 export default function Home() {
   const md = `# Welcome to my profile website!
@@ -13,12 +13,12 @@ export default function Home() {
   return (
     <>
       <PageMeta title="" description="wiyco's website." />
-      <div className="page__ z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
+      <div className="markdown-wrap z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
         <span className="self-center p-4 text-2xl border-b border-zinc-700 dark:border-zinc-200">
           <h1 className="">Home</h1>
         </span>
         <div className="self-start flex-1 w-full p-2">
-          <MarkdownRenderer children={md} />
+          <MarkdownRenderer>{md}</MarkdownRenderer>
         </div>
       </div>
     </>

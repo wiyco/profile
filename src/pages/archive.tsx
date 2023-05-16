@@ -1,5 +1,5 @@
-import PageMeta from "@/components/PageMeta";
 import CardFull from "@/components/cards/CardFull";
+import PageMeta from "@/components/PageMeta";
 
 type archiveProps = {
   title: string;

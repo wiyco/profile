@@ -1,12 +1,13 @@
 import CloudError from "public/icons/cloud-error.svg";
-import PageMeta from "@/components/PageMeta";
+
 import PageBackButton from "@/components/buttons/PageBackButton";
+import PageMeta from "@/components/PageMeta";
 
 export default function Custom500() {
   return (
     <>
       <PageMeta title="500" description="Internal Server Error" />
-      <div className="page__ z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
+      <div className="markdown-wrap z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
         <span className="self-center p-4 text-2xl border-b border-zinc-700 dark:border-zinc-200">
           <h1 className="">500</h1>
         </span>

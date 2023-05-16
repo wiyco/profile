@@ -8,9 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",
-    "eslint:fix": "eslint src --ext .js,jsx,.ts,.tsx --fix",
-    "stylelint:fix": "stylelint src/**/*.{css,scss} --fix",
-    "prettier:fix": "prettier --check --write 'src/**/*.{js,jsx,ts,tsx,css,scss,md,mdx}'",
+    "eslint:fix": "eslint ./src --ext .js,jsx,.ts,.tsx --fix",
+    "stylelint:fix": "stylelint ./src/**/*.{css,scss} --fix",
+    "prettier:fix": "prettier --check --write './src/**/*.{js,jsx,ts,tsx,css,scss,md,mdx}'",
     "format": "npm run eslint:fix && npm run stylelint:fix && npm run prettier:fix"
   },
   "dependencies": {

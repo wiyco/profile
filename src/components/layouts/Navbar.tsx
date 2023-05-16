@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { useState } from "react";
-import Home from "public/icons/home.svg";
 import Book from "public/icons/book.svg";
+import Home from "public/icons/home.svg";
 import JournalPage from "public/icons/journal-page.svg";
-import ThemeButton from "@/components/buttons/ThemeButton";
+import { useState } from "react";
+
 import MenuButton from "@/components/buttons/MenuButton";
+import ThemeButton from "@/components/buttons/ThemeButton";
 
 export default function Navbar() {
   const navItems = [

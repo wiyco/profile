@@ -2,7 +2,7 @@ import NavArrowLeft from "public/icons/nav-arrow-left.svg";
 import NavArrowRight from "public/icons/nav-arrow-right.svg";
 
 type PaginationProps = {
-  setPageIndex: Function;
+  setPageIndex: any;
   pageIndex: number;
   hasMore: boolean;
 };

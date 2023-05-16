@@ -2,53 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-}
-
-.page__ h2 {
+.markdown-wrap h2 {
   @apply my-4 py-4 text-xl;
 }
 
-.page__ h3 {
+.markdown-wrap h3 {
   @apply my-4 py-3 text-lg;
 }
 
-.page__ h4 {
+.markdown-wrap h4 {
   @apply my-4 py-2 text-base;
 }
 
-.page__ h5 {
+.markdown-wrap h5 {
   @apply my-4 py-1;
 }
 
-.page__ p {
+.markdown-wrap p {
   @apply mt-4;
 }
 
-.page__ a {
+.markdown-wrap a {
   @apply hover:underline text-blue-500 dark:text-blue-400;
 }
 
-.page__ ul {
+.markdown-wrap ul {
   @apply pl-8 list-disc;
 }
 
-.page__ blockquote {
+.markdown-wrap blockquote {
   @apply pl-3 border-l-4 border-neutral-300 dark:border-neutral-700;
 }
 
-.page__ :not(pre) > code {
+.markdown-wrap :not(pre) > code {
   @apply p-1 rounded bg-neutral-200 dark:bg-neutral-800 text-sm;
 }
 
-.page__ pre {
+.markdown-wrap pre {
   @apply my-6 p-4 rounded bg-neutral-200 dark:bg-neutral-800 text-sm leading-3;
 }
 
-.page__ img {
+.markdown-wrap img {
   @apply my-6;
 }
 
-.page__ iframe {
+.markdown-wrap iframe {
   @apply my-6 w-full md:w-4/5 h-full aspect-video;
 }

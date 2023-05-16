@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import SunLight from "public/icons/sun-light.svg";
 import HalfMoon from "public/icons/half-moon.svg";
+import SunLight from "public/icons/sun-light.svg";
+import { useEffect,useState } from "react";
 
 export default function ThemeButton() {
   const { theme, setTheme } = useTheme();

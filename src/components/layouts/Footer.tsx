@@ -1,6 +1,6 @@
 import GitHub from "public/icons/github.svg";
-import Twitter from "public/icons/twitter.svg";
 import Instagram from "public/icons/instagram.svg";
+import Twitter from "public/icons/twitter.svg";
 
 export default function Footer() {
   const navItems = [

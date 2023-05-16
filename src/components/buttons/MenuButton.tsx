@@ -1,8 +1,8 @@
-import Menu from "public/icons/menu.svg";
 import Cancel from "public/icons/cancel.svg";
+import Menu from "public/icons/menu.svg";
 
 type menuButtonProps = {
-  setMounted: Function;
+  setMounted: any;
   mounted: boolean;
 };
 

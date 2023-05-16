@@ -1,6 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import ClockRotateRight from "public/icons/clock-rotate-right.svg";
+
 import { postsData } from "@/types";
 
 export default function Card({ post }: { post: postsData }) {

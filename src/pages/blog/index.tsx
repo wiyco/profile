@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { postsData } from "@/types";
-import { getPosts } from "@/hooks/getSupabase";
-import PageMeta from "@/components/PageMeta";
+import { useEffect,useState } from "react";
+
 import Card from "@/components/cards/Card";
 import Pagination from "@/components/navigations/Pagination";
+import PageMeta from "@/components/PageMeta";
+import { getPosts } from "@/hooks/getSupabase";
+import { postsData } from "@/types";
 
 type blogProps = {
   index: number;

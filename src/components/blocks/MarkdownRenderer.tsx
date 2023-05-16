@@ -1,13 +1,13 @@
+import Image from "next/image";
+import Link from "next/link";
 import { ReactElement } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import Link from "next/link";
-import Image from "next/image";
 
 export default function MarkdownRenderer({ children }: { children: string }): ReactElement {
   return (
     <ReactMarkdown
-      className="page__"
+      className="markdown-wrap"
       rehypePlugins={[rehypeRaw]}
       components={{
         h1: "h2",

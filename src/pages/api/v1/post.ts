@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+
 import { getPost } from "@/hooks/getSupabase";
 
 export const config = { runtime: "edge" };
