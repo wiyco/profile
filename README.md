@@ -373,9 +373,9 @@ You can see the `test` page on [localhost:3000/blog/test](http://localhost:3000/
 
 ## Markdown
 
-This project uses [Markdown](https://www.markdownguide.org/basic-syntax/) for stylized page.
+This project uses [Markdown](https://www.markdownguide.org/basic-syntax/) for stylize page.
 
-Using markdown can easily stylized elements. I used [`react-markdown`](https://github.com/remarkjs/react-markdown) and [`rehype-raw`](https://github.com/rehypejs/rehype-raw) to render markdown & HTMLs.
+Using markdown can easily stylize elements. I used [`react-markdown`](https://github.com/remarkjs/react-markdown) and [`rehype-raw`](https://github.com/rehypejs/rehype-raw) to render markdown & HTMLs.
 
 To maximize performance, some elements are replaced to Next's components.
 
