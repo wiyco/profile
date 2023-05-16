@@ -5,9 +5,10 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
+  "parser": "@typescript-eslint/parser",
   "plugins": [
-    "simple-import-sort",
     "import",
+    "simple-import-sort",
     "unused-imports"
   ],
   "rules": {
