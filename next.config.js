@@ -16,6 +16,7 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    minimumCacheTTL: 43200,
   },
   webpack: (config) => {
     config.module.rules.push({

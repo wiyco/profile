@@ -43,8 +43,8 @@ function ImageBlock(props: any): ReactElement {
         className="w-full md:w-4/5 h-full"
         src={props.src}
         alt={props.alt}
-        width="0"
-        height="0"
+        width={640}
+        height={640}
         sizes="100vw"
         priority
       />
