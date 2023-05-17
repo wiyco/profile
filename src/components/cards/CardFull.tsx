@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { imageLoader } from "@/hooks/loader";
 
 export default function CardFull(data: { title: string; href: string; src: string }) {

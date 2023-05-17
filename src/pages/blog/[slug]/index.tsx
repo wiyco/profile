@@ -21,10 +21,12 @@ export default function Post({ post }: { post: postData }) {
             </span>
             <span className="">
               {`${new Date(post.created_at).toLocaleString("en-US", {
-                timeZone: "America/New_York",
+                timeZone: "JST",
                 dateStyle: "short",
                 timeStyle: "short",
-              })}`}
+              })}
+              ${" JST"}
+              `}
             </span>
           </div>
           <div className="flex items-center justify-start space-x-2">
@@ -33,10 +35,12 @@ export default function Post({ post }: { post: postData }) {
             </span>
             <span className="">
               {`${new Date(post.updated_at).toLocaleString("en-US", {
-                timeZone: "America/New_York",
+                timeZone: "JST",
                 dateStyle: "short",
                 timeStyle: "short",
-              })}`}
+              })}
+              ${" JST"}
+              `}
             </span>
           </div>
         </div>

@@ -51,9 +51,11 @@ export default function Card({ post }: { post: postsData }) {
               </span>
               <span className="">
                 {`${new Date(post.updated_at).toLocaleString("en-US", {
-                  timeZone: "America/New_York",
+                  timeZone: "JST",
                   dateStyle: "short",
-                })}`}
+                })}
+                ${" JST"}
+                `}
               </span>
             </div>
           </div>
