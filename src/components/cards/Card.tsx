@@ -7,8 +7,8 @@ import { postsData } from "@/types";
 export default function Card({ post }: { post: postsData }) {
   return (
     <>
-      <div className="flex flex-col items-stretch justify-stretch w-full h-full rounded overflow-hidden shadow-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-        <span className="relative aspect-video object-cover bg-zinc-200 dark:bg-zinc-700">
+      <div className="group flex flex-col items-stretch justify-stretch w-full h-full rounded overflow-hidden shadow-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+        <span className="relative aspect-video object-cover bg-zinc-200 dark:bg-zinc-700 group-hover:brightness-75 transition-all duration-300 ease-in-out">
           <Image
             src={post.thumbnail === "" ? "/media-image.svg" : post.thumbnail}
             alt={post.thumbnail === "" ? "No image" : post.thumbnail}
