@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .markdown-wrap h2 {
-  @apply text-xl my-4 py-2 pe-4 w-fit border-b border-zinc-400 dark:border-zinc-700;
+  @apply text-xl my-4 py-2 pe-4 w-fit border-b border-zinc-300 dark:border-zinc-700;
 }
 
 .markdown-wrap h3 {
-  @apply text-lg my-3 py-1 pe-3 w-fit border-b border-zinc-400 dark:border-zinc-700;
+  @apply text-lg my-3 py-1 pe-3 w-fit border-b border-zinc-300 dark:border-zinc-700;
 }
 
 .markdown-wrap h4 {
