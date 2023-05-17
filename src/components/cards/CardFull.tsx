@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { imageLoader } from "@/hooks/loader";
 
 export default function CardFull(data: { title: string; href: string; src: string }) {
   return (
@@ -12,10 +13,11 @@ export default function CardFull(data: { title: string; href: string; src: strin
         <span className="flex items-center justify-center aspect-[4/3] object-cover rounded group-hover:brightness-75 bg-zinc-200 dark:bg-zinc-700 transition-all duration-300 ease-in-out">
           <Image
             className="w-full h-full rounded object-contain"
+            loader={imageLoader}
             src={data.src === "" ? "/media-image.svg" : data.src}
             alt={data.title}
-            width={"0"}
-            height={"0"}
+            width={640}
+            height={640}
             sizes="100vw"
             priority
           />

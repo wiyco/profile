@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ReactElement } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import { imageLoader } from "@/hooks/loader";
 
 export default function MarkdownRenderer({ children }: { children: string }): ReactElement {
   return (
@@ -41,10 +42,11 @@ function ImageBlock(props: any): ReactElement {
     <span className="flex items-center justify-center">
       <Image
         className="w-full md:w-4/5 h-full"
+        loader={imageLoader}
         src={props.src}
         alt={props.alt}
-        width="0"
-        height="0"
+        width={640}
+        height={640}
         sizes="100vw"
         priority
       />

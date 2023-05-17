@@ -1,3 +1,8 @@
+declare module "*.svg" {
+  const content: React.FC<React.SVGProps<SVGElement>>;
+  export default content;
+}
+
 export type postData = {
   id: number;
   created_at: string;
@@ -24,8 +29,3 @@ export type jsonPlaceholderData = {
   avatar: string;
   thumbnail: string;
 };
-
-declare module "*.svg" {
-  const content: React.FC<React.SVGProps<SVGElement>>;
-  export default content;
-}
