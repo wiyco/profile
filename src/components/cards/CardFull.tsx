@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { imageLoader } from "@/hooks/loader";
 
 export default function CardFull(data: { title: string; href: string; src: string }) {
   return (
@@ -32,8 +33,4 @@ export default function CardFull(data: { title: string; href: string; src: strin
       </a>
     </>
   );
-}
-
-function imageLoader({ src, width }: { src: string; width: number }) {
-  return `${src}`;
 }
