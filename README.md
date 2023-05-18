@@ -98,7 +98,7 @@ Edit files.
 
 You need to modify `tailwind.config.js`. (This is effective on iOS 15.4 and later)
 
-```javascript
+```js
 module.exports = {
   theme: {
     extend: {
@@ -122,7 +122,7 @@ This project can switch the color themes by [next-theme](https://www.npmjs.com/p
 
 ### `tailwind.config.js`
 
-```javascript
+```js
 module.exports = {
   darkMode: "class",
 };
@@ -295,7 +295,7 @@ To get `avatar` images from an external URL, you need to modify `next.config.js`
 
 Here's an example values.
 
-```javascript
+```js
 module.exports = {
   images: {
     remotePatterns: [
@@ -322,7 +322,7 @@ To resolve this, I used [`@svgr/webpack`](https://react-svgr.com/docs/options/).
 
 ### `next.config.js`
 
-```javascript
+```js
 module.exports = {
   webpack: (config) => {
     config.module.rules.push({
@@ -451,6 +451,22 @@ Check more details of supported markdown styles on [localhost:3000/markdown](htt
 > **Note**
 >
 > I'll update the markdown styles as needed.
+
+### Card style
+
+When you use markdown for stylizing page, syntax characters of markdown will be contain in descriptions of `card` and `meta`.
+
+To resolve this, the best way is to remove markdown syntax characters.
+
+I used regex to remove these characters.
+
+Here's an example.
+
+```js
+post.body
+  .replaceAll("\n", " ")
+  .replace(/(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|\*{2}|`+|<iframe(.*)>/gm, "");
+```
 
 ---
 
