@@ -9,7 +9,13 @@ import { postData } from "@/types";
 export default function Post({ post }: { post: postData }) {
   return (
     <>
-      <PageMeta title={`${post.title}`} description={`${post.body.slice(0, 120)}`} />
+      <PageMeta
+        title={`${post.title}`}
+        description={`${post.body
+          .replaceAll("\n", " ")
+          .replace(/(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|\*{2}|`+|<iframe(.*)>/gm, "")
+          .slice(0, 120)}`}
+      />
       <div className="markdown-wrap z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
         <span className="self-center p-4 text-2xl border-b border-zinc-700 dark:border-zinc-200">
           <h1 className="">{post.title}</h1>

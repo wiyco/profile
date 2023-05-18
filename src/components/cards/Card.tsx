@@ -24,7 +24,15 @@ export default function Card({ post }: { post: postsData }) {
               </Link>
             </h2>
             <div className="mt-4">
-              <span className="text-base line-clamp-2">{post.body.replaceAll("\n", " ")}</span>
+              <span className="text-base line-clamp-2">
+                {post.body
+                  .replaceAll("\n", " ")
+                  .replace(
+                    /(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|\*{2}|`+|<iframe(.*)>/gm,
+                    ""
+                  )
+                  .slice(0, 50)}
+              </span>
             </div>
           </div>
           <div className="text-sm w-full px-3 mb-4 flex flex-col items-end justify-between space-y-2">
