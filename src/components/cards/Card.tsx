@@ -31,7 +31,7 @@ export default function Card({ post }: { post: postsData }) {
                     /(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|\*{2}|`+|<iframe(.*)>/gm,
                     ""
                   )
-                  .slice(0, 50)}
+                  .slice(0, 60)}
               </span>
             </div>
           </div>
