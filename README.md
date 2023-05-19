@@ -373,15 +373,15 @@ You can see the `test` page on [localhost:3000/blog/test](http://localhost:3000/
 
 ## Markdown
 
-This project uses [Markdown](https://www.markdownguide.org/basic-syntax/) for stylize page.
+This project uses [Markdown](https://www.markdownguide.org/basic-syntax/) for stylizing page.
 
-Using markdown can easily stylize elements. I used [`react-markdown`](https://github.com/remarkjs/react-markdown) and [`rehype-raw`](https://github.com/rehypejs/rehype-raw) to render markdown & HTMLs.
+Using markdown can easily stylize elements. I used [`react-markdown`](https://github.com/remarkjs/react-markdown) and [`rehype-raw`](https://github.com/rehypejs/rehype-raw) to render markdown & parse HTMLs.
 
 To maximize performance, some elements are replaced to Next's components.
 
 ```tsx
 <ReactMarkdown
-  className="page__"
+  className="markdown-wrap"
   rehypePlugins={[rehypeRaw]}
   components={{
     h1: "h2",
@@ -419,8 +419,8 @@ function ImageBlock(props: any): ReactElement {
         className="w-full md:w-4/5 h-full"
         src={props.src}
         alt={props.alt}
-        width="0"
-        height="0"
+        width={256}
+        height={256}
         sizes="100vw"
         priority
       />
