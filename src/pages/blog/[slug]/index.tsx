@@ -63,7 +63,7 @@ export async function getServerSideProps(context: any) {
   const post = await getPost(slug);
   if (!post) return { notFound: true };
 
-  context.res.setHeader("Cache-Control", "public, s-maxage=43200, stale-while-revalidate=300");
+  context.res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=300");
 
   return {
     props: {

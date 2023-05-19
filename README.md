@@ -163,7 +163,7 @@ This project uses [SSR](https://nextjs.org/docs/basic-features/data-fetching/get
 It is not smart that render every time, so I used [`Cache-Control`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props#caching-with-server-side-rendering-ssr) to reduce wait times of loading.
 
 ```js
-context.res.setHeader("Cache-Control", "public, s-maxage=43200, stale-while-revalidate=300");
+context.res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=300");
 ```
 
 > **Note**
