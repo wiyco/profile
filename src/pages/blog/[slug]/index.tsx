@@ -1,8 +1,8 @@
 import Clock from "public/icons/clock.svg";
 import ClockRotateRight from "public/icons/clock-rotate-right.svg";
 
-import MarkdownRenderer from "@/components/blocks/MarkdownRenderer";
 import PageMeta from "@/components/PageMeta";
+import MarkdownRenderer from "@/components/renderers/MarkdownRenderer";
 import { getPost } from "@/hooks/getSupabase";
 import { postData } from "@/types";
 

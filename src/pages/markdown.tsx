@@ -1,4 +1,4 @@
-import MarkdownRenderer from "@/components/blocks/MarkdownRenderer";
+import MarkdownRenderer from "@/components/renderers/MarkdownRenderer";
 import PageMeta from "@/components/PageMeta";
 
 export default function Markdown() {
