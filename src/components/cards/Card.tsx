@@ -26,11 +26,11 @@ export default function Card({ post }: { post: postsData }) {
             <div className="mt-4">
               <span className="text-base line-clamp-2">
                 {post.body
-                  .replaceAll("\n", " ")
                   .replace(
-                    /(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|\*{2}|`+|<iframe(.*)>/gm,
+                    /(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|(?<![0-9a-zA-Z ])\*{2}|`+|<iframe.*>/gm,
                     ""
                   )
+                  .replaceAll("\n", " ")
                   .slice(0, 75)}
               </span>
             </div>

@@ -12,8 +12,11 @@ export default function Post({ post }: { post: postData }) {
       <PageMeta
         title={`${post.title}`}
         description={`${post.body
+          .replace(
+            /(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|(?<![0-9a-zA-Z ])\*{2}|`+|<iframe.*>/gm,
+            ""
+          )
           .replaceAll("\n", " ")
-          .replace(/(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|\*{2}|`+|<iframe(.*)>/gm, "")
           .slice(0, 120)}`}
       />
       <div className="markdown-wrap z-10 flex-1 w-full max-w-4xl text-base flex flex-col items-center justify-start space-y-6">
