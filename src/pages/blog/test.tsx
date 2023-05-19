@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 import Card from "@/components/cards/Card";
 import Pagination from "@/components/navigations/Pagination";
@@ -59,7 +59,7 @@ export async function getServerSideProps(context: any) {
   const _posts = await getPagePosts(index + 1);
   const hasMore = _posts.length ? true : false;
 
-  context.res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=300");
+  context.res.setHeader("Cache-Control", "public, s-maxage=43200, stale-while-revalidate=300");
 
   return {
     props: {

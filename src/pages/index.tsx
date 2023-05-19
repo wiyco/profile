@@ -1,5 +1,5 @@
-import MarkdownRenderer from "@/components/renderers/MarkdownRenderer";
 import PageMeta from "@/components/PageMeta";
+import MarkdownRenderer from "@/components/renderers/MarkdownRenderer";
 
 export default function Home() {
   const md = `# Welcome to my profile website!

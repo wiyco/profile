@@ -158,7 +158,13 @@ footer {
 
 ## Next.JS
 
-This project uses [SSR](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) to render pages. Although I wanted to use [SSG](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) and [Dynamic Routes](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths) as generate a URI but `Vercel`'s caching works too strong and won't let to [`revalidate`](https://nextjs.org/docs/api-reference/data-fetching/get-static-props#revalidate).
+This project uses [SSR](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) to render pages. Although I wanted to use [SSG](https://nextjs.org/docs/basic-features/data-fetching/get-static-props) and [Dynamic Routes](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths) as generate a URI but `Vercel`'s caching works too strong and won't let to [`revalidate`](https://nextjs.org/docs/pages/api-reference/functions/get-static-props#revalidate).
+
+It is not smart that render every time, so I used [`Cache-Control`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props#caching-with-server-side-rendering-ssr) to reduce wait times of loading.
+
+```js
+context.res.setHeader("Cache-Control", "public, s-maxage=43200, stale-while-revalidate=300");
+```
 
 > **Note**
 >
@@ -247,7 +253,7 @@ returns table (
 )
 language sql
 as $$
-  select posts.id, posts.thumbnail, post.created_at, post.updated_at, post.title, post.body, post.user_id, users.name as user_name, users.avatar from posts inner join post on posts.id = post.id left outer join users on post.user_id = users.id order by updated_at desc
+  select posts.id, posts.thumbnail, post.created_at, post.updated_at, post.title, post.body, post.user_id, users.name as user_name, users.avatar from posts inner join post on posts.id = post.id left outer join users on post.user_id = users.id order by created_at desc
 $$;
 ```
 
