@@ -64,7 +64,7 @@ function IframeBlock(props: any): ReactElement {
         src={props.src}
         title={props.title}
         allow={props.allow}
-        allowFullScreen={props.allowfullscreen}
+        allowFullScreen={props.allowfullscreen ? true : false}
       ></iframe>
     </div>
   );
