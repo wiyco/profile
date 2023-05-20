@@ -43,7 +43,7 @@
 }
 
 .markdown-wrap pre {
-  @apply my-6 p-4 rounded bg-neutral-200 dark:bg-neutral-800 text-sm leading-4;
+  @apply my-6 p-4 rounded bg-neutral-200 dark:bg-neutral-800 text-sm;
 }
 
 .markdown-wrap img {
