@@ -30,7 +30,7 @@ export default function Post({ post }: { post: postData }) {
             </span>
             <span className="">
               {`${new Date(post.created_at).toLocaleString("en-US", {
-                timeZone: "JST",
+                timeZone: "Asia/Tokyo",
                 dateStyle: "short",
                 timeStyle: "short",
               })}
@@ -44,12 +44,12 @@ export default function Post({ post }: { post: postData }) {
             </span>
             <span className="">
               {`${new Date(post.updated_at).toLocaleString("en-US", {
-                timeZone: "JST",
+                timeZone: "Asia/Tokyo",
                 dateStyle: "short",
                 timeStyle: "short",
               })}
-              ${" JST"}
               `}
+              {" JST"}
             </span>
           </div>
         </div>
