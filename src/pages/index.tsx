@@ -4,7 +4,7 @@ import MarkdownRenderer from "@/components/renderers/MarkdownRenderer";
 export default function Home() {
   const md = `# Welcome to my profile website!
   \n\nI tried to build a website from scratch. This is an original design! Did you like it?
-  \n\nAnd... You can access to the [Blog](/blog) page from top of right corner. Try it out!
+  \n\nAnd... You can access to the [blog](/blog) page from top of right corner. Try it out!
   \n\nBTW... This website were build w/ [Supabase](https://supabase.com/) & 
   [Vercel](https://vercel.com/).
   \n\nVery nice & awesome services!
