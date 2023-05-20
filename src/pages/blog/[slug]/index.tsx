@@ -13,7 +13,7 @@ export default function Post({ post }: { post: postData }) {
         title={`${post.title}`}
         description={`${post.body
           .replace(
-            /(?<!.)[ ]*#+[ ]|\[.*\]\(.*\)|(?<!.)[ ]*-[ ]|(?<![0-9a-zA-Z ])\*{2}|`+|<iframe.*>/gm,
+            /(?<!.)[ ]*#+[ ]|(?<![0-9a-zA-Z= ])\[|\]\(http.*\)|(?<!.)[ ]*-[ ]|(?<![0-9a-zA-Z ])\*{2}|\*{2}(?![0-9a-zA-Z ])|`+|<iframe.*>/gm,
             ""
           )
           .replaceAll("\n", " ")
