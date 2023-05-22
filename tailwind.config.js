@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       height: {
         screen: ["100vh", "100dvh"],
+        "3/10": "30%",
       },
       minHeight: {
         screen: ["100vh", "100dvh"],
@@ -18,6 +19,9 @@ module.exports = {
       },
       aspectRatio: {
         "4/3": "4 / 3",
+      },
+      inset: {
+        "7/10": "70%",
       },
     },
   },
