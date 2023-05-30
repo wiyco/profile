@@ -23,6 +23,9 @@ module.exports = {
       inset: {
         "7/10": "70%",
       },
+      fontSize: {
+        bl: ["1.075rem", "1.5rem"],
+      },
     },
   },
   plugins: [],
