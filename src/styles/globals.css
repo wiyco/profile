@@ -35,7 +35,7 @@
 }
 
 .markdown-wrap blockquote {
-  @apply pl-3 border-l-4 border-neutral-300 dark:border-neutral-700;
+  @apply pl-3 border-l-4 border-neutral-300 dark:border-neutral-700 text-neutral-500;
 }
 
 .markdown-wrap :not(pre) > code {
