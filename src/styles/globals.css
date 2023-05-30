@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.markdown-wrap h2:first-child {
+  @apply text-xl mt-2 py-2 pe-6 w-fit border-b border-zinc-300 dark:border-zinc-700;
+}
+
 .markdown-wrap h2 {
   @apply text-xl mt-8 py-2 pe-6 w-fit border-b border-zinc-300 dark:border-zinc-700;
 }
