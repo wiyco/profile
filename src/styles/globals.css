@@ -31,11 +31,15 @@
 }
 
 .markdown-wrap ul {
-  @apply mt-4 pl-8 list-disc;
+  @apply my-5 pl-8 list-disc;
+}
+
+.markdown-wrap li {
+  @apply mt-2;
 }
 
 .markdown-wrap blockquote {
-  @apply pl-3 border-l-4 border-neutral-300 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400;
+  @apply my-5 pl-3 border-l-4 border-neutral-300 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400;
 }
 
 .markdown-wrap :not(pre) > code {
