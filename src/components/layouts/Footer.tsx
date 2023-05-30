@@ -49,7 +49,7 @@ export default function Footer() {
           ))}
         </ul>
         <div className="flex items-center justify-between mt-8">
-          <span className="">&copy; wiyco {new Date().getFullYear()}</span>
+          <span className="">&copy; {new Date().getFullYear()} wiyco</span>
           <ul className="flex items-center justify-center space-x-4 text-lg">
             <li className="inline-flex" key={"github"} title="GitHub">
               <a
