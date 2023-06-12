@@ -17,7 +17,7 @@ export default function Footer() {
       data: [
         { label: "GitHub", href: "https://github.com/wiyco" },
         { label: "Twitter", href: "https://twitter.com/elonmusk" },
-        { label: "Instagram", href: "https://www.instagram.com/fujiikaze" },
+        { label: "Instagram", href: "https://www.instagram.com/jacobcollier" },
       ],
     },
     {
