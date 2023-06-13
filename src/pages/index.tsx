@@ -15,8 +15,8 @@ export default function Home() {
           <h1 className="">Home</h1>
         </span>
         <div className="self-start flex-1 w-full p-2 flex flex-col md:flex-row items-center justify-center md:space-x-12 space-y-12 md:space-y-0">
-          <div className="pt-10 flex flex-col items-center justify-center space-y-4">
-            <span className="w-full flex items-center justify-center aspect-square object-cover rounded">
+          <div className="pt-5 flex flex-col items-center justify-center space-y-4">
+            <span className="w-full flex items-center justify-center aspect-square object-cover rounded drop-shadow">
               <Image
                 className="w-full h-full rounded object-contain"
                 src={"/favicon/android-chrome-512x512.png"}
