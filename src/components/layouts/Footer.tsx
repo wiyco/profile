@@ -78,7 +78,7 @@ export default function Footer() {
             <li className="inline-flex" key={"instagram"} title="Instagram">
               <a
                 className=""
-                href="https://www.instagram.com/fujiikaze"
+                href="https://www.instagram.com/jacobcollier"
                 target="_blank"
                 rel="noopener noreferrer"
               >
