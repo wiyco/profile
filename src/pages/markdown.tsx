@@ -20,7 +20,7 @@ export default function Markdown() {
 \n\`\`\`This is a code-text between 3 backtick (0,1)\`\`\`
 \n\`\`\`python
 def code_block():
-  print("This is a code-block (0,1)")
+  print("This is a code-block (0,1)") long line program...
   while True:
     pass
 \n\`\`\`
