@@ -6,7 +6,7 @@
   @apply text-xl mt-2 py-2 pe-6 w-fit border-b border-zinc-300 dark:border-zinc-700;
 }
 
-.markdown-wrap h2 {
+.markdown-wrap h2:not(:first-child) {
   @apply text-xl mt-8 py-2 pe-6 w-fit border-b border-zinc-300 dark:border-zinc-700;
 }
 
@@ -47,11 +47,11 @@
 }
 
 .markdown-wrap :not(pre) > code {
-  @apply p-1 rounded bg-neutral-200 dark:bg-neutral-800 text-sm;
+  @apply px-1 py-[0.125rem] rounded-md bg-neutral-200 dark:bg-neutral-800 text-sm;
 }
 
 .markdown-wrap pre {
-  @apply my-6 p-4 rounded bg-neutral-200 dark:bg-neutral-800 text-sm;
+  @apply my-6 p-4 rounded-md bg-neutral-200 dark:bg-neutral-800 text-sm;
 }
 
 .markdown-wrap img {
