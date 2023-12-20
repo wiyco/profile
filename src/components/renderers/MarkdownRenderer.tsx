@@ -1,12 +1,10 @@
+import { Snippet } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactElement } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
-import { imageLoader } from "@/hooks/loader";
-
-export default function MarkdownRenderer({ children }: { children: string }): ReactElement {
+export function MarkdownRenderer({ children }: { children: string }) {
   return (
     <ReactMarkdown
       className="markdown-wrap"
@@ -16,9 +14,12 @@ export default function MarkdownRenderer({ children }: { children: string }): Re
         h2: "h3",
         h3: "h4",
         h4: "h5",
+        h5: "h6",
+        h6: "h6",
         a: (props) => LinkBlock(props),
         img: (props) => ImageBlock(props),
         iframe: (props) => IframeBlock(props),
+        pre: (props) => PreBlock(props),
       }}
     >
       {children}
@@ -26,46 +27,66 @@ export default function MarkdownRenderer({ children }: { children: string }): Re
   );
 }
 
-function LinkBlock(props: any): ReactElement {
-  if (props.href.match("http")) {
+function LinkBlock(props: React.ComponentProps<"a">) {
+  if (props.href?.startsWith("http")) {
     return (
-      <a href={props.href} target="_blank" rel="noopener noreferrer">
+      <Link href={props.href} target="_blank" rel="noopener noreferrer">
         {props.children}
-      </a>
+      </Link>
     );
-  } else {
-    return <Link href={props.href}>{props.children}</Link>;
   }
+  return <Link href={props.href ?? ""}>{props.children}</Link>;
 }
 
-function ImageBlock(props: any): ReactElement {
+function ImageBlock(props: React.ComponentProps<"img">) {
   return (
-    <span className="flex items-center justify-center">
-      <Image
-        className="w-full md:w-4/5 h-full"
-        loader={imageLoader}
-        src={props.src}
-        alt={props.alt}
-        width={640}
-        height={640}
-        sizes="100vw"
-        priority
-      />
-    </span>
+    <Image
+      className="mx-auto h-full w-full md:w-4/5"
+      src={props.src ?? ""}
+      alt={props.alt ?? ""}
+      width={640}
+      height={640}
+      sizes="(max-width: 768px) 100vw, 80vw"
+      priority
+    />
   );
 }
 
-function IframeBlock(props: any): ReactElement {
+function IframeBlock(props: React.ComponentProps<"iframe">) {
+  if (props.src?.includes("youtube")) {
+    if (props.src?.includes("shorts")) {
+      return (
+        <div className="relative mx-auto aspect-[9/16] h-[calc(60dvh)] md:h-[calc(30dvh)]">
+          <iframe {...props} />
+        </div>
+      );
+    }
+    return (
+      <div className="relative mx-auto aspect-video w-full md:w-4/5">
+        <iframe {...props} />
+      </div>
+    );
+  }
   return (
-    <div className="flex items-center justify-center">
-      <iframe
-        width={props.width}
-        height={props.height}
-        src={props.src}
-        title={props.title}
-        allow={props.allow}
-        allowFullScreen={props.allowFullScreen}
-      ></iframe>
+    <div className="mx-auto h-full w-full md:w-4/5">
+      <iframe {...props} />
+    </div>
+  );
+}
+
+function PreBlock(props: React.ComponentProps<"pre">) {
+  return (
+    <div className="relative h-fit w-full overflow-hidden">
+      <Snippet
+        hideSymbol
+        classNames={{
+          base: "my-8 pl-5 pr-11 w-full overflow-x-auto leading-[1.375rem]",
+          copyButton: "my-8 absolute right-2 top-[7px] backdrop-blur-xl",
+          pre: "py-1.5 whitespace-pre",
+        }}
+      >
+        {props.children}
+      </Snippet>
     </div>
   );
 }

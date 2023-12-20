@@ -1,37 +1,38 @@
-import Image from "next/image";
+import { Card, CardFooter, Image } from "@nextui-org/react";
+import NextImage from "next/image";
+import Link from "next/link";
 
-import { imageLoader } from "@/hooks/loader";
+type CardFullProps = {
+  title: string;
+  thumbnail: string;
+  url: string;
+};
 
-export default function CardFull(data: { title: string; href: string; src: string }) {
+export function CardFull({ title, thumbnail, url }: CardFullProps) {
   return (
-    <>
-      <a
-        className="relative block group w-full h-full shadow-lg rounded"
-        href={data.href}
-        target="_blank"
-        rel="noopener noreferrer"
+    <Link href={url} style={{ textDecoration: "none" }}>
+      <Card
+        shadow="none"
+        isFooterBlurred
+        classNames={{
+          base: "aspect-16/10 w-full overflow-clip border-none shadow-md",
+        }}
+        className="origin-bottom scale-100 bg-zinc-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-zinc-600/10"
       >
-        <span className="flex items-center justify-center aspect-4/3 object-cover rounded group-hover:brightness-75 bg-zinc-200 dark:bg-zinc-700 transition-all duration-300 ease-in-out">
-          <Image
-            className="w-full h-full rounded object-contain"
-            loader={imageLoader}
-            src={data.src === "" ? "/media-image.svg" : data.src}
-            alt={data.title}
-            width={640}
-            height={640}
-            sizes="100vw"
-            priority
-          />
-        </span>
-        <div className="w-full">
-          <div className="hidden absolute md:flex items-center justify-center w-full h-3/10 top-7/10 left-0 rounded-b scale-y-0 group-hover:scale-y-100 origin-bottom overflow-hidden backdrop-brightness-50 backdrop-blur transition-all duration-300 ease-in-out">
-            <span className="px-2 text-white line-clamp-1">{data.title}</span>
-          </div>
-          <div className="md:hidden absolute flex items-center justify-center w-full min-w-full h-3/10 top-7/10 left-0 rounded-b overflow-hidden backdrop-brightness-50 backdrop-blur">
-            <span className="px-2 text-white line-clamp-1">{data.title}</span>
-          </div>
-        </div>
-      </a>
-    </>
+        <Image
+          as={NextImage}
+          classNames={{ wrapper: "h-full w-full !max-w-none" }}
+          className="h-full w-full object-cover"
+          src={thumbnail || "/fallback/noimage-padding.svg"}
+          alt={title}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+          fill
+          priority
+        />
+        <CardFooter className="absolute inset-x-0 bottom-1 z-10 mx-auto grid w-[calc(100%-0.5rem)] place-content-center rounded-large py-5 backdrop-brightness-[.7]">
+          <span className="break-words text-center text-small text-white">{title}</span>
+        </CardFooter>
+      </Card>
+    </Link>
   );
 }

@@ -1,30 +1,30 @@
-import { useTheme } from "next-themes";
-import HalfMoon from "public/icons/half-moon.svg";
-import SunLight from "public/icons/sun-light.svg";
-import { useEffect,useState } from "react";
+"use client";
 
-export default function ThemeButton() {
+import HalfMoon from "@icons/half-moon.svg";
+import SunLight from "@icons/sun-light.svg";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
+type ThemeButtonProps = {
+  className?: React.HTMLAttributes<HTMLButtonElement>["className"];
+};
+
+export function ThemeButton({ className }: ThemeButtonProps) {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState<boolean>(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
   return (
     <button
-      className=""
+      className={className}
+      type="button"
       title="Color Theme"
       aria-label="Switch Theme"
-      type="button"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       {mounted && (
-        <span className="">
-          {theme === "light" ? (
-            <HalfMoon className="stroke-current" />
-          ) : (
-            <SunLight className="stroke-current" />
-          )}
-        </span>
+        <span className="stroke-current">{theme === "light" ? <HalfMoon /> : <SunLight />}</span>
       )}
     </button>
   );
