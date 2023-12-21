@@ -5,7 +5,7 @@ import Instagram from "@icons/instagram.svg";
 import X from "@icons/x.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import type { NavItem } from "@/components/layouts/Footer/NavExpander";
 import { NavExpander } from "@/components/layouts/Footer/NavExpander";
@@ -41,9 +41,7 @@ export function Footer() {
   const pathname = usePathname();
   const [isRoot, setIsRoot] = useState(false);
 
-  useLayoutEffect(() => {
-    setIsRoot(pathname === "/");
-  }, [pathname]);
+  useEffect(() => setIsRoot(pathname === "/"), [pathname]);
 
   return (
     <footer
@@ -59,14 +57,14 @@ export function Footer() {
           <ul className="flex items-center justify-center space-x-5 text-lg">
             <li title="GitHub">
               <Link href="https://github.com/wiyco" target="_blank" rel="noopener noreferrer">
-                <span className={cn(isRoot ? "stroke-black dark:stroke-white" : "stroke-white")}>
+                <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <GitHub />
                 </span>
               </Link>
             </li>
             <li title="X">
               <Link href="https://x.com/elonmusk" target="_blank" rel="noopener noreferrer">
-                <span className={cn(isRoot ? "stroke-black dark:stroke-white" : "stroke-white")}>
+                <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <X />
                 </span>
               </Link>
@@ -77,7 +75,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className={cn(isRoot ? "stroke-black dark:stroke-white" : "stroke-white")}>
+                <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <Instagram />
                 </span>
               </Link>
