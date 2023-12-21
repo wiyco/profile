@@ -4,6 +4,8 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
+import { cn } from "@/utils/cn";
+
 export function MarkdownRenderer({ children }: { children: string }) {
   return (
     <ReactMarkdown
@@ -56,20 +58,30 @@ function IframeBlock(props: React.ComponentProps<"iframe">) {
   if (props.src?.includes("youtube")) {
     if (props.src?.includes("shorts")) {
       return (
-        <div className="relative mx-auto aspect-[9/16] h-[calc(60dvh)] md:h-[calc(30dvh)]">
-          <iframe {...props} />
+        <div className="relative mx-auto h-[calc(60dvh)] md:h-[calc(30dvh)]">
+          <iframe
+            {...props}
+            width="100%"
+            height="100%"
+            className={cn(props.className, "aspect-[9/16]")}
+          />
         </div>
       );
     }
     return (
-      <div className="relative mx-auto aspect-video w-full md:w-4/5">
-        <iframe {...props} />
+      <div className="relative mx-auto w-full md:w-4/5">
+        <iframe
+          {...props}
+          width="100%"
+          height="100%"
+          className={cn(props.className, "aspect-video")}
+        />
       </div>
     );
   }
   return (
     <div className="mx-auto h-full w-full md:w-4/5">
-      <iframe {...props} />
+      <iframe {...props} width="100%" height="100%" />
     </div>
   );
 }

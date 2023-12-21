@@ -6,9 +6,10 @@ type CardFullProps = {
   title: string;
   thumbnail: string;
   url: string;
+  unoptimized?: boolean;
 };
 
-export function CardFull({ title, thumbnail, url }: CardFullProps) {
+export function CardFull({ title, thumbnail, url, unoptimized }: CardFullProps) {
   return (
     <Link href={url} style={{ textDecoration: "none" }}>
       <Card
@@ -28,6 +29,7 @@ export function CardFull({ title, thumbnail, url }: CardFullProps) {
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
           fill
           priority
+          unoptimized={unoptimized}
         />
         <CardFooter className="absolute inset-x-0 bottom-1 z-10 mx-auto grid w-[calc(100%-0.5rem)] place-content-center rounded-large py-5 backdrop-brightness-[.7]">
           <span className="break-words text-center text-small text-white">{title}</span>

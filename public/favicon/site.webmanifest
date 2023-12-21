@@ -16,6 +16,6 @@
   ],
   "theme_color": "#27272a",
   "background_color": "#27272a",
-  "start_url": "https://wiyco.vercel.app",
+  "start_url": "/",
   "display": "standalone"
 }
