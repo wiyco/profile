@@ -3,7 +3,7 @@
 import { Raleway } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Navbar } from "@/components/layouts/Header/Navbar";
 import { cn } from "@/utils/cn";
@@ -14,9 +14,7 @@ export function Header() {
   const pathname = usePathname();
   const [isRoot, setIsRoot] = useState(false);
 
-  useLayoutEffect(() => {
-    setIsRoot(pathname === "/");
-  }, [pathname]);
+  useEffect(() => setIsRoot(pathname === "/"), [pathname]);
 
   return (
     <header
