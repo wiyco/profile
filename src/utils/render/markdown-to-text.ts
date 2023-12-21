@@ -1,5 +1,5 @@
 /**
- * This code is taken from `remove-markdown` 🐢
+ * Part of this code is taken from `remove-markdown` 🐢
  * @link https://github.com/stiang/remove-markdown
  */
 function markdownToText(markdown: string, maxLength: number = 200) {
