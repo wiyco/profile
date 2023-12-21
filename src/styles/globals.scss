@@ -84,7 +84,7 @@ body {
     @apply my-8;
   }
 
-  div > iframe {
+  div:has(iframe) {
     @apply my-8;
   }
 
