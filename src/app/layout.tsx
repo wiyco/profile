@@ -8,6 +8,7 @@ import { Header } from "@/components/layouts/Header";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_ORIGIN_URL || "http://localhost:3000"),
   title: {
     default: "wiyco",
     template: "%s | wiyco",
