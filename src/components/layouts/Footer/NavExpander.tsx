@@ -56,32 +56,19 @@ export function NavExpander({ navItems }: NavExpanderProps) {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu aria-label="Navigation">
-                {item.children.map((child, index) =>
-                  index !== item.children.length - 1 ? (
-                    <DropdownItem
-                      key={`foot-nav-mobile-child-${index}`}
-                      href={child.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      isReadOnly
-                      showDivider
-                      className="py-2"
-                    >
-                      {child.label}
-                    </DropdownItem>
-                  ) : (
-                    <DropdownItem
-                      key={`foot-nav-mobile-child-${index}`}
-                      href={child.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      isReadOnly
-                      className="py-2"
-                    >
-                      {child.label}
-                    </DropdownItem>
-                  )
-                )}
+                {item.children.map((child, index) => (
+                  <DropdownItem
+                    key={`foot-nav-mobile-child-${index}`}
+                    href={child.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    isReadOnly
+                    showDivider={!!(index !== item.children.length - 1)}
+                    className="py-2.5"
+                  >
+                    {child.label}
+                  </DropdownItem>
+                ))}
               </DropdownMenu>
             </Dropdown>
           </li>
