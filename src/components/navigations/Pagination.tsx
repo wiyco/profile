@@ -31,7 +31,7 @@ export function Pagination({ className, count, itemsPerPage, initialPage }: Pagi
         wrapper: "gap-3",
         item: "w-12",
         cursor:
-          "w-12 bg-gradient-to-br from-sky-300 to-blue-600 dark:from-lime-300 dark:to-green-600",
+          "w-12 bg-gradient-to-br from-sky-300 to-blue-600 dark:from-indigo-300 dark:to-violet-600",
         prev: "w-16",
         next: "w-16",
       }}
