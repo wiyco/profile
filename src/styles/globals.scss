@@ -11,6 +11,12 @@ body {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
   }
+
+  /* Hide the RF3 controller `leva` */
+  /* stylelint-disable-next-line selector-id-pattern */
+  #leva__root {
+    @apply hidden;
+  }
 }
 
 /* Template styles */

@@ -19,9 +19,10 @@ export type { NavItem };
 
 type NavExpanderProps = {
   navItems: NavItem[];
+  enableDarkMode?: boolean;
 };
 
-export function NavExpander({ navItems }: NavExpanderProps) {
+export function NavExpander({ navItems, enableDarkMode }: NavExpanderProps) {
   const navOpenState = navItems.map((item) => ({ [item.header]: false }));
   const [isOpen, setIsOpen] = useState<typeof navOpenState>(navOpenState);
 
@@ -36,16 +37,20 @@ export function NavExpander({ navItems }: NavExpanderProps) {
               <DropdownTrigger>
                 <Button
                   disableRipple
-                  className="bg-transparent p-0 text-white data-[hover=true]:bg-transparent"
+                  className={cn(
+                    "bg-transparent p-0 font-semibold data-[hover=true]:bg-transparent",
+                    enableDarkMode ? "text-black dark:text-white" : "text-white"
+                  )}
                   variant="light"
                   radius="sm"
                   endContent={
                     <span
                       className={cn(
-                        "stroke-white text-tiny transition-transform duration-150 ease-in-out",
+                        "text-tiny transition-transform duration-150 ease-in-out",
                         isOpen[item.header as keyof typeof navOpenState]
                           ? "-translate-y-px rotate-0"
-                          : "translate-y-px rotate-180"
+                          : "translate-y-px rotate-180",
+                        enableDarkMode ? "stroke-black dark:stroke-white" : "stroke-white"
                       )}
                     >
                       <NavArrowDown />
@@ -77,7 +82,7 @@ export function NavExpander({ navItems }: NavExpanderProps) {
       <ul className="hidden grid-cols-3 justify-items-center md:grid">
         {navItems.map((item, index) => (
           <li key={`foot-nav-${index}`} className="grid h-fit gap-3">
-            <h2 className="text-lg">{item.header}</h2>
+            <h2 className="text-lg font-semibold">{item.header}</h2>
             <ul className="grid gap-2">
               {item.children.map((child, index) => (
                 <li key={`foot-nav-child-${index}`}>

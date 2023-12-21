@@ -1,10 +1,15 @@
+"use client";
+
 import GitHub from "@icons/github.svg";
 import Instagram from "@icons/instagram.svg";
 import X from "@icons/x.svg";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useLayoutEffect, useState } from "react";
 
 import type { NavItem } from "@/components/layouts/Footer/NavExpander";
 import { NavExpander } from "@/components/layouts/Footer/NavExpander";
+import { cn } from "@/utils/cn";
 
 const navItems: NavItem[] = [
   {
@@ -33,23 +38,35 @@ const navItems: NavItem[] = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+  const [isRoot, setIsRoot] = useState(false);
+
+  useLayoutEffect(() => {
+    setIsRoot(pathname === "/");
+  }, [pathname]);
+
   return (
-    <footer className="w-full bg-zinc-800 px-6 py-5 text-white">
+    <footer
+      className={cn(
+        "w-full px-6 py-5",
+        isRoot ? "fixed inset-x-0 bottom-0" : "static bg-zinc-800 text-white"
+      )}
+    >
       <div className="mt-5 grid gap-6 text-sm">
-        <NavExpander navItems={navItems} />
+        <NavExpander navItems={navItems} enableDarkMode={isRoot} />
         <div className="flex items-center justify-between">
           <span>&copy; {new Date().getFullYear()} wiyco</span>
           <ul className="flex items-center justify-center space-x-5 text-lg">
             <li title="GitHub">
               <Link href="https://github.com/wiyco" target="_blank" rel="noopener noreferrer">
-                <span className="stroke-white">
+                <span className={cn(isRoot ? "stroke-black dark:stroke-white" : "stroke-white")}>
                   <GitHub />
                 </span>
               </Link>
             </li>
             <li title="X">
               <Link href="https://x.com/elonmusk" target="_blank" rel="noopener noreferrer">
-                <span className="stroke-white">
+                <span className={cn(isRoot ? "stroke-black dark:stroke-white" : "stroke-white")}>
                   <X />
                 </span>
               </Link>
@@ -60,7 +77,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="stroke-white">
+                <span className={cn(isRoot ? "stroke-black dark:stroke-white" : "stroke-white")}>
                   <Instagram />
                 </span>
               </Link>
