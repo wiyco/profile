@@ -1,23 +1,26 @@
-import Cancel from "public/icons/cancel.svg";
-import Menu from "public/icons/menu.svg";
+"use client";
 
-type menuButtonProps = {
-  setMounted: any;
-  mounted: boolean;
+import Menu from "@icons/menu.svg";
+import Xmark from "@icons/xmark.svg";
+
+type MenuButtonProps = {
+  className?: React.HTMLAttributes<HTMLButtonElement>["className"];
+  openState: {
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isOpen: boolean;
+  };
 };
 
-export default function MenuButton({ setMounted, mounted }: menuButtonProps) {
+export function MenuButton({ className, openState }: MenuButtonProps) {
   return (
     <button
-      className=""
+      className={className}
+      type="button"
       title="Menu"
       aria-label="Toggle Menu"
-      type="button"
-      onClick={() => setMounted(!mounted)}
+      onClick={() => openState.setIsOpen((prev) => !prev)}
     >
-      <span className="">
-        {mounted ? <Cancel className="stroke-current" /> : <Menu className="stroke-current" />}
-      </span>
+      <span className="stroke-current">{openState.isOpen ? <Xmark /> : <Menu />}</span>
     </button>
   );
 }

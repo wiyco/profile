@@ -1,0 +1,50 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+  schemas   = ["public", "auth"]
+}
+
+// https://github.com/chrishoermann/zod-prisma-types?tab=readme-ov-file#usage
+generator zod {
+  provider                         = "zod-prisma-types"
+  output                           = "../src/lib/zod/schema"
+  createInputTypes                 = false
+  createOptionalDefaultValuesTypes = true
+  createRelationValuesTypes        = true
+}
+
+model Post {
+  id        String @id @default(dbgenerated("public.id_generate_v1(8)")) /// @zod.string.regex(/^[a-zA-Z0-9_\-=]+$/).length(8)
+  title     String @default("")
+  content   String @default("")
+  thumbnail String @default("")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  userId String? @map("user_id") @db.Uuid
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@map("posts")
+  @@schema("public")
+}
+
+model User {
+  id       String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  username String @default("")
+  avatar   String @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  posts Post[]
+
+  @@map("users")
+  @@schema("public")
+}

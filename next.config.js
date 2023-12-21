@@ -1,27 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   images: {
+    minimumCacheTTL: 14400,
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.supabase.co",
-        port: "",
-        pathname: "/storage/v1/object/public/**",
-      },
       {
         protocol: "https",
         hostname: "www.dropbox.com",
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "emojiapi.dev",
+        port: "",
+        pathname: "/api/v1/**",
+      },
     ],
-    minimumCacheTTL: 43200,
   },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/i,
       use: [
         {
           loader: "@svgr/webpack",

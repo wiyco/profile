@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* Due to the influence of NextUI, child elements of the body are wrapped, so need to nest selectors. */
+  & > div[data-overlay-container] {
+    @apply min-h-screen w-full bg-zinc-50 dark:bg-zinc-900;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+  }
+
+  /* Hide the RF3 controller `leva` */
+  /* stylelint-disable-next-line selector-id-pattern */
+  #leva__root {
+    @apply hidden;
+  }
+}
+
+/* Template styles */
+.default-wrap {
+  @apply grid h-full w-full content-start gap-9 px-5 py-10 md:px-7;
+
+  h1 {
+    @apply relative mx-auto mb-5 w-fit px-4 pb-4 text-center text-2xl font-semibold md:text-3xl;
+
+    &::before {
+      @apply absolute inset-x-0 -bottom-1 h-[3px] w-full rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+
+      content: "";
+    }
+
+    & span {
+      @apply break-words;
+    }
+  }
+}
+
+.header-wrap {
+  @apply relative mx-auto w-full;
+
+  &::before {
+    @apply absolute inset-x-0 -bottom-10 h-[1px] w-full rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+
+    content: "";
+  }
+}
+
+.markdown-wrap {
+  @apply grid h-full w-full content-start py-5 text-zinc-800/80 dark:text-zinc-200/80;
+
+  h2 {
+    @apply my-4 w-fit border-b-2 border-zinc-600/25 py-1.5 pr-[5%] text-xl font-semibold dark:border-zinc-400/25;
+  }
+
+  h3 {
+    @apply my-4 w-fit border-b-1.5 border-zinc-600/25 py-1 pr-[5%] text-lg font-semibold dark:border-zinc-400/25;
+  }
+
+  h4 {
+    @apply my-3 w-fit py-1 text-md font-medium;
+  }
+
+  h5,
+  h6 {
+    @apply my-2 w-fit py-0.5 text-base font-medium;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  a {
+    @apply text-blue-600 hover:underline dark:text-blue-400;
+
+    &:visited {
+      @apply text-violet-600 dark:text-violet-400;
+    }
+  }
+
+  img {
+    @apply my-8;
+  }
+
+  div > iframe {
+    @apply my-8;
+  }
+
+  :not(pre) > code {
+    @apply mx-0.5 rounded-lg bg-zinc-200/75 px-1.5 py-0.5 text-[0.875em] dark:bg-zinc-700/75;
+  }
+
+  blockquote {
+    @apply relative my-5 ml-1.5 w-11/12 pl-3.5 text-zinc-600/80 dark:text-zinc-400/80;
+
+    &::before {
+      @apply absolute inset-y-0 left-0 h-full w-[3px] rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+
+      content: "";
+    }
+  }
+
+  ul {
+    @apply my-3 ml-[1.375rem];
+
+    li {
+      @apply relative;
+
+      &::before {
+        @apply absolute inset-y-0 -left-[1.125rem] text-zinc-600/40 dark:text-zinc-400/40;
+
+        content: "•";
+      }
+    }
+  }
+
+  ol {
+    @apply my-3 ml-[1.375rem];
+
+    counter-reset: li;
+
+    li {
+      @apply relative;
+
+      &::before {
+        @apply absolute inset-y-0 -left-[1.125rem] text-zinc-600/40 dark:text-zinc-400/40;
+
+        content: counter(li) ".";
+      }
+    }
+  }
+}

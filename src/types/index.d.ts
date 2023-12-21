@@ -1,31 +1,11 @@
-declare module "*.svg" {
-  const content: React.FC<React.SVGProps<SVGElement>>;
-  export default content;
-}
-
-export type postData = {
-  id: number;
-  created_at: string;
-  updated_at: string;
+type Archive = {
   title: string;
-  body: string;
-  user_id: number;
-  user_name: string;
-  avatar: string;
+  thumbnail: string;
+  url: string;
 };
 
-export interface postsData extends postData {
-  thumbnail: string;
-}
+type RouteParams = { id: string };
 
-export type jsonPlaceholderData = {
-  id: number;
-  created_at: string;
-  updated_at: string;
-  title: string;
-  body: string;
-  user_id: number;
-  user_name: string;
-  avatar: string;
-  thumbnail: string;
-};
+type SearchParams = { [key: string]: string | string[] | undefined };
+
+export type { Archive, RouteParams, SearchParams };
