@@ -16,9 +16,7 @@ export function Pagination({ className, count, itemsPerPage, initialPage }: Pagi
 
   const [pageNumber, setPageNumber] = useState(1);
 
-  useLayoutEffect(() => {
-    setPageNumber(initialPage);
-  }, [initialPage]);
+  useLayoutEffect(() => setPageNumber(initialPage), [initialPage]);
 
   const totalPageNumber = useMemo(() => {
     return Math.ceil(count / itemsPerPage);
