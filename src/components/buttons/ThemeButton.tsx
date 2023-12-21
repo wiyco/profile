@@ -3,17 +3,13 @@
 import HalfMoon from "@icons/half-moon.svg";
 import SunLight from "@icons/sun-light.svg";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 type ThemeButtonProps = {
   className?: React.HTMLAttributes<HTMLButtonElement>["className"];
 };
 
 export function ThemeButton({ className }: ThemeButtonProps) {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   return (
     <button
@@ -23,9 +19,9 @@ export function ThemeButton({ className }: ThemeButtonProps) {
       aria-label="Switch Theme"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      {mounted && (
-        <span className="stroke-current">{theme === "light" ? <HalfMoon /> : <SunLight />}</span>
-      )}
+      <span className="stroke-current">
+        {resolvedTheme === "light" ? <HalfMoon /> : <SunLight />}
+      </span>
     </button>
   );
 }

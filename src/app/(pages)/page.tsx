@@ -30,7 +30,7 @@ declare global {
 }
 
 export default function Page() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const { dash, count, radius } = useControls({
     dash: { value: 0.93, min: 0, max: 0.99, step: 0.01 },
@@ -41,29 +41,29 @@ export default function Page() {
   return (
     <div className="h-screen w-full">
       <Canvas camera={{ position: [0, 0, 5], fov: 90 }}>
-        {theme === "dark" ? (
-          <color attach="background" args={["#18181b"]} />
-        ) : (
+        {resolvedTheme === "light" ? (
           <color attach="background" args={["#f4f4f5"]} />
+        ) : (
+          <color attach="background" args={["#18181b"]} />
         )}
         <Lines
           dash={dash}
           count={count}
           radius={radius}
           colors={
-            theme === "dark"
-              ? [
+            resolvedTheme === "light"
+              ? ["#fca5a5", "#93c5fd", "#86efac", "#fcd34d", "#c4b5fd"]
+              : [
                   [5, 0.5, 1], // red
                   [0.5, 1, 5], // blue
                   [0.5, 5, 1], // green
                   [5, 2, 0.5], // amber
                   [2, 0.5, 5], // violet
                 ]
-              : ["#fca5a5", "#93c5fd", "#86efac", "#fcd34d", "#c4b5fd"]
           }
         />
         <Rig />
-        {theme === "dark" && (
+        {resolvedTheme === "light" ? null : (
           <EffectComposer>
             <Bloom mipmapBlur luminanceThreshold={0.9} luminanceSmoothing={0.02} radius={0.25} />
           </EffectComposer>
