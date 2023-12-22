@@ -11,7 +11,7 @@ type PageProps = {
 
 export default function Page({ searchParams }: PageProps) {
   return (
-    <div className="default-wrap mx-auto max-w-screen-2xl !content-between">
+    <div className="default-wrap mx-auto max-w-screen-lg !content-between">
       <h1>
         <span>Blog</span>
       </h1>
