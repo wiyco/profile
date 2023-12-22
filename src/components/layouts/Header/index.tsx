@@ -23,7 +23,7 @@ export function Header() {
         isRoot ? "fixed" : "sticky bg-zinc-50/40 shadow backdrop-blur-lg dark:bg-zinc-900/40"
       )}
     >
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
+      <div className="mx-auto flex w-full max-w-screen-lg items-center justify-between">
         <Link href={"/"} className={cn("text-2xl font-normal", raleway.className)}>
           wiyco
         </Link>
