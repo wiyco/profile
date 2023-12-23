@@ -2,7 +2,7 @@ import { Avatar, Card, CardBody, CardFooter, CardHeader, Image } from "@nextui-o
 import NextImage from "next/image";
 import Link from "next/link";
 
-import { getDiffDateTime } from "@/utils/datetime/format";
+import { TimeDiffClient } from "@/components/times/TimeDiffClient";
 
 type CardPostProps = {
   title: string;
@@ -68,9 +68,10 @@ export function CardPost({ title, thumbnail, url, author, timestamp }: CardPostP
               <span className="break-words text-start">{author.name || "unknown"}</span>
             )}
             {timestamp && (
-              <time className="place-self-end break-words text-end" dateTime={String(timestamp)}>
-                {getDiffDateTime(timestamp, new Date())}
-              </time>
+              <TimeDiffClient
+                timestamp={timestamp}
+                className="place-self-end break-words text-end"
+              />
             )}
           </div>
         </CardFooter>
