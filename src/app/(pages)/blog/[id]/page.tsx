@@ -1,5 +1,3 @@
-import Clock from "@icons/clock.svg";
-import ClockRotateRight from "@icons/clock-rotate-right.svg";
 import User from "@icons/user.svg";
 import { Image } from "@nextui-org/react";
 import type { Metadata } from "next";
@@ -10,6 +8,8 @@ import { MarkdownRenderer } from "@/components/renderers/MarkdownRenderer";
 import type { RouteParams } from "@/types";
 import { getPost } from "@/utils/fetch/post";
 import { markdownToText } from "@/utils/render/markdown-to-text";
+
+import { HeaderDate } from "./client";
 
 type MetadataProps = {
   params: RouteParams;
@@ -56,54 +56,14 @@ export default async function Page({ params }: PageProps) {
         <h1>
           <span>{post.title}</span>
         </h1>
-        <div className="header-wrap flex items-center justify-center space-x-7 text-sm">
-          <section className="grid place-content-center gap-1">
-            <div className="flex w-24 items-center justify-items-center space-x-1.5">
-              <span className="stroke-current text-[.75em]">
-                <Clock />
-              </span>
-              <span className="text-[.875em] font-semibold">Published</span>
-            </div>
-            <time className="justify-self-center" dateTime={String(post.createdAt)}>
-              {new Date(post.createdAt).toLocaleString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </time>
-          </section>
-          {new Date(post.createdAt).toLocaleString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          }) !==
-            new Date(post.updatedAt).toLocaleString("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            }) && (
-            <section className="grid place-content-center gap-1">
-              <div className="flex items-center justify-items-center space-x-1.5">
-                <span className="stroke-current text-[.75em]">
-                  <ClockRotateRight />
-                </span>
-                <span className="text-[.875em] font-semibold">Updated</span>
-              </div>
-              <time className="justify-self-center" dateTime={String(post.updatedAt)}>
-                {new Date(post.updatedAt).toLocaleString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </time>
-            </section>
-          )}
+        <div className="header-wrap flex items-center justify-center space-x-6 text-sm md:space-x-8">
+          <HeaderDate publishedAt={post.createdAt} updatedAt={post.updatedAt} />
           <section className="grid place-content-center gap-1">
             <div className="flex items-center justify-items-center space-x-1.5">
               <span className="stroke-current text-[.75em]">
                 <User />
               </span>
-              <span className="text-[.875em] font-semibold">Written by</span>
+              <span className="text-center text-[.875em] font-semibold">Written by</span>
             </div>
             <span className="justify-self-center">{post.user?.username || "unknown"}</span>
           </section>
