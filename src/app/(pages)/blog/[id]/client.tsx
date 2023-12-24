@@ -23,7 +23,7 @@ export function HeaderDate({ publishedAt, updatedAt }: HeaderDateProps) {
   return (
     <>
       <section className="grid place-content-center gap-1">
-        <div className="flex w-24 items-center justify-items-center space-x-1.5">
+        <div className="flex items-center justify-items-center space-x-1.5">
           <span className="stroke-current text-[.75em]">
             <Clock />
           </span>
