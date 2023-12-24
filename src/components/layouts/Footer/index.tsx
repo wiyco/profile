@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
     header: "About",
     children: [
       { label: "GitHub", url: "https://github.com/wiyco" },
-      { label: "Twitter", url: "https://twitter.com/elonmusk" },
+      { label: "X", url: "https://x.com/elonmusk" },
       { label: "Instagram", url: "https://www.instagram.com/jacobcollier" },
     ],
   },
