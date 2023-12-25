@@ -80,7 +80,7 @@ body {
     }
   }
 
-  img {
+  div:has(img) {
     @apply my-8;
   }
 
@@ -105,7 +105,7 @@ body {
   ul {
     @apply my-3 ml-[1.375rem];
 
-    li {
+    & > li {
       @apply relative;
 
       &::before {
@@ -119,16 +119,32 @@ body {
   ol {
     @apply my-3 ml-[1.375rem];
 
-    counter-reset: li;
+    counter-reset: orderedlist;
 
-    li {
+    & > li {
       @apply relative;
 
       &::before {
         @apply absolute inset-y-0 -left-[1.125rem] text-zinc-600/40 dark:text-zinc-400/40;
 
-        content: counter(li) ".";
+        content: counter(orderedlist) ".";
+        counter-increment: orderedlist;
       }
+    }
+  }
+
+  li > ul,
+  ol {
+    @apply my-0.5;
+  }
+
+  hr {
+    @apply relative my-8 h-[3px] w-full border-0 border-none;
+
+    &::before {
+      @apply absolute inset-0 rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+
+      content: "";
     }
   }
 }
