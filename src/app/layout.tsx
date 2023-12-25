@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/favicon/android-chrome-512x512.png",
+        url: "/android-chrome-512x512.png?v=0.1",
         width: 512,
         height: 512,
         alt: "wiyco",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/favicon/android-chrome-512x512.png",
+        url: "/android-chrome-512x512.png?v=0.1",
         width: 512,
         height: 512,
         alt: "wiyco",
@@ -47,44 +47,36 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon/favicon-16x16.png",
-        sizes: "16x16",
-        type: "image/png",
-      },
-      {
-        url: "/favicon/favicon-32x32.png",
+        url: "/favicon-32x32.png?v=0.1",
         sizes: "32x32",
         type: "image/png",
       },
       {
-        url: "/favicon/android-chrome-192x192.png",
-        sizes: "192x192",
+        url: "/favicon-16x16.png?v=0.1",
+        sizes: "16x16",
         type: "image/png",
       },
       {
-        url: "/favicon/android-chrome-512x512.png",
-        sizes: "512x512",
-        type: "image/png",
+        url: "/favicon.ico?v=0.1",
+        sizes: "32x32",
+      },
+      {
+        url: "/icon.svg?v=0.1",
+        sizes: "any",
+        type: "image/svg+xml",
       },
     ],
     apple: {
-      url: "/favicon/apple-touch-icon.png",
+      url: "/apple-touch-icon.png?v=0.1",
       sizes: "180x180",
       type: "image/png",
     },
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/favicon/safari-pinned-tab.svg",
-        color: "#27272a",
-      },
-    ],
   },
-  manifest: "/favicon/site.webmanifest",
+  manifest: "/site.webmanifest?v=0.1",
   appleWebApp: {
     title: "wiyco",
     statusBarStyle: "black",
-    startupImage: "/favicon/android-chrome-512x512.png",
+    startupImage: "/android-chrome-512x512.png?v=0.1",
   },
 };
 
