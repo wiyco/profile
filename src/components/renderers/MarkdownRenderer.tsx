@@ -1,5 +1,5 @@
-import { Snippet } from "@nextui-org/react";
-import Image from "next/image";
+import { Image, Snippet } from "@nextui-org/react";
+import NextImage from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -43,13 +43,15 @@ function LinkBlock(props: React.ComponentProps<"a">) {
 function ImageBlock(props: React.ComponentProps<"img">) {
   return (
     <Image
-      className="mx-auto h-full w-full md:w-4/5"
+      as={NextImage}
+      classNames={{ wrapper: "mx-auto w-full md:w-4/5" }}
       src={props.src ?? ""}
       alt={props.alt ?? ""}
-      width={640}
-      height={640}
+      width={480}
+      height={480}
       sizes="(max-width: 768px) 100vw, 80vw"
       priority
+      unoptimized={props.src?.startsWith("http")}
     />
   );
 }
@@ -58,7 +60,7 @@ function IframeBlock(props: React.ComponentProps<"iframe">) {
   if (props.src?.includes("youtube")) {
     if (props.src?.includes("shorts")) {
       return (
-        <div className="relative mx-auto h-[calc(60dvh)] md:h-[calc(30dvh)]">
+        <div className="relative mx-auto h-[60dvh] md:h-[30dvh]">
           <iframe
             {...props}
             width="100%"
