@@ -20,9 +20,9 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
   if (!post) return notFound();
 
   const description = markdownToText(post.content);
-
-  /** Optionally access and extend (rather than replace) parent metadata */
-  // const previousImages = (await parent).openGraph?.images || [];
+  const imageUrl =
+    post.thumbnail.replace(/(v[0-9])\/(.*)(\.svg)$/, "$1/$2/512.png") ||
+    "https://emojiapi.dev/api/v1/turtle/512.png";
 
   return {
     title: post.title,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
       images: [
         {
           type: "image/png",
-          url: post.thumbnail || "https://emojiapi.dev/api/v1/turtle/512.png",
+          url: imageUrl,
           width: 512,
           height: 512,
           alt: post.title,
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
       images: [
         {
           type: "image/png",
-          url: post.thumbnail || "https://emojiapi.dev/api/v1/turtle/512.png",
+          url: imageUrl,
           width: 512,
           height: 512,
           alt: post.title,
