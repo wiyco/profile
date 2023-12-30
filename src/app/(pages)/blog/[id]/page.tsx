@@ -27,6 +27,38 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
   return {
     title: post.title,
     description: description,
+    openGraph: {
+      title: `${post.title} - Blog | wiyco`,
+      description: description,
+      type: "article",
+      url: `/blog/${post.id}`,
+      siteName: "wiyco",
+      images: [
+        {
+          type: "image/png",
+          url: post.thumbnail || "https://emojiapi.dev/api/v1/turtle/512.png",
+          width: 512,
+          height: 512,
+          alt: post.title,
+        },
+      ],
+      publishedTime: String(post.createdAt),
+      modifiedTime: String(post.updatedAt),
+    },
+    twitter: {
+      card: "summary",
+      title: `${post.title} - Blog | wiyco`,
+      description: description,
+      images: [
+        {
+          type: "image/png",
+          url: post.thumbnail || "https://emojiapi.dev/api/v1/turtle/512.png",
+          width: 512,
+          height: 512,
+          alt: post.title,
+        },
+      ],
+    },
   };
 }
 
@@ -36,7 +68,8 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const post = await getPost(params.id);
-  if (!post) return notFound();
+  /** @todo Is this necessary? */
+  // if (!post) return notFound();
 
   return (
     <div className="default-wrap mx-auto max-w-screen-md">
