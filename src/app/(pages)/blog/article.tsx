@@ -52,7 +52,7 @@ export async function Article({ searchParams }: ArticleProps) {
 
   return (
     <>
-      <article className="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-3">
+      <article className="grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {postsWithAvatar.map((item, index) => (
           <CardPost
             key={index}
