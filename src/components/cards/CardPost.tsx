@@ -64,9 +64,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp }: CardPostP
         </CardBody>
         <CardFooter>
           <div className="grid w-full grid-cols-2 gap-2.5 text-small text-zinc-500 dark:text-zinc-400">
-            {author?.name && (
-              <span className="break-words text-start">{author.name || "unknown"}</span>
-            )}
+            <span className="break-words text-start">{author?.name || ""}</span>
             {timestamp && (
               <TimeDiffClient
                 timestamp={timestamp}

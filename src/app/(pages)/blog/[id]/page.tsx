@@ -98,9 +98,7 @@ export default async function Page({ params }: PageProps) {
               </span>
               <span className="text-center text-[.875em] font-semibold">Written by</span>
             </div>
-            <span className="justify-self-center text-center">
-              {post.user?.username || "unknown"}
-            </span>
+            <span className="justify-self-center text-center">{post.user?.username || ""}</span>
           </section>
         </div>
       </div>
