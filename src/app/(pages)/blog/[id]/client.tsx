@@ -22,24 +22,24 @@ export function HeaderDate({ publishedAt, updatedAt }: HeaderDateProps) {
 
   return (
     <>
-      <section className="grid place-content-center gap-1">
+      <section className="grid h-full content-start gap-1">
         <div className="flex items-center justify-items-center space-x-1.5">
           <span className="stroke-current text-[.75em]">
             <Clock />
           </span>
-          <span className="text-[.875em] font-semibold">Published</span>
+          <span className="text-[.875em] font-bold">Published</span>
         </div>
         <time className="justify-self-center text-center" dateTime={String(publishedAt)}>
           {published}
         </time>
       </section>
       {published !== updated && (
-        <section className="grid place-content-center gap-1">
+        <section className="grid h-full content-start gap-1">
           <div className="flex items-center justify-items-center space-x-1.5">
             <span className="stroke-current text-[.75em]">
               <ClockRotateRight />
             </span>
-            <span className="text-[.875em] font-semibold">Updated</span>
+            <span className="text-[.875em] font-bold">Updated</span>
           </div>
           <time className="justify-self-center text-center" dateTime={String(updatedAt)}>
             {updated}

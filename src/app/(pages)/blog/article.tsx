@@ -47,7 +47,7 @@ export async function Article({ searchParams }: ArticleProps) {
         ...item,
         user: {
           ...item.user,
-          avatar: await getAvatar(item.user?.avatar || "", "webp").then((res) => res),
+          avatar: await getAvatar(item.user?.avatar, "webp").then((res) => res),
         },
       };
     })

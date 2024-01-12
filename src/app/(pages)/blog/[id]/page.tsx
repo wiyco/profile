@@ -73,7 +73,7 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <div className="default-wrap mx-auto max-w-screen-md">
-      <div className="grid w-full gap-6 py-6">
+      <section className="grid w-full gap-6 py-6">
         <div className="relative mx-auto aspect-square h-32 w-fit">
           <Image
             as={NextImage}
@@ -89,21 +89,19 @@ export default async function Page({ params }: PageProps) {
         <h1>
           <span>{post.title}</span>
         </h1>
-        <div className="header-wrap flex items-center justify-center space-x-6 text-sm md:space-x-8">
+        <div className="header-wrap flex items-center justify-center space-x-6 text-sm md:space-x-8 [&>*]:w-24">
           <HeaderDate publishedAt={post.createdAt} updatedAt={post.updatedAt} />
-          <section className="grid place-content-center gap-1">
+          <section className="grid h-full content-start gap-1">
             <div className="flex items-center justify-items-center space-x-1.5">
               <span className="stroke-current text-[.75em]">
                 <User />
               </span>
-              <span className="text-center text-[.875em] font-semibold">Written by</span>
+              <span className="text-center text-[.875em] font-bold">Written by</span>
             </div>
-            <span className="justify-self-center text-center">
-              {post.user?.username || "No User"}
-            </span>
+            <span className="justify-self-center text-center">{post.user?.username || ""}</span>
           </section>
         </div>
-      </div>
+      </section>
       <MarkdownRenderer>{post.content}</MarkdownRenderer>
     </div>
   );
