@@ -44,12 +44,12 @@ function ImageBlock(props: React.ComponentProps<"img">) {
   return (
     <Image
       as={NextImage}
-      classNames={{ wrapper: "mx-auto w-full md:w-4/5" }}
+      classNames={{ wrapper: "mx-auto w-full md:w-11/12" }}
       src={props.src ?? ""}
       alt={props.alt ?? ""}
       width={480}
       height={480}
-      sizes="(max-width: 768px) 100vw, 80vw"
+      sizes="(max-width: 768px) 100vw, 90vw"
       priority
       unoptimized={props.src?.startsWith("http")}
     />
@@ -65,25 +65,25 @@ function IframeBlock(props: React.ComponentProps<"iframe">) {
             {...props}
             width="100%"
             height="100%"
-            className={cn(props.className, "aspect-[9/16]")}
+            className={cn(props.className, "aspect-[9/16] rounded-xl")}
           />
         </div>
       );
     }
     return (
-      <div className="relative mx-auto w-full md:w-4/5">
+      <div className="relative mx-auto w-full md:w-11/12">
         <iframe
           {...props}
           width="100%"
           height="100%"
-          className={cn(props.className, "aspect-video")}
+          className={cn(props.className, "aspect-video rounded-xl")}
         />
       </div>
     );
   }
   return (
-    <div className="mx-auto h-full w-full md:w-4/5">
-      <iframe {...props} width="100%" height="100%" />
+    <div className="mx-auto h-full w-full md:w-11/12">
+      <iframe {...props} width="100%" height="100%" className={cn(props.className, "rounded-xl")} />
     </div>
   );
 }
