@@ -1,5 +1,6 @@
 import "@/styles/globals.scss";
 
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 import { Footer } from "@/components/layouts/Footer";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
