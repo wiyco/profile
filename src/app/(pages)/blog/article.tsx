@@ -55,7 +55,7 @@ export async function Article({ searchParams }: ArticleProps) {
 
   return (
     <>
-      <article className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {postsWithAvatar.map((item, index) => (
           <CardPost
             key={index}
@@ -67,9 +67,10 @@ export async function Article({ searchParams }: ArticleProps) {
               avatar: item.user.avatar,
             }}
             timestamp={item.createdAt}
+            animation={{ delay: index * 0.1 }}
           />
         ))}
-      </article>
+      </section>
       <Pagination
         className="mx-auto"
         count={posts.count}
