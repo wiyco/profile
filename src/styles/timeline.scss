@@ -1,0 +1,15 @@
+.timeline {
+  @apply relative;
+
+  &::before {
+    @apply absolute bottom-[4px] right-0 h-[calc(100%-16px)] w-[2px] rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+
+    content: "";
+  }
+
+  &::after {
+    @apply absolute -right-[3px] top-0 h-[8px] w-[8px] rounded-full bg-zinc-600/30 dark:bg-zinc-400/30;
+
+    content: "";
+  }
+}

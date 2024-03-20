@@ -2,6 +2,7 @@ type Archive = {
   title: string;
   thumbnail: string;
   url: string;
+  year?: number | null;
 };
 
 type RouteParams = { id: string };

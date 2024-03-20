@@ -13,6 +13,7 @@ import { useState } from "react";
 
 import { ThemeButton } from "@/components/buttons/ThemeButton";
 import { cn } from "@/utils/cn";
+import { isCurrentPath } from "@/utils/path";
 
 const navItems = [
   { label: "home", icon: <Home />, url: "/" },
@@ -53,7 +54,7 @@ export function Navbar() {
                 href={item.url}
                 startContent={<span className="stroke-current">{item.icon}</span>}
                 endContent={
-                  "/" + pathname?.split("/")[1] === item.url && (
+                  isCurrentPath(pathname, item.url) && (
                     <span className="stroke-current text-tiny">
                       <Check />
                     </span>
