@@ -14,6 +14,7 @@ type CardFullProps = {
   animation?: {
     delay?: number;
   };
+  className?: string;
 };
 
 export function CardFull({
@@ -23,6 +24,7 @@ export function CardFull({
   unoptimized,
   externalUrl,
   animation,
+  className,
 }: CardFullProps) {
   const externalOptions = externalUrl && {
     target: "_blank",
@@ -31,8 +33,10 @@ export function CardFull({
 
   return (
     <motion.article
+      className={className}
       initial={{ y: "2rem", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true }}
       transition={{
         type: "spring",
         stiffness: 220,
@@ -48,7 +52,7 @@ export function CardFull({
           classNames={{
             base: "aspect-16/10 w-full overflow-clip border-none shadow-md",
           }}
-          className="origin-bottom scale-100 bg-zinc-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-zinc-600/10"
+          className="origin-left scale-100 bg-zinc-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-zinc-600/10"
         >
           <Image
             as={NextImage}
