@@ -21,7 +21,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp }: CardPostP
       <Card
         shadow="none"
         classNames={{
-          base: "w-full overflow-clip border-none shadow-md p-2",
+          base: "h-full w-full overflow-clip border-none shadow-md p-2",
           footer: "pt-4",
         }}
         className="origin-bottom scale-100 bg-zinc-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-zinc-600/10"
@@ -63,7 +63,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp }: CardPostP
           </span>
         </CardBody>
         <CardFooter>
-          <div className="grid w-full grid-cols-2 gap-2.5 text-small text-zinc-500 dark:text-zinc-400">
+          <div className="grid w-full grid-cols-2 items-end gap-2.5 text-small text-zinc-500 dark:text-zinc-400">
             <span className="break-words text-start">{author?.name || ""}</span>
             {timestamp && (
               <TimeDiffClient
