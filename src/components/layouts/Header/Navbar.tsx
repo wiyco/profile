@@ -29,8 +29,12 @@ export function Navbar() {
     <>
       <nav className="flex items-center justify-center space-x-[1.125rem] md:hidden">
         <ThemeButton />
-        <Dropdown backdrop="blur" onOpenChange={(isOpen) => setIsOpen(isOpen)}>
-          <DropdownTrigger className="h-unit-8 min-w-unit-8">
+        <Dropdown
+          backdrop="blur"
+          onOpenChange={(isOpen) => setIsOpen(isOpen)}
+          classNames={{ trigger: "h-unit-8 min-w-unit-8" }}
+        >
+          <DropdownTrigger>
             <Button
               disableRipple
               className="bg-transparent p-0 data-[hover=true]:bg-transparent"
