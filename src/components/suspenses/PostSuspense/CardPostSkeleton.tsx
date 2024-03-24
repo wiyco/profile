@@ -1,27 +1,8 @@
-"use client";
-
 import { Card, CardBody, CardFooter, CardHeader, Skeleton } from "@nextui-org/react";
-import { motion } from "framer-motion";
 
-type CardPostSkeletonProps = {
-  animation?: {
-    delay?: number;
-  };
-};
-
-export function CardPostSkeleton({ animation }: CardPostSkeletonProps) {
+export function CardPostSkeleton() {
   return (
-    <motion.article
-      initial={{ y: "2rem", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 220,
-        damping: 20,
-        bounce: 0,
-        delay: animation?.delay || 0,
-      }}
-    >
+    <article>
       <Card
         shadow="none"
         classNames={{
@@ -44,6 +25,6 @@ export function CardPostSkeleton({ animation }: CardPostSkeletonProps) {
           </div>
         </CardFooter>
       </Card>
-    </motion.article>
+    </article>
   );
 }
