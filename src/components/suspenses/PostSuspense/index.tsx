@@ -7,8 +7,8 @@ export function PostSuspense() {
     <>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <CardPostSkeleton />
-        <CardPostSkeleton animation={{ delay: 0.1 }} />
-        <CardPostSkeleton animation={{ delay: 0.2 }} />
+        <CardPostSkeleton />
+        <CardPostSkeleton />
       </section>
       <Pagination className="mx-auto" count={3} itemsPerPage={3} initialPage={1} />
     </>

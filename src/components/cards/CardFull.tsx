@@ -36,7 +36,7 @@ export function CardFull({
       className={className}
       initial={{ y: "2rem", opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.95 }}
       transition={{
         type: "spring",
         stiffness: 220,
