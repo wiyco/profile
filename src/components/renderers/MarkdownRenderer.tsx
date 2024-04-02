@@ -3,6 +3,7 @@ import NextImage from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import remarkBreaks from "remark-breaks";
 
 import { cn } from "@/utils/cn";
 
@@ -10,6 +11,7 @@ export function MarkdownRenderer({ children }: { children: string }) {
   return (
     <ReactMarkdown
       className="markdown-wrap"
+      remarkPlugins={[remarkBreaks]}
       rehypePlugins={[rehypeRaw]}
       components={{
         h1: "h2",
@@ -94,8 +96,8 @@ function PreBlock(props: React.ComponentProps<"pre">) {
       <Snippet
         hideSymbol
         classNames={{
-          base: "my-8 pl-5 pr-11 w-full overflow-x-auto leading-[1.375rem]",
-          copyButton: "my-8 absolute right-2 top-[7px] backdrop-blur-xl",
+          base: "mb-6 mt-1 pl-5 pr-11 w-full overflow-x-auto leading-[1.375rem]",
+          copyButton: "mb-6 mt-1 absolute right-2 top-[7px] backdrop-blur-xl",
           pre: "py-1.5 whitespace-pre",
         }}
       >
