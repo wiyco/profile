@@ -15,16 +15,27 @@ const md = `
 
 ---
 
+### Newlines
+
+#### Line breaks
+
+Roses are red,
+Violets are blue.
+
+#### Paragraphs
+
+I am a paragraph.
+
+I am another paragraph.
+
+---
+
 ### Emphasis
 
 *This text will be italic*
-
 _This will also be italic_
-
 **This text will be bold**
-
 __This will also be bold__
-
 _You **can** combine them_
 
 ---
@@ -69,6 +80,8 @@ Unoptimized image:
 
 ![Turtle](https://www.dropbox.com/scl/fi/qme37n8heth255sy11dut/diving.webp?rlkey=2m87exrzh75i59lb8ctm6umhm&raw=1)
 
+Turtle.
+
 ---
 
 ### Iframes
@@ -77,12 +90,13 @@ Youtube video:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jDcO0rxyPYk?si=b2X0nhcu4IcZppMU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+Youtube.
+
 ---
 
 ### Links
 
 https://github.com - automatic!
-
 [GitHub](https://github.com)
 
 ---
@@ -98,16 +112,15 @@ As Kanye West said:
 
 ### Inline code
 
-I think you should use an
-\`<addr>\` element here instead.
+I think you should use an \`<addr>\` element here instead.
 
 ---
 
 ### Code blocks
 
 \`\`\`js
-function Re() {
-  console.log("React Markdown");
+function foo() {
+  console.log("bar");
 }
 \`\`\`
 
@@ -116,7 +129,6 @@ function Re() {
 ## Below are not supported
 
 Need to use [remark-gfm](https://github.com/remarkjs/remark-gfm).
-
 Add \`remarkGfm\` to \`remarkPlugins\` prop of \`ReactMarkdown\` component.
 
 \`\`\`js
@@ -151,6 +163,7 @@ Add \`remarkGfm\` to \`remarkPlugins\` prop of \`ReactMarkdown\` component.
 ### Emoji
 
 :smile:
+:+1:
 
 ---
 
