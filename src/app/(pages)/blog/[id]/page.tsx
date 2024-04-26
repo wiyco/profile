@@ -6,8 +6,8 @@ import { notFound } from "next/navigation";
 
 import { MarkdownRenderer } from "@/components/renderers/MarkdownRenderer";
 import type { RouteParams } from "@/types";
+import { markdownToText } from "@/utils/converter/markdown-to-text";
 import { getPost } from "@/utils/fetch/post";
-import { markdownToText } from "@/utils/render/markdown-to-text";
 
 import { HeaderDate } from "./client";
 
