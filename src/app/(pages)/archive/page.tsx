@@ -26,6 +26,7 @@ export default async function Page() {
                   className="flex-1 py-4 pl-6"
                   title={item.title}
                   thumbnail={item.thumbnail}
+                  isOGImage={item.isOGImage}
                   url={item.url}
                   isExternal={isExternalPath(item.url)}
                 />
@@ -46,6 +47,7 @@ export default async function Page() {
                   className="flex-1 py-4 pl-6"
                   title={item.title}
                   thumbnail={item.thumbnail}
+                  isOGImage={item.isOGImage}
                   url={item.url}
                   isExternal={isExternalPath(item.url)}
                 />
@@ -68,6 +70,7 @@ export default async function Page() {
                   className="col-span-5 py-4 pl-8"
                   title={item.title}
                   thumbnail={item.thumbnail}
+                  isOGImage={item.isOGImage}
                   url={item.url}
                   isExternal={isExternalPath(item.url)}
                 />
@@ -88,6 +91,7 @@ export default async function Page() {
                 className="col-span-5 py-4 pl-8"
                 title={item.title}
                 thumbnail={item.thumbnail}
+                isOGImage={item.isOGImage}
                 url={item.url}
                 isExternal={isExternalPath(item.url)}
               />

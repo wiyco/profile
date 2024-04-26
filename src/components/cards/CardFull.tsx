@@ -5,9 +5,12 @@ import { motion } from "framer-motion";
 import NextImage from "next/image";
 import Link from "next/link";
 
+import { cn } from "@/utils/cn";
+
 type CardFullProps = {
   title: string;
   thumbnail: string;
+  isOGImage?: boolean;
   url: string;
   isExternal?: boolean;
   animation?: {
@@ -19,6 +22,7 @@ type CardFullProps = {
 export function CardFull({
   title,
   thumbnail,
+  isOGImage,
   url,
   isExternal,
   animation,
@@ -55,7 +59,7 @@ export function CardFull({
           <Image
             as={NextImage}
             classNames={{ wrapper: "h-full w-full !max-w-none" }}
-            className="h-full w-full object-cover"
+            className={cn("h-full w-full", isOGImage ? "object-contain" : "object-cover")}
             src={thumbnail || "/fallback/noimage-padding.svg"}
             alt={title}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
