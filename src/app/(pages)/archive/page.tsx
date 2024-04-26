@@ -2,7 +2,7 @@ import "@/styles/timeline.scss";
 
 import { CardFull } from "@/components/cards/CardFull";
 import { cn } from "@/utils/cn";
-import { getArchives } from "@/utils/fetch/archive";
+import { getArchives } from "@/utils/fetcher/archive";
 
 export default async function Page() {
   const archives = await getArchives();
