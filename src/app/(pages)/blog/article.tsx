@@ -4,8 +4,8 @@ import { CardPost } from "@/components/cards/CardPost";
 import { Pagination } from "@/components/navigations/Pagination";
 import type { SearchParams } from "@/types";
 import { paginationApiRequest } from "@/types/api/pagination";
-import { getAvatar } from "@/utils/fetch/avatar";
-import { getPosts } from "@/utils/fetch/post";
+import { getAvatar } from "@/utils/fetcher/avatar";
+import { getPosts } from "@/utils/fetcher/post";
 
 const paginationSettings = {
   itemsPerPage: Number(process.env.NEXT_PUBLIC_PAGINATION_LIMIT) || 3,
