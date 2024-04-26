@@ -6,6 +6,7 @@ import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 
 import { cn } from "@/utils/cn";
+import { isExternalPath } from "@/utils/path";
 
 export function MarkdownRenderer({ children }: { children: string }) {
   return (
@@ -32,35 +33,41 @@ export function MarkdownRenderer({ children }: { children: string }) {
 }
 
 function LinkBlock(props: React.ComponentProps<"a">) {
-  if (props.href?.startsWith("http")) {
+  if (!props.href) return;
+
+  if (isExternalPath(props.href)) {
     return (
       <Link href={props.href} target="_blank" rel="noopener noreferrer">
         {props.children}
       </Link>
     );
   }
-  return <Link href={props.href ?? ""}>{props.children}</Link>;
+  return <Link href={props.href}>{props.children}</Link>;
 }
 
 function ImageBlock(props: React.ComponentProps<"img">) {
+  if (!props.src) return;
+
   return (
     <Image
       as={NextImage}
       classNames={{ wrapper: "mx-auto w-full md:w-11/12" }}
-      src={props.src ?? ""}
-      alt={props.alt ?? ""}
+      src={props.src}
+      alt={props.alt}
       width={480}
       height={480}
       sizes="(max-width: 768px) 100vw, 90vw"
       priority
-      unoptimized={props.src?.startsWith("http")}
+      unoptimized={isExternalPath(props.src)}
     />
   );
 }
 
 function IframeBlock(props: React.ComponentProps<"iframe">) {
-  if (props.src?.includes("youtube")) {
-    if (props.src?.includes("shorts")) {
+  if (!props.src) return;
+
+  if (props.src.includes("youtube")) {
+    if (props.src.includes("shorts")) {
       return (
         <div className="relative mx-auto h-[60dvh] md:h-[30dvh]">
           <iframe

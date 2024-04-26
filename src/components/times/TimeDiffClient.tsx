@@ -1,6 +1,6 @@
 "use client";
 
-import { getDiffDateTime } from "@/utils/datetime/format";
+import { getDiffDateTime } from "@/utils/formatter/datetime-diff";
 
 type TimeDiffClientProps = {
   timestamp: Parameters<typeof getDiffDateTime>[0];

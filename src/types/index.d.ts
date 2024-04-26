@@ -1,6 +1,7 @@
 type Archive = {
   title: string;
   thumbnail: string;
+  isOGImage?: boolean;
   url: string;
   year?: number | null;
 };

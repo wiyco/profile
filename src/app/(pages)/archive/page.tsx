@@ -2,7 +2,8 @@ import "@/styles/timeline.scss";
 
 import { CardFull } from "@/components/cards/CardFull";
 import { cn } from "@/utils/cn";
-import { getArchives } from "@/utils/fetch/archive";
+import { getArchives } from "@/utils/fetcher/archive";
+import { isExternalPath } from "@/utils/path";
 
 export default async function Page() {
   const archives = await getArchives();
@@ -25,9 +26,9 @@ export default async function Page() {
                   className="flex-1 py-4 pl-6"
                   title={item.title}
                   thumbnail={item.thumbnail}
+                  isOGImage={item.isOGImage}
                   url={item.url}
-                  unoptimized
-                  externalUrl={item.url.startsWith("http")}
+                  isExternal={isExternalPath(item.url)}
                 />
               </section>
             );
@@ -46,9 +47,9 @@ export default async function Page() {
                   className="flex-1 py-4 pl-6"
                   title={item.title}
                   thumbnail={item.thumbnail}
+                  isOGImage={item.isOGImage}
                   url={item.url}
-                  unoptimized
-                  externalUrl={item.url.startsWith("http")}
+                  isExternal={isExternalPath(item.url)}
                 />
               </section>
             </section>
@@ -69,9 +70,9 @@ export default async function Page() {
                   className="col-span-5 py-4 pl-8"
                   title={item.title}
                   thumbnail={item.thumbnail}
+                  isOGImage={item.isOGImage}
                   url={item.url}
-                  unoptimized
-                  externalUrl={item.url.startsWith("http")}
+                  isExternal={isExternalPath(item.url)}
                 />
               </section>
             );
@@ -90,9 +91,9 @@ export default async function Page() {
                 className="col-span-5 py-4 pl-8"
                 title={item.title}
                 thumbnail={item.thumbnail}
+                isOGImage={item.isOGImage}
                 url={item.url}
-                unoptimized
-                externalUrl={item.url.startsWith("http")}
+                isExternal={isExternalPath(item.url)}
               />
             </section>
           );
