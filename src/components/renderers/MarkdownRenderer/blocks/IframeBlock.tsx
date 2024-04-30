@@ -2,18 +2,6 @@ export function IframeBlock(props: React.ComponentProps<"iframe">) {
   if (!props.src) return;
 
   if (props.src.includes("youtube")) {
-    // if (props.src.includes("shorts")) {
-    //   return (
-    //     <div className="relative mx-auto h-[60dvh] md:h-[30dvh]">
-    //       <iframe
-    //         {...props}
-    //         width="100%"
-    //         height="100%"
-    //         className={cn(props.className, "aspect-[9/16] rounded-xl")}
-    //       />
-    //     </div>
-    //   );
-    // }
     if (props.title?.toLocaleLowerCase().includes("music")) {
       return (
         <div
