@@ -1,6 +1,7 @@
 import { YouTubeEmbed } from "@next/third-parties/google";
 import Link from "next/link";
 
+import { isYouTubeLink } from "@/utils/embedder/youtube";
 import { isExternalPath } from "@/utils/path";
 
 export function LinkBlock(props: React.ComponentProps<"a">) {
@@ -11,8 +12,8 @@ export function LinkBlock(props: React.ComponentProps<"a">) {
     rel: "noopener noreferrer",
   };
 
-  /** YouTube link */
-  if (props.href.match(/youtu\.*be/g)) {
+  /** Convert YouTube link to embed if it's not a normal link */
+  if (isYouTubeLink(props.href) && isExternalPath(props.children?.toString() || "")) {
     const videoId = props.href
       .split("/")
       .slice(-1)[0]

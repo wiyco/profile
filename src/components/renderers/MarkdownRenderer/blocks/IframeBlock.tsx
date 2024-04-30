@@ -1,8 +1,10 @@
+import { hasMusicInTitle, isYouTubeLink } from "@/utils/embedder/youtube";
+
 export function IframeBlock(props: React.ComponentProps<"iframe">) {
   if (!props.src) return;
 
-  if (props.src.includes("youtube")) {
-    if (props.title?.toLocaleLowerCase().includes("music")) {
+  if (isYouTubeLink(props.src)) {
+    if (hasMusicInTitle(props.title ?? "")) {
       return (
         <div
           className="mx-auto aspect-square w-full overflow-clip rounded-xl"
