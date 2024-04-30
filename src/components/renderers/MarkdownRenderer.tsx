@@ -51,7 +51,7 @@ function ImageBlock(props: React.ComponentProps<"img">) {
   return (
     <Image
       as={NextImage}
-      classNames={{ wrapper: "mx-auto w-full md:w-11/12" }}
+      classNames={{ wrapper: "mx-auto w-full md:w-11/12", img: "rounded-xl" }}
       src={props.src}
       alt={props.alt}
       width={480}
