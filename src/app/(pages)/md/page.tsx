@@ -78,19 +78,39 @@ _You **can** combine them_
 
 Unoptimized image:
 
-![Turtle](https://www.dropbox.com/scl/fi/qme37n8heth255sy11dut/diving.webp?rlkey=2m87exrzh75i59lb8ctm6umhm&raw=1)
+![Clownfish](https://www.dropbox.com/scl/fi/qme37n8heth255sy11dut/diving.webp?rlkey=2m87exrzh75i59lb8ctm6umhm&raw=1)
 
-Turtle.
+Optimized image:
+
+![Icon](/android-chrome-512x512.png)
 
 ---
 
 ### Iframes
 
-Youtube video:
+Youtube video iframe:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jDcO0rxyPYk?si=b2X0nhcu4IcZppMU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Il0S8BoucSA?si=LZoFoRN8OioIBvw5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Youtube.
+YouTube music playlist iframe (title includes "music"):
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?si=RnI5mKs7TqrDWX3E&amp;list=PLZTlYKHxqtEy4C6C1MLS6p00501znqBSg" title="YouTube music player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Youtube shorts (auto-embed):
+
+- \`https://youtube.com/shorts/fWBdoAXYeg4?si=FzCrAF5nWY5ear7V\`
+
+https://youtube.com/shorts/fWBdoAXYeg4?si=FzCrAF5nWY5ear7V
+
+Youtube video (auto-embed link):
+
+- \`https://www.youtube.com/watch?v=3KtWfp0UopM\`
+
+https://www.youtube.com/watch?v=3KtWfp0UopM
+
+- \`https://youtu.be/3KtWfp0UopM?si=-FWWbsXXGNPn6ArE\`
+
+https://youtu.be/3KtWfp0UopM?si=-FWWbsXXGNPn6ArE
 
 ---
 
@@ -126,7 +146,7 @@ function foo() {
 
 ---
 
-## Below are not supported
+## Below are now supported!! (4/30/2024)
 
 Need to use [remark-gfm](https://github.com/remarkjs/remark-gfm).
 Add \`remarkGfm\` to \`remarkPlugins\` prop of \`ReactMarkdown\` component.
@@ -140,7 +160,7 @@ Add \`remarkGfm\` to \`remarkPlugins\` prop of \`ReactMarkdown\` component.
 ### Tables
 
 | Syntax | Description |
-| ----------- | ----------- |
+| ----------- | :-----------: |
 | Header | Title |
 | Paragraph | Text |
 
