@@ -96,19 +96,19 @@ YouTube music playlist iframe (title includes "music"):
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?si=RnI5mKs7TqrDWX3E&amp;list=PLZTlYKHxqtEy4C6C1MLS6p00501znqBSg" title="YouTube music player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Youtube shorts (auto-embed):
+Youtube short (auto-embed):
 
-- \`https://youtube.com/shorts/fWBdoAXYeg4?si=FzCrAF5nWY5ear7V\`
+\`https://youtube.com/shorts/fWBdoAXYeg4?si=FzCrAF5nWY5ear7V\`
 
 https://youtube.com/shorts/fWBdoAXYeg4?si=FzCrAF5nWY5ear7V
 
-Youtube video (auto-embed link):
+Youtube video (auto-embed):
 
-- \`https://www.youtube.com/watch?v=3KtWfp0UopM\`
+\`https://www.youtube.com/watch?v=3KtWfp0UopM\`
 
 https://www.youtube.com/watch?v=3KtWfp0UopM
 
-- \`https://youtu.be/3KtWfp0UopM?si=-FWWbsXXGNPn6ArE\`
+\`https://youtu.be/3KtWfp0UopM?si=-FWWbsXXGNPn6ArE\`
 
 https://youtu.be/3KtWfp0UopM?si=-FWWbsXXGNPn6ArE
 
