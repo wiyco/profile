@@ -1,4 +1,4 @@
-import { permanentRedirect } from "next/navigation";
+import { permanentRedirect, RedirectType } from "next/navigation";
 
 import { CardPost } from "@/components/cards/CardPost";
 import { Pagination } from "@/components/navigations/Pagination";
@@ -18,7 +18,7 @@ type ArticleProps = {
 export async function Article({ searchParams }: ArticleProps) {
   /** The `page` param is not set */
   if (!searchParams?.page) {
-    return permanentRedirect(`?page=1`);
+    return permanentRedirect(`?page=1`, RedirectType.replace);
   }
   const pagination = paginationApiRequest.parse({
     limit: paginationSettings.itemsPerPage,
@@ -27,7 +27,7 @@ export async function Article({ searchParams }: ArticleProps) {
   const pageNumber = pagination.offset;
   /** The page number is out of range (min) */
   if (pageNumber < 1) {
-    return permanentRedirect(`?page=1`);
+    return permanentRedirect(`?page=1`, RedirectType.replace);
   }
   const limit = pagination.limit;
   const offset = (pageNumber - 1) * paginationSettings.itemsPerPage; // offset 0 = no offset
@@ -35,7 +35,10 @@ export async function Article({ searchParams }: ArticleProps) {
   const posts = await getPosts(limit, offset);
   /** The page number is out of range (max) */
   if (offset + 1 > posts.count) {
-    return permanentRedirect(`?page=${Math.ceil(posts.count / paginationSettings.itemsPerPage)}`);
+    return permanentRedirect(
+      `?page=${Math.ceil(posts.count / paginationSettings.itemsPerPage)}`,
+      RedirectType.replace
+    );
   }
   /** Retrieve the avatar url for each post */
   const postsWithAvatar = await Promise.all(
