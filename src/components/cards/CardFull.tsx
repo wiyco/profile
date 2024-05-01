@@ -59,7 +59,10 @@ export function CardFull({
           <Image
             as={NextImage}
             classNames={{ wrapper: "h-full w-full !max-w-none" }}
-            className={cn("h-full w-full", isOGImage ? "object-contain" : "object-cover")}
+            className={cn(
+              "h-full w-full",
+              isOGImage ? "object-contain object-top" : "object-cover object-center"
+            )}
             src={thumbnail || "/fallback/noimage-padding.svg"}
             alt={title}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
@@ -67,7 +70,7 @@ export function CardFull({
             priority
             unoptimized={isExternal}
           />
-          <CardFooter className="absolute inset-x-0 bottom-1 z-10 mx-auto grid w-[calc(100%-0.5rem)] place-content-center rounded-large py-5 backdrop-brightness-[.7]">
+          <CardFooter className="absolute inset-x-0 bottom-1 z-10 mx-auto grid w-[calc(100%-0.5rem)] place-content-center rounded-medium py-2.5 backdrop-brightness-[.7] md:py-[1.375rem]">
             <span className="break-words text-center text-small text-white">{title}</span>
           </CardFooter>
         </Card>
