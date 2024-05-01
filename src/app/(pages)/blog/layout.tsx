@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: {
     default: "Blog",
-    template: "%s - Blog | wiyco",
+    template: "%s @ Blog – wiyco",
   },
   description: "wiyco's blog.",
   openGraph: {
-    title: "Blog | wiyco",
+    title: "Blog – wiyco",
     description: "wiyco's blog.",
     type: "website",
     url: "/blog",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/android-chrome-512x512.png?v=0.1",
+        url: "/android-chrome-512x512.png?v=1.0",
         width: 512,
         height: 512,
         alt: "wiyco",
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Blog | wiyco",
+    title: "Blog – wiyco",
     description: "wiyco's blog.",
     images: [
       {
         type: "image/png",
-        url: "/android-chrome-512x512.png?v=0.1",
+        url: "/android-chrome-512x512.png?v=1.0",
         width: 512,
         height: 512,
         alt: "wiyco",

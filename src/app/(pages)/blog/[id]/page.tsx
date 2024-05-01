@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
     title: post.title,
     description: description,
     openGraph: {
-      title: `${post.title} - Blog | wiyco`,
+      title: `${post.title} @ Blog – wiyco`,
       description: description,
       type: "article",
       url: `/blog/${post.id}`,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
     },
     twitter: {
       card: "summary",
-      title: `${post.title} - Blog | wiyco`,
+      title: `${post.title} @ Blog – wiyco`,
       description: description,
       images: [
         {

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_ORIGIN_URL || "http://localhost:3000"),
   title: {
     default: "wiyco",
-    template: "%s | wiyco",
+    template: "%s – wiyco",
   },
   description: "wiyco's personal website.",
   openGraph: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/android-chrome-512x512.png?v=0.1",
+        url: "/android-chrome-512x512.png?v=1.0",
         width: 512,
         height: 512,
         alt: "wiyco",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/android-chrome-512x512.png?v=0.1",
+        url: "/android-chrome-512x512.png?v=1.0",
         width: 512,
         height: 512,
         alt: "wiyco",
@@ -48,36 +48,36 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon-32x32.png?v=0.1",
+        url: "/favicon-32x32.png?v=1.0",
         sizes: "32x32",
         type: "image/png",
       },
       {
-        url: "/favicon-16x16.png?v=0.1",
+        url: "/favicon-16x16.png?v=1.0",
         sizes: "16x16",
         type: "image/png",
       },
       {
-        url: "/favicon.ico?v=0.1",
+        url: "/favicon.ico?v=1.0",
         sizes: "32x32",
       },
       {
-        url: "/icon.svg?v=0.1",
+        url: "/icon.svg?v=1.0",
         sizes: "any",
         type: "image/svg+xml",
       },
     ],
     apple: {
-      url: "/apple-touch-icon.png?v=0.1",
+      url: "/apple-touch-icon.png?v=1.0",
       sizes: "180x180",
       type: "image/png",
     },
   },
-  manifest: "/site.webmanifest?v=0.1",
+  manifest: "/site.webmanifest?v=1.0",
   appleWebApp: {
     title: "wiyco",
     statusBarStyle: "black",
-    startupImage: "/android-chrome-512x512.png?v=0.1",
+    startupImage: "/android-chrome-512x512.png?v=1.0",
   },
 };
 
