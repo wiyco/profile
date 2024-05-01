@@ -64,7 +64,10 @@ export function Navbar() {
                     </span>
                   )
                 }
-                className="py-2.5"
+                className={cn(
+                  "py-2.5",
+                  isCurrentPath(pathname, item.url) ? "opacity-100" : "opacity-60"
+                )}
               >
                 {item.label.charAt(0).toUpperCase() + item.label.slice(1)}
               </DropdownItem>
