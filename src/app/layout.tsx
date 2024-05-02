@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/android-chrome-512x512.png?v=2.0",
+        url: "/android-chrome-512x512.png?v=2.1",
         width: 512,
         height: 512,
         alt: "wiyco",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/android-chrome-512x512.png?v=2.0",
+        url: "/android-chrome-512x512.png?v=2.1",
         width: 512,
         height: 512,
         alt: "wiyco",
@@ -48,36 +48,36 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon-32x32.png?v=2.0",
+        url: "/favicon-32x32.png?v=2.1",
         sizes: "32x32",
         type: "image/png",
       },
       {
-        url: "/favicon-16x16.png?v=2.0",
+        url: "/favicon-16x16.png?v=2.1",
         sizes: "16x16",
         type: "image/png",
       },
       {
-        url: "/favicon.ico?v=2.0",
+        url: "/favicon.ico?v=2.1",
         sizes: "32x32",
       },
       {
-        url: "/icon.svg?v=2.0",
+        url: "/icon.svg?v=2.1",
         sizes: "any",
         type: "image/svg+xml",
       },
     ],
     apple: {
-      url: "/apple-touch-icon.png?v=2.0",
+      url: "/apple-touch-icon.png?v=2.1",
       sizes: "180x180",
       type: "image/png",
     },
   },
-  manifest: "/site.webmanifest?v=2.0",
+  manifest: "/site.webmanifest?v=2.1",
   appleWebApp: {
     title: "wiyco",
     statusBarStyle: "black",
-    startupImage: "/android-chrome-512x512.png?v=2.0",
+    startupImage: "/android-chrome-512x512.png?v=2.1",
   },
 };
 

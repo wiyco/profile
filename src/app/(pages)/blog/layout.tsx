@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/android-chrome-512x512.png?v=2.0",
+        url: "/android-chrome-512x512.png?v=2.1",
         width: 512,
         height: 512,
         alt: "wiyco",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     images: [
       {
         type: "image/png",
-        url: "/android-chrome-512x512.png?v=2.0",
+        url: "/android-chrome-512x512.png?v=2.1",
         width: 512,
         height: 512,
         alt: "wiyco",
