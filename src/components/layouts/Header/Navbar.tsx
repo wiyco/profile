@@ -37,7 +37,7 @@ export function Navbar() {
           <DropdownTrigger>
             <Button
               disableRipple
-              className="bg-transparent p-0 data-[hover=true]:bg-transparent"
+              className="h-8 min-w-8 bg-transparent p-0 data-[hover=true]:bg-transparent"
               variant="light"
               radius="sm"
             >
