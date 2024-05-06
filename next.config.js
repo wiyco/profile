@@ -1,14 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    minimumCacheTTL: 14400,
+    minimumCacheTTL: 14400, // 4 hours
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "www.dropbox.com",
-        port: "",
-        pathname: "/**",
-      },
+      /** @see {@link https://emojiapi.dev} */
       {
         protocol: "https",
         hostname: "emojiapi.dev",
