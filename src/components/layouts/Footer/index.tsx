@@ -1,5 +1,6 @@
 "use client";
 
+import { MediaLinks } from "@constants/links";
 import GitHub from "@icons/github.svg";
 import Instagram from "@icons/instagram.svg";
 import X from "@icons/x.svg";
@@ -10,8 +11,6 @@ import { useEffect, useState } from "react";
 import type { NavItem } from "@/components/layouts/Footer/NavExpander";
 import { NavExpander } from "@/components/layouts/Footer/NavExpander";
 import { cn } from "@/utils/cn";
-
-import { MediaLinks } from "@constants/links";
 
 const navItems: NavItem[] = [
   {
