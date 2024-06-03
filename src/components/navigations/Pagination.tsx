@@ -24,7 +24,7 @@ export function Pagination({ className, count, itemsPerPage, initialPage }: Pagi
 
   return (
     <NextPagination
-      className={className + ""}
+      className={className}
       classNames={{
         wrapper: "gap-3",
         item: "w-12",
