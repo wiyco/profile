@@ -78,7 +78,7 @@ _You **can** combine them_
 
 Unoptimized image:
 
-![Clownfish](https://www.dropbox.com/scl/fi/qme37n8heth255sy11dut/diving.webp?rlkey=2m87exrzh75i59lb8ctm6umhm&raw=1)
+![Clownfish](https://res.cloudinary.com/dzxz47rs3/image/upload/v1714952234/wiyco.dev/archive/_thumbnail/diving.webp)
 
 Optimized image:
 
