@@ -33,6 +33,8 @@ export function Pagination({ className, count, itemsPerPage, initialPage }: Pagi
         prev: "w-16",
         next: "w-16",
       }}
+      disableAnimation={false}
+      disableCursorAnimation={false}
       showControls
       size="lg"
       radius="full"
