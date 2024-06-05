@@ -6,7 +6,7 @@ import Instagram from "@icons/instagram.svg";
 import X from "@icons/x.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import type { NavItem } from "@/components/layouts/Footer/NavExpander";
 import { NavExpander } from "@/components/layouts/Footer/NavExpander";
@@ -42,7 +42,7 @@ export function Footer() {
   const pathname = usePathname();
   const [isRoot, setIsRoot] = useState(false);
 
-  useEffect(() => setIsRoot(pathname === "/"), [pathname]);
+  useMemo(() => setIsRoot(pathname === "/"), [pathname]);
 
   return (
     <footer
