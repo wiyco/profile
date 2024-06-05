@@ -3,7 +3,7 @@
 import NavArrowDown from "@icons/nav-arrow-down.svg";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { cn } from "@/utils/cn";
 
@@ -23,7 +23,10 @@ type NavExpanderProps = {
 };
 
 export function NavExpander({ navItems, enableDarkMode }: NavExpanderProps) {
-  const navOpenState = navItems.map((item) => ({ [item.header]: false }));
+  const navOpenState = useMemo(
+    () => navItems.map((item) => ({ [item.header]: false })),
+    [navItems]
+  );
   const [isOpen, setIsOpen] = useState<typeof navOpenState>(navOpenState);
 
   return (
