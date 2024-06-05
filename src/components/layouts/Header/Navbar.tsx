@@ -1,10 +1,7 @@
 "use client";
 
 import Check from "@icons/check.svg";
-import FloppyDisk from "@icons/floppy-disk.svg";
-import Home from "@icons/home.svg";
 import Menu from "@icons/menu.svg";
-import PageEdit from "@icons/page-edit.svg";
 import Xmark from "@icons/xmark.svg";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import Link from "next/link";
@@ -12,14 +9,9 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { ThemeButton } from "@/components/buttons/ThemeButton";
+import { navItems } from "@/components/layouts/Header/constants";
 import { cn } from "@/utils/cn";
 import { isCurrentPath } from "@/utils/path";
-
-const navItems = [
-  { label: "home", icon: <Home />, url: "/" },
-  { label: "archive", icon: <FloppyDisk />, url: "/archive" },
-  { label: "blog", icon: <PageEdit />, url: "/blog?page=1" },
-];
 
 export function Navbar() {
   const pathname = usePathname();
