@@ -3,7 +3,7 @@
 import { Raleway } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 import { Navbar } from "@/components/layouts/Header/Navbar";
 import { cn } from "@/utils/cn";
@@ -14,7 +14,7 @@ export function Header() {
   const pathname = usePathname();
   const [isRoot, setIsRoot] = useState(false);
 
-  useEffect(() => setIsRoot(pathname === "/"), [pathname]);
+  useMemo(() => setIsRoot(pathname === "/"), [pathname]);
 
   return (
     <header

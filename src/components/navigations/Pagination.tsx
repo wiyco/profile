@@ -2,7 +2,7 @@
 
 import { Pagination as NextPagination } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { useLayoutEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 type PaginationProps = {
   className?: string;
@@ -14,10 +14,7 @@ type PaginationProps = {
 export function Pagination({ className, count, itemsPerPage, initialPage }: PaginationProps) {
   const router = useRouter();
 
-  const [pageNumber, setPageNumber] = useState(1);
-
-  useLayoutEffect(() => setPageNumber(initialPage), [initialPage]);
-
+  const pageNumber = useMemo(() => initialPage, [initialPage]);
   const totalPageNumber = useMemo(() => {
     return Math.ceil(count / itemsPerPage);
   }, [count, itemsPerPage]);
