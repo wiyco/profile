@@ -8,35 +8,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 
-import type { NavItem } from "@/components/layouts/Footer/NavExpander";
+import { navItems } from "@/components/layouts/Footer/constants";
 import { NavExpander } from "@/components/layouts/Footer/NavExpander";
 import { cn } from "@/utils/cn";
-
-const navItems: NavItem[] = [
-  {
-    header: "Map",
-    children: [
-      { label: "Home", url: "/" },
-      { label: "Archive", url: "/archive" },
-      { label: "Blog", url: "/blog?page=1" },
-    ],
-  },
-  {
-    header: "About",
-    children: [
-      { label: "GitHub", url: MediaLinks.GITHUB },
-      { label: "X", url: MediaLinks.X },
-      { label: "Instagram", url: MediaLinks.INSTAGRAM },
-    ],
-  },
-  {
-    header: "More",
-    children: [
-      { label: "Vercel", url: MediaLinks.VERCEL },
-      { label: "Supabase", url: MediaLinks.SUPABASE },
-    ],
-  },
-];
 
 export function Footer() {
   const pathname = usePathname();
