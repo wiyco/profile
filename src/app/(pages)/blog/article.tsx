@@ -66,7 +66,7 @@ export async function Article({ searchParams }: ArticleProps) {
               name: item.user.username,
               avatar: item.user.avatar,
             }}
-            timestamp={item.createdAt}
+            timestamp={item.updatedAt}
             animation={{ delay: index * 0.1 }}
           />
         ))}
