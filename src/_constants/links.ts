@@ -6,4 +6,9 @@ enum MediaLinks {
   SUPABASE = "https://supabase.com",
 }
 
-export { MediaLinks };
+enum ImageLinks {
+  EMOJI_FALLBACK = "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Turtle/3D/turtle_3d.png",
+  EMOJI_ANIMATE_FALLBACK = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Turtle.png",
+}
+
+export { ImageLinks, MediaLinks };

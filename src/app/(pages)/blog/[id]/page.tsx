@@ -1,3 +1,4 @@
+import { ImageLinks } from "@constants/links";
 import User from "@icons/user.svg";
 import { Image } from "@nextui-org/react";
 import type { Metadata } from "next";
@@ -20,9 +21,7 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
   if (!post) return notFound();
 
   const description = markdownToText(post.content);
-  const imageUrl =
-    post.thumbnail.replace(/(v[0-9])\/(.*)(\.svg)$/, "$1/$2/512.png") ||
-    "https://emojiapi.dev/api/v1/turtle/512.png";
+  const imageUrl = post.thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK;
 
   return {
     title: post.title,
@@ -79,7 +78,7 @@ export default async function Page({ params }: PageProps) {
             as={NextImage}
             classNames={{ wrapper: "h-full w-full !max-w-none" }}
             className="h-full w-full object-cover p-1.5"
-            src={post.thumbnail || "https://emojiapi.dev/api/v1/turtle.svg"}
+            src={post.thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK}
             alt={post.title}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, (max-width: 1536px) 25vw, 20vw"
             fill

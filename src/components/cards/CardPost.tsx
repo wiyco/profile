@@ -1,5 +1,6 @@
 "use client";
 
+import { ImageLinks } from "@constants/links";
 import { Avatar, Card, CardBody, CardFooter, CardHeader, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import NextImage from "next/image";
@@ -49,7 +50,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp, animation }
                 as={NextImage}
                 classNames={{ wrapper: "h-full w-full !max-w-none" }}
                 className="h-full w-full object-cover p-1.5"
-                src={thumbnail || "https://emojiapi.dev/api/v1/turtle.svg"}
+                src={thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK}
                 alt={title}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, (max-width: 1536px) 25vw, 20vw"
                 fill
@@ -65,7 +66,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp, animation }
               fallback={
                 <Image
                   as={NextImage}
-                  src="https://emojiapi.dev/api/v1/turtle.svg"
+                  src={ImageLinks.EMOJI_FALLBACK}
                   alt="turtle"
                   width={96}
                   height={96}
