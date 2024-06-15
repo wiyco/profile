@@ -14,19 +14,19 @@ const nextConfig = {
     /** @see {@link https://nextjs.org/docs/app/api-reference/components/image#minimumcachettl} */
     minimumCacheTTL: 14400, // 4 hours
     remotePatterns: [
-      /** @see {@link https://github.com/microsoft/fluentui-emoji} */
+      /** @see {@link https://github.com/wiyco/fluentui-emoji} */
       {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
         port: "",
-        pathname: "/microsoft/fluentui-emoji/main/assets/**",
+        pathname: "/wiyco/fluentui-emoji/main/assets/**",
       },
-      /** @see {@link https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis} */
+      /** @see {@link https://github.com/wiyco/Animated-Fluent-Emojis} */
       {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
         port: "",
-        pathname: "/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/**",
+        pathname: "/wiyco/Animated-Fluent-Emojis/master/Emojis/**",
       },
     ],
   },
