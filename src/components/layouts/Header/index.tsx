@@ -1,14 +1,12 @@
 "use client";
 
-import { Raleway } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 
 import { Navbar } from "@/components/layouts/Header/Navbar";
+import { raleway } from "@/styles/fonts";
 import { cn } from "@/utils/cn";
-
-const raleway = Raleway({ subsets: ["latin"], display: "swap" });
 
 export function Header() {
   const pathname = usePathname();
