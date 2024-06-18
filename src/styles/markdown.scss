@@ -1,11 +1,11 @@
 .markdown-wrap {
-  @apply grid h-full w-full content-start py-5 text-zinc-800/80 dark:text-zinc-200/80;
+  @apply grid h-full w-full content-start py-5 text-neutral-800/80 dark:text-neutral-200/80;
 
   h2 {
     @apply relative mb-5 mt-2 w-fit py-1.5 pr-[5%] text-xl font-semibold;
 
     &::before {
-      @apply absolute inset-x-0 -bottom-1 h-[2px] w-full rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+      @apply absolute inset-x-0 -bottom-1 h-[2px] w-full rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
 
       content: "";
     }
@@ -15,7 +15,7 @@
     @apply relative mb-[1.125rem] mt-1 w-fit py-1 pr-[3%] text-lg font-semibold;
 
     &::before {
-      @apply absolute inset-x-0 -bottom-1 h-[1px] w-full rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+      @apply absolute inset-x-0 -bottom-1 h-[1px] w-full rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
 
       content: "";
     }
@@ -25,7 +25,7 @@
     @apply relative mb-4 mt-0.5 w-fit py-1 pr-[1%] text-md font-medium;
 
     &::before {
-      @apply absolute inset-x-0 -bottom-1 h-[1px] w-full rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+      @apply absolute inset-x-0 -bottom-1 h-[1px] w-full rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
 
       content: "";
     }
@@ -57,14 +57,14 @@
   }
 
   :not(pre) > code {
-    @apply mx-0.5 rounded-lg bg-zinc-200/75 px-1.5 py-0.5 text-[0.875em] dark:bg-zinc-700/75;
+    @apply mx-0.5 rounded-lg bg-neutral-200/75 px-1.5 py-0.5 text-[0.875em] dark:bg-neutral-700/75;
   }
 
   blockquote {
-    @apply relative mb-4 ml-2 w-11/12 pl-5 text-zinc-600/80 dark:text-zinc-400/80;
+    @apply relative mb-4 ml-2 w-11/12 pl-5 text-neutral-600/80 dark:text-neutral-400/80;
 
     &::before {
-      @apply absolute inset-y-0 left-0 h-full w-[3px] rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+      @apply absolute inset-y-0 left-0 h-full w-[3px] rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
 
       content: "";
     }
@@ -81,7 +81,7 @@
       @apply relative leading-relaxed;
 
       &::before {
-        @apply absolute inset-y-0 -left-[1.125rem] text-zinc-600/40 dark:text-zinc-400/40;
+        @apply absolute inset-y-0 -left-[1.125rem] text-neutral-600/40 dark:text-neutral-400/40;
 
         content: "•";
       }
@@ -97,7 +97,7 @@
       @apply relative leading-relaxed;
 
       &::before {
-        @apply absolute inset-y-0 -left-[1.125rem] text-zinc-600/40 dark:text-zinc-400/40;
+        @apply absolute inset-y-0 -left-[1.125rem] text-neutral-600/40 dark:text-neutral-400/40;
 
         content: counter(orderedlist) ".";
         counter-increment: orderedlist;
@@ -123,7 +123,7 @@
     @apply relative my-8 h-[3px] w-full border-0 border-none;
 
     &::before {
-      @apply absolute inset-0 rounded-full bg-zinc-600/25 dark:bg-zinc-400/25;
+      @apply absolute inset-0 rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
 
       content: "";
     }
@@ -134,7 +134,7 @@
 
     th,
     td {
-      @apply border-1 border-zinc-600/25 px-4 py-1.5 dark:border-zinc-400/25;
+      @apply border-1 border-neutral-600/25 px-4 py-1.5 dark:border-neutral-400/25;
     }
 
     th {
@@ -142,7 +142,7 @@
     }
 
     tr:nth-child(2n) {
-      @apply bg-zinc-300/25 dark:bg-zinc-700/25;
+      @apply bg-neutral-300/25 dark:bg-neutral-700/25;
     }
   }
 }

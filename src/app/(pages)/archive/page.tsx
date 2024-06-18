@@ -38,7 +38,7 @@ export default async function Page() {
           /** Is not equal to the latest year */
           return (
             <section className={cn("grid gap-4", index === 0 ? "" : "mt-8")} key={index}>
-              <span className="text-lg font-semibold text-zinc-900/75 dark:text-zinc-100/75">
+              <span className="text-lg font-semibold text-neutral-900/75 dark:text-neutral-100/75">
                 {item.year || "Enigma"}
               </span>
               <section className="flex">
@@ -83,7 +83,7 @@ export default async function Page() {
           return (
             <section className={cn("grid grid-cols-6", index === 0 ? "" : "mt-8")} key={index}>
               <aside className="timeline col-span-1 pr-6 text-center">
-                <span className="text-xl font-semibold text-zinc-900/75 dark:text-zinc-100/75">
+                <span className="text-xl font-semibold text-neutral-900/75 dark:text-neutral-100/75">
                   {item.year || "Enigma"}
                 </span>
               </aside>

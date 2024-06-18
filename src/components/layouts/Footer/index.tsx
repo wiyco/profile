@@ -21,7 +21,7 @@ export function Footer() {
     <footer
       className={cn(
         "w-full px-6 py-5",
-        isRoot ? "fixed inset-x-0 bottom-0" : "static bg-zinc-800 text-white"
+        isRoot ? "fixed inset-x-0 bottom-0" : "static bg-neutral-800 text-white"
       )}
     >
       <div className="mt-5 grid gap-6 text-sm">
