@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 
 import { Footer } from "@/components/layouts/Footer";
 import { Header } from "@/components/layouts/Header";
+import { inter, notoSansJP } from "@/styles/fonts";
+import { cn } from "@/utils/cn";
 
 import { Providers } from "./providers";
 
@@ -85,7 +87,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body>
+      <body className={cn(inter.variable, notoSansJP.variable)}>
         <Providers>
           <Header />
           <main>{children}</main>

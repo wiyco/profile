@@ -30,7 +30,7 @@ export function NavExpander({ navItems, enableDarkMode }: NavExpanderProps) {
   const [isOpen, setIsOpen] = useState<typeof navOpenState>(navOpenState);
 
   return (
-    <>
+    <nav>
       <ul className="grid grid-cols-3 justify-items-center md:hidden">
         {navItems.map((item, index) => (
           <li key={`foot-nav-mobile-${index}`}>
@@ -51,8 +51,8 @@ export function NavExpander({ navItems, enableDarkMode }: NavExpanderProps) {
                       className={cn(
                         "text-tiny transition-transform duration-150 ease-in-out",
                         isOpen[item.header as keyof typeof navOpenState]
-                          ? "-translate-y-px rotate-0"
-                          : "translate-y-px rotate-180",
+                          ? "translate-y-px rotate-180"
+                          : "translate-y-0 rotate-90",
                         enableDarkMode ? "stroke-black dark:stroke-white" : "stroke-white"
                       )}
                     >
@@ -71,7 +71,7 @@ export function NavExpander({ navItems, enableDarkMode }: NavExpanderProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     isReadOnly
-                    showDivider={!!(index !== item.children.length - 1)}
+                    showDivider={index !== item.children.length - 1}
                     className="py-2.5"
                   >
                     {child.label}
@@ -98,6 +98,6 @@ export function NavExpander({ navItems, enableDarkMode }: NavExpanderProps) {
           </li>
         ))}
       </ul>
-    </>
+    </nav>
   );
 }

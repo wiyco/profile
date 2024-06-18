@@ -9,8 +9,14 @@ async function getAvatar(
 ): Promise<string | null> {
   if (!id) return null;
   const supabase = supabaseBrowserClient();
-  const { data } = await supabase.storage.from("avatars").getPublicUrl(`${id}.${extension}`);
-  return data.publicUrl;
+  try {
+    const { data } = await supabase.storage.from("avatars").getPublicUrl(`${id}.${extension}`);
+    if (!data) return null;
+    return data.publicUrl;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
 }
 
 export { getAvatar };

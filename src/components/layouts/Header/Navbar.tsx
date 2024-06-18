@@ -1,89 +1,38 @@
-"use client";
+import "@/styles/navbar.scss";
 
-import Check from "@icons/check.svg";
-import Menu from "@icons/menu.svg";
-import Xmark from "@icons/xmark.svg";
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
 
+import { MenuButton } from "@/components/buttons/MenuButton";
 import { ThemeButton } from "@/components/buttons/ThemeButton";
 import { navItems } from "@/components/layouts/Header/constants";
-import { cn } from "@/utils/cn";
-import { isCurrentPath } from "@/utils/path";
 
 export function Navbar() {
-  const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <>
-      <nav className="flex items-center justify-center space-x-[1.125rem] md:hidden">
-        <ThemeButton />
-        <Dropdown
-          backdrop="blur"
-          onOpenChange={(isOpen) => setIsOpen(isOpen)}
-          classNames={{ trigger: "h-unit-8 min-w-unit-8" }}
-        >
-          <DropdownTrigger>
-            <Button
-              disableRipple
-              className="h-8 min-w-8 bg-transparent p-0 data-[hover=true]:bg-transparent"
-              variant="light"
-              radius="sm"
-            >
-              <span
-                className={cn(
-                  "stroke-current transition-transform duration-300 ease-in-out",
-                  isOpen ? "rotate-180" : "rotate-0"
-                )}
-              >
-                {isOpen ? <Xmark /> : <Menu />}
-              </span>
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu aria-label="Navigation">
-            {navItems.map((item) => (
-              <DropdownItem
-                key={`head-nav-${item.label}`}
-                href={item.url}
-                startContent={<span className="stroke-current">{item.icon}</span>}
-                endContent={
-                  isCurrentPath(pathname, item.url) && (
-                    <span className="stroke-current text-tiny">
-                      <Check />
-                    </span>
-                  )
-                }
-                className={cn(
-                  "py-2.5",
-                  isCurrentPath(pathname, item.url) ? "opacity-100" : "opacity-60"
-                )}
-              >
-                {item.label.charAt(0).toUpperCase() + item.label.slice(1)}
-              </DropdownItem>
-            ))}
-          </DropdownMenu>
-        </Dropdown>
-      </nav>
-      <nav className="hidden md:block">
-        <ul className="flex items-center justify-center space-x-5">
-          {navItems.map((item, index) => (
-            <li
-              key={`nav-${index}`}
-              title={item.label.charAt(0).toUpperCase() + item.label.slice(1)}
-            >
-              <Link href={item.url}>
-                <span className="stroke-current">{item.icon}</span>
-              </Link>
-            </li>
-          ))}
-          <li className="inline-flex">
-            <ThemeButton />
+    <nav>
+      <ul className="flex items-center justify-center space-x-4 md:hidden">
+        <li className="navbar-icon-wrap">
+          <ThemeButton />
+        </li>
+        <li className="navbar-icon-wrap">
+          <MenuButton items={navItems} />
+        </li>
+      </ul>
+      <ul className="hidden items-center justify-center space-x-4 md:flex">
+        {navItems.map((item, index) => (
+          <li
+            key={`nav-${index}`}
+            title={item.label.charAt(0).toUpperCase() + item.label.slice(1)}
+            className="navbar-icon-wrap"
+          >
+            <Link href={item.url}>
+              <span className="stroke-current">{item.icon}</span>
+            </Link>
           </li>
-        </ul>
-      </nav>
-    </>
+        ))}
+        <li className="navbar-icon-wrap">
+          <ThemeButton />
+        </li>
+      </ul>
+    </nav>
   );
 }

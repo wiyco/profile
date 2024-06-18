@@ -54,7 +54,7 @@ export function CardFull({
           classNames={{
             base: "aspect-16/10 w-full overflow-clip border-none shadow-md",
           }}
-          className="origin-left scale-100 bg-zinc-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-zinc-600/10"
+          className="origin-left scale-100 bg-neutral-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-neutral-600/10"
         >
           <Image
             as={NextImage}

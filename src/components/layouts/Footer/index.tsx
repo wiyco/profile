@@ -1,5 +1,7 @@
 "use client";
 
+import "@/styles/navbar.scss";
+
 import { MediaLinks } from "@constants/links";
 import GitHub from "@icons/github.svg";
 import Instagram from "@icons/instagram.svg";
@@ -21,29 +23,38 @@ export function Footer() {
     <footer
       className={cn(
         "w-full px-6 py-5",
-        isRoot ? "fixed inset-x-0 bottom-0" : "static bg-zinc-800 text-white"
+        isRoot ? "fixed inset-x-0 bottom-0" : "static bg-neutral-800 text-white"
       )}
     >
       <div className="mt-5 grid gap-6 text-sm">
         <NavExpander navItems={navItems} enableDarkMode={isRoot} />
-        <div className="flex items-center justify-between">
+        <section className="flex items-center justify-between">
           <span>&copy; {new Date().getFullYear()} wiyco</span>
-          <ul className="flex items-center justify-center space-x-5 text-lg">
-            <li title="GitHub">
+          <ul className="flex items-center justify-center space-x-4 text-lg">
+            <li
+              title="GitHub"
+              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
+            >
               <Link href={MediaLinks.GITHUB} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <GitHub />
                 </span>
               </Link>
             </li>
-            <li title="X">
+            <li
+              title="X"
+              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
+            >
               <Link href={MediaLinks.X} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <X />
                 </span>
               </Link>
             </li>
-            <li title="Instagram">
+            <li
+              title="Instagram"
+              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
+            >
               <Link href={MediaLinks.INSTAGRAM} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <Instagram />
@@ -51,7 +62,7 @@ export function Footer() {
               </Link>
             </li>
           </ul>
-        </div>
+        </section>
       </div>
     </footer>
   );
