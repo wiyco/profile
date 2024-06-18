@@ -4,6 +4,7 @@
  */
 "use client";
 
+import { Themes } from "@constants/themes";
 import type { Color } from "@react-three/fiber";
 import { Canvas, extend, ReactThreeFiber, useFrame } from "@react-three/fiber";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
@@ -41,29 +42,29 @@ export default function Page() {
   return (
     <div className="h-screen w-full">
       <Canvas camera={{ position: [0, 0, 5], fov: 90 }}>
-        {resolvedTheme === "light" ? (
-          <color attach="background" args={["#f4f4f5"]} />
-        ) : (
+        {resolvedTheme === Themes.DARK ? (
           <color attach="background" args={["#18181b"]} />
+        ) : (
+          <color attach="background" args={["#f4f4f5"]} />
         )}
         <Lines
           dash={dash}
           count={count}
           radius={radius}
           colors={
-            resolvedTheme === "light"
-              ? ["#fca5a5", "#93c5fd", "#86efac", "#fcd34d", "#c4b5fd"]
-              : [
+            resolvedTheme === Themes.DARK
+              ? [
                   [5, 0.5, 1], // red
                   [0.5, 1, 5], // blue
                   [0.5, 5, 1], // green
                   [5, 2, 0.5], // amber
                   [2, 0.5, 5], // violet
                 ]
+              : ["#fca5a5", "#93c5fd", "#86efac", "#fcd34d", "#c4b5fd"]
           }
         />
         <Rig />
-        {resolvedTheme === "light" ? null : (
+        {resolvedTheme === Themes.DARK && (
           <EffectComposer>
             <Bloom mipmapBlur luminanceThreshold={0.9} luminanceSmoothing={0.02} radius={0.25} />
           </EffectComposer>
