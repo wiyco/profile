@@ -1,3 +1,5 @@
+import "@/styles/blog.scss";
+
 import { ImageLinks } from "@constants/links";
 import User from "@icons/user.svg";
 import { Image } from "@nextui-org/react";
@@ -18,7 +20,11 @@ type MetadataProps = {
 
 export async function generateMetadata({ params }: MetadataProps): Promise<Metadata> {
   const post = await getPost(params.id);
-  if (!post) return notFound();
+  if (!post)
+    return {
+      title: "Not Found",
+      description: "Page not found.",
+    };
 
   const description = markdownToText(post.content);
   const imageUrl = post.thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK;
@@ -67,8 +73,7 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const post = await getPost(params.id);
-  /** @todo Is this necessary? */
-  // if (!post) return notFound();
+  if (!post) return notFound();
 
   return (
     <div className="default-wrap mx-auto max-w-screen-md">
