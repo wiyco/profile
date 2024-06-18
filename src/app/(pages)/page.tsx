@@ -43,9 +43,9 @@ export default function Page() {
     <div className="h-screen w-full">
       <Canvas camera={{ position: [0, 0, 5], fov: 90 }}>
         {resolvedTheme === Themes.DARK ? (
-          <color attach="background" args={["#18181b"]} />
+          <color attach="background" args={["#171717"]} />
         ) : (
-          <color attach="background" args={["#f4f4f5"]} />
+          <color attach="background" args={["#f5f5f5"]} />
         )}
         <Lines
           dash={dash}
