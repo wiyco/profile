@@ -1,6 +1,10 @@
 import { formatDistance } from "date-fns";
 
-export const getDiffDateTime = (
+function getDiffDateTime(
   prevDate: Parameters<typeof formatDistance>[0],
   lateDate: Parameters<typeof formatDistance>[1]
-) => formatDistance(prevDate, lateDate, { addSuffix: true, includeSeconds: true });
+) {
+  return formatDistance(prevDate, lateDate, { addSuffix: true, includeSeconds: true });
+}
+
+export { getDiffDateTime };
