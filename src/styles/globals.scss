@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 body {
+  /* Apply the default font family */
+  font-family: var(--font-inter), var(--font-noto-sans-jp), sans-serif;
+
   /* Due to the influence of NextUI, child elements of the body are wrapped, so need to nest selectors. */
   & > div[data-overlay-container] {
     @apply min-h-screen w-full bg-neutral-50 dark:bg-neutral-900;
