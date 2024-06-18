@@ -21,7 +21,7 @@ export function ThemeButton({ className }: ThemeButtonProps) {
       onClick={() => setTheme(resolvedTheme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT)}
     >
       <span className="stroke-current">
-        {resolvedTheme === Themes.LIGHT ? <HalfMoon /> : <SunLight />}
+        {resolvedTheme === Themes.LIGHT ? <SunLight /> : <HalfMoon />}
       </span>
     </button>
   );
