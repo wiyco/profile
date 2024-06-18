@@ -1,20 +1,17 @@
+/** @see {@link https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices} */
 import { PrismaClient } from "@prisma/client";
 
-const primsaClientSingleton = () => {
-  return new PrismaClient({ log: ["error", "warn"] });
+const prismaClientSingleton = () => {
+  return new PrismaClient({ log: ["warn", "error"] });
 };
 
-type PrismaClientSingleton = ReturnType<typeof primsaClientSingleton>;
+declare const globalThis: {
+  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
+} & typeof global;
 
-const globalForPrisma = global as unknown as {
-  prisma: PrismaClientSingleton | undefined;
-};
-
-const prisma = globalForPrisma.prisma ?? primsaClientSingleton();
-
-if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
-}
+const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
 
 export { prisma };
 export * from "@prisma/client";
+
+if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
