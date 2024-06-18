@@ -1,5 +1,7 @@
 "use client";
 
+import "@/styles/navbar.scss";
+
 import { MediaLinks } from "@constants/links";
 import GitHub from "@icons/github.svg";
 import Instagram from "@icons/instagram.svg";
@@ -28,22 +30,22 @@ export function Footer() {
         <NavExpander navItems={navItems} enableDarkMode={isRoot} />
         <section className="flex items-center justify-between">
           <span>&copy; {new Date().getFullYear()} wiyco</span>
-          <ul className="flex items-center justify-center space-x-5 text-lg">
-            <li title="GitHub">
+          <ul className="flex items-center justify-center space-x-4 text-lg">
+            <li title="GitHub" className="navbar-icon-wrap">
               <Link href={MediaLinks.GITHUB} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <GitHub />
                 </span>
               </Link>
             </li>
-            <li title="X">
+            <li title="X" className="navbar-icon-wrap">
               <Link href={MediaLinks.X} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <X />
                 </span>
               </Link>
             </li>
-            <li title="Instagram">
+            <li title="Instagram" className="navbar-icon-wrap">
               <Link href={MediaLinks.INSTAGRAM} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <Instagram />
