@@ -31,21 +31,30 @@ export function Footer() {
         <section className="flex items-center justify-between">
           <span>&copy; {new Date().getFullYear()} wiyco</span>
           <ul className="flex items-center justify-center space-x-4 text-lg">
-            <li title="GitHub" className="navbar-icon-wrap">
+            <li
+              title="GitHub"
+              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
+            >
               <Link href={MediaLinks.GITHUB} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <GitHub />
                 </span>
               </Link>
             </li>
-            <li title="X" className="navbar-icon-wrap">
+            <li
+              title="X"
+              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
+            >
               <Link href={MediaLinks.X} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <X />
                 </span>
               </Link>
             </li>
-            <li title="Instagram" className="navbar-icon-wrap">
+            <li
+              title="Instagram"
+              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
+            >
               <Link href={MediaLinks.INSTAGRAM} target="_blank" rel="noopener noreferrer">
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <Instagram />
