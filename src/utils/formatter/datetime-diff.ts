@@ -1,10 +1,10 @@
-import { formatDistance } from "date-fns";
+import { formatDistanceStrict } from "date-fns";
 
 function getDiffDateTime(
-  prevDate: Parameters<typeof formatDistance>[0],
-  lateDate: Parameters<typeof formatDistance>[1]
+  prevDate: Parameters<typeof formatDistanceStrict>[0],
+  lateDate: Parameters<typeof formatDistanceStrict>[1]
 ) {
-  return formatDistance(prevDate, lateDate, { addSuffix: true, includeSeconds: true });
+  return formatDistanceStrict(prevDate, lateDate, { addSuffix: true });
 }
 
 export { getDiffDateTime };
