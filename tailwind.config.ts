@@ -24,11 +24,11 @@ const config: Config = {
         "4/3": "4 / 3",
         "16/10": "16 / 10",
       },
-      inset: {
-        "7/10": "70%",
-      },
       fontSize: {
         md: ["1.075rem", "1.5rem"],
+      },
+      lineHeight: {
+        casual: "1.75",
       },
     },
   },
