@@ -1,5 +1,6 @@
 "use client";
 
+import { ImageLinks } from "@constants/links";
 import { Card, CardFooter, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import NextImage from "next/image";
@@ -54,7 +55,7 @@ export function CardFull({
           classNames={{
             base: "aspect-16/10 w-full overflow-clip border-none shadow-md",
           }}
-          className="origin-left scale-100 bg-neutral-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-neutral-600/10"
+          className="origin-left scale-100 bg-neutral-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99] dark:bg-neutral-600/10"
         >
           <Image
             as={NextImage}
@@ -63,9 +64,9 @@ export function CardFull({
               "h-full w-full",
               isOGImage ? "object-contain object-top" : "object-cover object-center"
             )}
-            src={thumbnail || "/fallback/noimage-padding.svg"}
+            src={thumbnail || ImageLinks.FALLBACK}
             alt={title}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             fill
             priority
             unoptimized={isExternal}

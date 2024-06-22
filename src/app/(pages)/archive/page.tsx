@@ -1,6 +1,7 @@
 import "@/styles/timeline.scss";
 
 import { CardFull } from "@/components/cards/CardFull";
+import { LinkEmbedder } from "@/components/cards/LinkEmbedder";
 import { cn } from "@/utils/cn";
 import { getArchives } from "@/utils/fetcher/archive";
 import { isExternalPath } from "@/utils/path";
@@ -19,13 +20,23 @@ export default async function Page() {
         {archives.map((item, index) => {
           /** If the year is the same as the latest year */
           if (item.year === latestYear) {
-            return (
+            return item.isEmbed || !item.title ? (
+              <section className="flex" key={index}>
+                <aside className="timeline pl-2"></aside>
+                <article className="my-4 ml-6">
+                  <LinkEmbedder
+                    href={item.url}
+                    className="origin-left scale-100 transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99]"
+                  />
+                </article>
+              </section>
+            ) : (
               <section className="flex" key={index}>
                 <aside className="timeline pl-2"></aside>
                 <CardFull
                   className="flex-1 py-4 pl-6"
-                  title={item.title}
-                  thumbnail={item.thumbnail}
+                  title={item.title ?? ""}
+                  thumbnail={item.thumbnail || ""}
                   isOGImage={item.isOGImage}
                   url={item.url}
                   isExternal={isExternalPath(item.url)}
@@ -43,14 +54,23 @@ export default async function Page() {
               </span>
               <section className="flex">
                 <aside className="timeline pl-2"></aside>
-                <CardFull
-                  className="flex-1 py-4 pl-6"
-                  title={item.title}
-                  thumbnail={item.thumbnail}
-                  isOGImage={item.isOGImage}
-                  url={item.url}
-                  isExternal={isExternalPath(item.url)}
-                />
+                {item.isEmbed || !item.title ? (
+                  <article className="my-4 ml-6">
+                    <LinkEmbedder
+                      href={item.url}
+                      className="origin-left scale-100 transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99]"
+                    />
+                  </article>
+                ) : (
+                  <CardFull
+                    className="flex-1 py-4 pl-6"
+                    title={item.title ?? ""}
+                    thumbnail={item.thumbnail || ""}
+                    isOGImage={item.isOGImage}
+                    url={item.url}
+                    isExternal={isExternalPath(item.url)}
+                  />
+                )}
               </section>
             </section>
           );
@@ -66,14 +86,23 @@ export default async function Page() {
                 <aside className="timeline col-span-1 pr-6">
                   <span></span>
                 </aside>
-                <CardFull
-                  className="col-span-5 py-4 pl-8"
-                  title={item.title}
-                  thumbnail={item.thumbnail}
-                  isOGImage={item.isOGImage}
-                  url={item.url}
-                  isExternal={isExternalPath(item.url)}
-                />
+                {item.isEmbed || !item.title ? (
+                  <article className="col-span-5 my-4 ml-8">
+                    <LinkEmbedder
+                      href={item.url}
+                      className="origin-left scale-100 transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99]"
+                    />
+                  </article>
+                ) : (
+                  <CardFull
+                    className="col-span-5 py-4 pl-8"
+                    title={item.title ?? ""}
+                    thumbnail={item.thumbnail || ""}
+                    isOGImage={item.isOGImage}
+                    url={item.url}
+                    isExternal={isExternalPath(item.url)}
+                  />
+                )}
               </section>
             );
           }
@@ -87,14 +116,23 @@ export default async function Page() {
                   {item.year || "Enigma"}
                 </span>
               </aside>
-              <CardFull
-                className="col-span-5 py-4 pl-8"
-                title={item.title}
-                thumbnail={item.thumbnail}
-                isOGImage={item.isOGImage}
-                url={item.url}
-                isExternal={isExternalPath(item.url)}
-              />
+              {item.isEmbed || !item.title ? (
+                <article className="col-span-5 my-4 ml-8">
+                  <LinkEmbedder
+                    href={item.url}
+                    className="origin-left scale-100 transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99]"
+                  />
+                </article>
+              ) : (
+                <CardFull
+                  className="col-span-5 py-4 pl-8"
+                  title={item.title ?? ""}
+                  thumbnail={item.thumbnail || ""}
+                  isOGImage={item.isOGImage}
+                  url={item.url}
+                  isExternal={isExternalPath(item.url)}
+                />
+              )}
             </section>
           );
         })}

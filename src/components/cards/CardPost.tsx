@@ -42,7 +42,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp, animation }
             base: "h-full w-full overflow-clip border-none shadow-md p-2",
             footer: "pt-4",
           }}
-          className="origin-bottom scale-100 bg-neutral-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-neutral-600/10"
+          className="origin-bottom scale-100 bg-neutral-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99] dark:bg-neutral-600/10"
         >
           <CardHeader>
             <div className="relative mx-auto aspect-square h-24 w-fit">
@@ -52,7 +52,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp, animation }
                 className="h-full w-full object-cover p-1.5"
                 src={thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK}
                 alt={title}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, (max-width: 1536px) 25vw, 20vw"
+                sizes="(max-width: 768px) 100vw, 33vw"
                 fill
                 priority
               />
