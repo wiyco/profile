@@ -37,6 +37,7 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
       isExternal={
         isExternalPath(href) && !href.startsWith(process.env.NEXT_PUBLIC_ORIGIN_URL || "/")
       }
+      title={title || undefined}
       className={cn(
         "h-fit w-full overflow-clip rounded-xl border-1 border-neutral-600/15 dark:border-neutral-400/15",
         className
