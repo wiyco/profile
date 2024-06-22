@@ -29,8 +29,6 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
     ? faviconHref
     : `https://${domain}${faviconHref}`;
 
-  console.log({ faviconHref, favicon });
-
   return (
     <Link
       as={NextLink}
