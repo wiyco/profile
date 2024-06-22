@@ -7,6 +7,7 @@ enum MediaLinks {
 }
 
 enum ImageLinks {
+  FALLBACK = "/fallback/noimage-padding.svg",
   EMOJI_FALLBACK = "https://raw.githubusercontent.com/wiyco/fluentui-emoji/main/assets/Turtle/3D/turtle_3d.png",
   EMOJI_ANIMATE_FALLBACK = "https://raw.githubusercontent.com/wiyco/Animated-Fluent-Emojis/master/Emojis/Animals/Turtle.png",
 }
