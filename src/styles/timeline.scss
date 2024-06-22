@@ -13,3 +13,7 @@
     content: "";
   }
 }
+
+.timeline-item-animation {
+  @apply origin-left scale-100 transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99];
+}
