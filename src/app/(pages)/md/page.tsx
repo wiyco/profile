@@ -116,9 +116,11 @@ https://youtu.be/3KtWfp0UopM?si=-FWWbsXXGNPn6ArE
 
 ### Links
 
-https://github.com - automatic!
 [GitHub](https://github.com)
 
+https://github.com
+
+[GitHub](https://github.com)
 [YouTube](https://youtu.be/3KtWfp0UopM?si=-FWWbsXXGNPn6ArE)
 
 ---
