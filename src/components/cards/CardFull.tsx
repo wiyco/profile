@@ -1,5 +1,6 @@
 "use client";
 
+import { ImageLinks } from "@constants/links";
 import { Card, CardFooter, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import NextImage from "next/image";
@@ -63,7 +64,7 @@ export function CardFull({
               "h-full w-full",
               isOGImage ? "object-contain object-top" : "object-cover object-center"
             )}
-            src={thumbnail || "/fallback/noimage-padding.svg"}
+            src={thumbnail || ImageLinks.FALLBACK}
             alt={title}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
             fill
