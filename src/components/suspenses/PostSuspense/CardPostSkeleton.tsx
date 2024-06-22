@@ -9,7 +9,7 @@ export function CardPostSkeleton() {
           base: "h-full w-full overflow-clip border-none shadow-md p-2",
           footer: "pt-4",
         }}
-        className="origin-bottom scale-100 bg-neutral-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.02] active:scale-[0.99] dark:bg-neutral-600/10"
+        className="origin-bottom scale-100 bg-neutral-400/10 !transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99] dark:bg-neutral-600/10"
       >
         <CardHeader>
           <Skeleton className="h-24 w-full rounded-lg" />
