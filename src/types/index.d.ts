@@ -1,8 +1,9 @@
 type Archive = {
-  title: string;
-  thumbnail: string;
+  title?: string;
+  thumbnail?: string;
   isOGImage?: boolean;
   url: string;
+  isEmbed?: boolean;
   year?: number | null;
 };
 
