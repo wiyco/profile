@@ -9,9 +9,10 @@ import { isExternalPath } from "@/utils/path";
 
 type LinkEmbedderProps = {
   href: string;
+  className?: string;
 };
 
-export async function LinkEmbedder({ href }: LinkEmbedderProps) {
+export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
   const metadata = await getMetadataFromUrl(href);
   const title = metadata?.title || metadata?.["og:title"] || metadata?.["twitter:title"] || null;
   const description =
@@ -21,7 +22,9 @@ export async function LinkEmbedder({ href }: LinkEmbedderProps) {
     null;
   const image = metadata?.["og:image"] || ImageLinks.FALLBACK;
   const domain = linkToDomain(href);
-  const faviconHref = metadata?.favicons.find((favicon) => favicon.type === "image/png")?.href;
+  const faviconHref = metadata?.favicons.find(
+    (favicon) => favicon.type === "image/png" || favicon.rel === "icon" || favicon.sizes === "32x32"
+  )?.href;
   const favicon = isExternalPath(faviconHref || "/")
     ? faviconHref
     : `https://${domain}${faviconHref}`;
@@ -35,6 +38,7 @@ export async function LinkEmbedder({ href }: LinkEmbedderProps) {
       isExternal={
         isExternalPath(href) && !href.startsWith(process.env.NEXT_PUBLIC_ORIGIN_URL || "/")
       }
+      className={className}
     >
       <Card
         shadow="none"
@@ -43,7 +47,7 @@ export async function LinkEmbedder({ href }: LinkEmbedderProps) {
       >
         <CardBody className="p-0">
           <div className="flex items-center justify-start">
-            <div className="relative aspect-[40/21] h-32 w-fit">
+            <div className="relative aspect-square h-32 w-fit md:aspect-[40/21]">
               <Image
                 as={NextImage}
                 radius="none"
