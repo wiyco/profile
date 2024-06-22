@@ -3,6 +3,7 @@ import { Card, CardBody, Image, Link } from "@nextui-org/react";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
+import { cn } from "@/utils/cn";
 import { linkToDomain } from "@/utils/converter/link-to-domain";
 import { getMetadataFromUrl } from "@/utils/embedder/metadata";
 import { isExternalPath } from "@/utils/path";
@@ -36,13 +37,12 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
       isExternal={
         isExternalPath(href) && !href.startsWith(process.env.NEXT_PUBLIC_ORIGIN_URL || "/")
       }
-      className={className}
+      className={cn(
+        "h-fit w-full overflow-clip rounded-xl border-1 border-neutral-600/15 dark:border-neutral-400/15",
+        className
+      )}
     >
-      <Card
-        shadow="none"
-        classNames={{ base: "h-full w-full overflow-clip rounded-xl" }}
-        className="border-1 border-neutral-600/15 bg-inherit dark:border-neutral-400/15"
-      >
+      <Card shadow="none" radius="none" className="bg-inherit">
         <CardBody className="p-0">
           <div className="flex items-center justify-start">
             <div className="relative aspect-square h-32 w-fit md:aspect-[40/21]">
