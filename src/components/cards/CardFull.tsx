@@ -66,7 +66,7 @@ export function CardFull({
             )}
             src={thumbnail || ImageLinks.FALLBACK}
             alt={title}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             fill
             priority
             unoptimized={isExternal}

@@ -52,7 +52,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp, animation }
                 className="h-full w-full object-cover p-1.5"
                 src={thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK}
                 alt={title}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, (max-width: 1536px) 25vw, 20vw"
+                sizes="(max-width: 768px) 100vw, 33vw"
                 fill
                 priority
               />
