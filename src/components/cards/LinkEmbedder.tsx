@@ -44,9 +44,9 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
       )}
     >
       <Card shadow="none" radius="none" className="bg-inherit">
-        <CardBody className="p-0">
+        <CardBody className="h-36 flex-row p-0">
           <div className="flex items-center justify-start">
-            <div className="relative aspect-square h-32 w-fit md:aspect-[40/21]">
+            <div className="relative aspect-square h-full w-fit md:aspect-[40/21]">
               <Image
                 as={NextImage}
                 radius="none"
@@ -61,8 +61,10 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
               />
             </div>
             <section className="grid h-full w-full place-content-center gap-3 px-6 py-3.5">
-              <span className="line-clamp-1 text-base font-medium">{title || domain}</span>
-              <span className="line-clamp-2 text-xs font-light text-neutral-800/80 dark:text-neutral-200/80">
+              <span className="line-clamp-3 text-sm font-medium md:text-base lg:line-clamp-2">
+                {title || domain}
+              </span>
+              <span className="hidden text-xs font-light text-neutral-800/80 dark:text-neutral-200/80 md:line-clamp-2">
                 {description}
               </span>
               <small className="flex items-center space-x-1.5">
