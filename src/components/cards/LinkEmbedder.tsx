@@ -61,7 +61,7 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
             </div>
             <section className="grid h-full w-full place-content-center gap-3 px-6 py-3.5">
               <span className="line-clamp-1 text-base font-medium">{title || domain}</span>
-              <span className="line-clamp-2 text-xs font-extralight text-neutral-800/80 dark:text-neutral-200/80">
+              <span className="line-clamp-2 text-xs font-light text-neutral-800/80 dark:text-neutral-200/80">
                 {description}
               </span>
               <small className="flex items-center space-x-1.5">
