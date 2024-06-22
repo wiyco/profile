@@ -40,22 +40,6 @@
     @apply mb-8 leading-casual;
   }
 
-  a {
-    @apply text-blue-600 hover:underline dark:text-blue-400;
-
-    &:visited {
-      @apply text-violet-600 dark:text-violet-400;
-    }
-  }
-
-  div:has(img) {
-    @apply mb-8;
-  }
-
-  div:has(iframe) {
-    @apply mb-8;
-  }
-
   :not(pre) > code {
     @apply mx-0.5 rounded-lg bg-neutral-200/75 px-1.5 py-0.5 text-[0.875em] dark:bg-neutral-700/75;
   }
