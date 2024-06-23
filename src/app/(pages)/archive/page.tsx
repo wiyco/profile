@@ -4,7 +4,7 @@ import { ArchiveSuspense } from "@/components/suspenses/ArchiveSuspense";
 
 import { Archive } from "./archive";
 
-export default async function Page() {
+export default function Page() {
   return (
     <div className="default-wrap mx-auto max-w-screen-md">
       <h1>
