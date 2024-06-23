@@ -18,10 +18,10 @@ export function ThemeButton({ className }: ThemeButtonProps) {
       type="button"
       title="Color Theme"
       aria-label="Switch Theme"
-      onClick={() => setTheme(resolvedTheme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT)}
+      onClick={() => setTheme(resolvedTheme === Themes.DARK ? Themes.LIGHT : Themes.DARK)}
     >
       <span className="stroke-current">
-        {resolvedTheme === Themes.LIGHT ? <SunLight /> : <HalfMoon />}
+        {resolvedTheme === Themes.DARK ? <HalfMoon /> : <SunLight />}
       </span>
     </button>
   );
