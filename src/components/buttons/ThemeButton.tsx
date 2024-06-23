@@ -3,7 +3,9 @@
 import { Themes } from "@constants/themes";
 import HalfMoon from "@icons/half-moon.svg";
 import SunLight from "@icons/sun-light.svg";
+import { Skeleton } from "@nextui-org/react";
 import { useTheme } from "next-themes";
+import { useLayoutEffect, useState } from "react";
 
 type ThemeButtonProps = {
   className?: React.HTMLAttributes<HTMLButtonElement>["className"];
@@ -12,7 +14,13 @@ type ThemeButtonProps = {
 export function ThemeButton({ className }: ThemeButtonProps) {
   const { setTheme, resolvedTheme } = useTheme();
 
-  return (
+  const [mounted, setMounted] = useState(false);
+
+  useLayoutEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return mounted ? (
     <button
       className={className}
       type="button"
@@ -24,5 +32,7 @@ export function ThemeButton({ className }: ThemeButtonProps) {
         {resolvedTheme === Themes.DARK ? <HalfMoon /> : <SunLight />}
       </span>
     </button>
+  ) : (
+    <Skeleton className="h-6 w-6 rounded-full" />
   );
 }
