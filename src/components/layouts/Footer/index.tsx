@@ -7,17 +7,14 @@ import GitHub from "@icons/github.svg";
 import Instagram from "@icons/instagram.svg";
 import X from "@icons/x.svg";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useMemo } from "react";
 
 import { navItems } from "@/components/layouts/Footer/constants";
 import { NavExpander } from "@/components/layouts/Footer/NavExpander";
+import { usePath } from "@/hooks/usePath";
 import { cn } from "@/utils/cn";
 
 export function Footer() {
-  const pathname = usePathname();
-
-  const isRoot = useMemo(() => pathname === "/", [pathname]);
+  const { isRoot } = usePath();
 
   return (
     <footer
@@ -31,31 +28,40 @@ export function Footer() {
         <section className="flex items-center justify-between">
           <span>&copy; {new Date().getFullYear()} wiyco</span>
           <ul className="flex items-center justify-center space-x-4 text-lg">
-            <li
-              title="GitHub"
-              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
-            >
-              <Link href={MediaLinks.GITHUB} target="_blank" rel="noopener noreferrer">
+            <li>
+              <Link
+                title="GitHub"
+                href={MediaLinks.GITHUB}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn("navbar-icon-wrap h-9 w-9", isRoot ? "" : "hover:!bg-neutral-700/60")}
+              >
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <GitHub />
                 </span>
               </Link>
             </li>
-            <li
-              title="X"
-              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
-            >
-              <Link href={MediaLinks.X} target="_blank" rel="noopener noreferrer">
+            <li>
+              <Link
+                title="X"
+                href={MediaLinks.X}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn("navbar-icon-wrap h-9 w-9", isRoot ? "" : "hover:!bg-neutral-700/60")}
+              >
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <X />
                 </span>
               </Link>
             </li>
-            <li
-              title="Instagram"
-              className={cn("navbar-icon-wrap", isRoot ? "" : "hover:!bg-neutral-700/60")}
-            >
-              <Link href={MediaLinks.INSTAGRAM} target="_blank" rel="noopener noreferrer">
+            <li>
+              <Link
+                title="Instagram"
+                href={MediaLinks.INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn("navbar-icon-wrap h-9 w-9", isRoot ? "" : "hover:!bg-neutral-700/60")}
+              >
                 <span className={cn(isRoot ? "stroke-current" : "stroke-white")}>
                   <Instagram />
                 </span>

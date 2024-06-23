@@ -10,27 +10,27 @@ export function Navbar() {
   return (
     <nav>
       <ul className="flex items-center justify-center space-x-4 md:hidden">
-        <li className="navbar-icon-wrap">
-          <ThemeButton />
+        <li>
+          <ThemeButton className="grid h-8 w-8 place-content-center rounded-xl" />
         </li>
-        <li className="navbar-icon-wrap">
-          <MenuButton items={navItems} />
+        <li>
+          <MenuButton items={navItems} className="!grid !h-8 !w-8 place-content-center" />
         </li>
       </ul>
       <ul className="hidden items-center justify-center space-x-4 md:flex">
         {navItems.map((item, index) => (
-          <li
-            key={`nav-${index}`}
-            title={item.label.charAt(0).toUpperCase() + item.label.slice(1)}
-            className="navbar-icon-wrap"
-          >
-            <Link href={item.url}>
+          <li key={index}>
+            <Link
+              href={item.url}
+              title={item.label.charAt(0).toUpperCase() + item.label.slice(1)}
+              className="navbar-icon-wrap"
+            >
               <span className="stroke-current">{item.icon}</span>
             </Link>
           </li>
         ))}
-        <li className="navbar-icon-wrap">
-          <ThemeButton />
+        <li>
+          <ThemeButton className="navbar-icon-wrap" />
         </li>
       </ul>
     </nav>

@@ -84,11 +84,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <body className={cn(inter.variable, notoSansJP.variable)}>
-        <Providers>
+        <Providers
+          nextThemeProviderProps={{
+            attribute: "class",
+            defaultTheme: "system",
+            enableSystem: true,
+            disableTransitionOnChange: false,
+          }}
+        >
           <Header />
           <main>{children}</main>
           <Footer />

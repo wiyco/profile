@@ -1,5 +1,7 @@
 import "@/styles/timeline.scss";
 
+import { Fragment } from "react";
+
 import { CardFull } from "@/components/cards/CardFull";
 import { LinkEmbedder } from "@/components/cards/LinkEmbedder";
 import { cn } from "@/utils/cn";
@@ -39,12 +41,9 @@ export async function Archive() {
         latestYear = item.year;
         /** Is not equal to the latest year */
         return (
-          <>
+          <Fragment key={index}>
             {/* Mobile */}
-            <section
-              key={`${index}-mobile`}
-              className={cn("grid gap-4 md:hidden", index === 0 ? "" : "mt-8")}
-            >
+            <section className={cn("grid gap-4 md:hidden", index === 0 ? "" : "mt-8")}>
               <span className="text-lg font-semibold text-neutral-900/75 dark:text-neutral-100/75">
                 {item.year || "Enigma"}
               </span>
@@ -67,10 +66,7 @@ export async function Archive() {
               </section>
             </section>
             {/* Desktop */}
-            <section
-              key={`${index}-desktop`}
-              className={cn("hidden grid-cols-6 md:grid", index === 0 ? "" : "mt-8")}
-            >
+            <section className={cn("hidden grid-cols-6 md:grid", index === 0 ? "" : "mt-8")}>
               <aside className="timeline col-span-1 pr-6 text-center">
                 <span className="text-xl font-semibold text-neutral-900/75 dark:text-neutral-100/75">
                   {item.year || "Enigma"}
@@ -91,7 +87,7 @@ export async function Archive() {
                 />
               )}
             </section>
-          </>
+          </Fragment>
         );
       })}
     </section>

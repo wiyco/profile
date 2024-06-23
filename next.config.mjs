@@ -30,25 +30,36 @@ const nextConfig = {
       },
     ],
   },
+  /** @see {@link https://nextjs.org/docs/pages/api-reference/next-config-js/webpack} */
   webpack: (config) => {
-    config.module.rules.push({
-      test: /\.svg$/i,
-      use: [
-        {
-          loader: "@svgr/webpack",
-          options: {
-            icon: "1.5em",
-            svgo: false,
-            replaceAttrValues: {
-              "#000000": "{props.color}",
-              black: "{props.color}",
-              "#FFFFFF": "{props.color}",
-              white: "{props.color}",
+    /** @see {@link https://react-svgr.com/docs/next} */
+    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.(".svg"));
+    config.module.rules.push(
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/,
+      },
+      {
+        test: /\.svg$/i,
+        issuer: fileLoaderRule.issuer,
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
+        use: [
+          {
+            loader: "@svgr/webpack",
+            /** @see {@link https://react-svgr.com/docs/options} */
+            options: {
+              icon: "1.5em",
+              memo: true,
+              replaceAttrValues: {
+                "#000": "currentColor",
+              },
             },
           },
-        },
-      ],
-    });
+        ],
+      }
+    );
+    fileLoaderRule.exclude = /\.svg$/i;
     return config;
   },
 };

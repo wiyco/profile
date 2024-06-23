@@ -16,10 +16,12 @@ type MenuButtonProps = {
     icon: React.ReactNode;
     url: string;
   }[];
+  className?: string;
 };
 
-export function MenuButton({ items = [] }: MenuButtonProps) {
+export function MenuButton({ items = [], className }: MenuButtonProps) {
   const pathname = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -27,9 +29,14 @@ export function MenuButton({ items = [] }: MenuButtonProps) {
       <DropdownTrigger>
         <Button
           disableRipple
-          className="h-6 min-w-6 bg-transparent p-0 data-[hover=true]:bg-transparent"
+          className={cn(
+            "h-6 min-w-6 rounded-xl bg-transparent p-0 data-[hover=true]:bg-transparent",
+            className
+          )}
           variant="light"
-          radius="sm"
+          radius="none"
+          title="Menu"
+          aria-label="Menu"
         >
           <span
             className={cn(
@@ -41,10 +48,10 @@ export function MenuButton({ items = [] }: MenuButtonProps) {
           </span>
         </Button>
       </DropdownTrigger>
-      <DropdownMenu aria-label="Navigation">
-        {items.map((item) => (
+      <DropdownMenu>
+        {items.map((item, index) => (
           <DropdownItem
-            key={`head-nav-${item.label}`}
+            key={index}
             href={item.url}
             startContent={<span className="stroke-current">{item.icon}</span>}
             endContent={

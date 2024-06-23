@@ -1,17 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useMemo } from "react";
 
 import { Navbar } from "@/components/layouts/Header/Navbar";
+import { usePath } from "@/hooks/usePath";
 import { raleway } from "@/styles/fonts";
 import { cn } from "@/utils/cn";
 
 export function Header() {
-  const pathname = usePathname();
-
-  const isRoot = useMemo(() => pathname === "/", [pathname]);
+  const { isRoot } = usePath();
 
   return (
     <header
