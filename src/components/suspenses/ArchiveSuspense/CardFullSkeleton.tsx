@@ -9,7 +9,6 @@ export function CardFullSkeleton({ className }: CardFullSkeletonProps) {
     <article className={className}>
       <Card
         shadow="none"
-        isFooterBlurred
         classNames={{
           base: "aspect-16/10 w-full overflow-clip border-none shadow-md",
         }}
