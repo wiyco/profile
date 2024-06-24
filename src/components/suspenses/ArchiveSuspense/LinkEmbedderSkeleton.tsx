@@ -22,17 +22,17 @@ export function LinkEmbedderSkeleton({ className }: LinkEmbedderSkeletonProps) {
         </div>
         <section className="grid h-full w-full content-center gap-3 px-6 py-3.5">
           <span className="grid gap-3">
-            <Skeleton className="h-4 w-full md:h-5" />
-            <Skeleton className="block h-4 w-3/4 md:hidden md:h-5" />
+            <Skeleton className="h-4 w-full rounded-lg md:h-5" />
+            <Skeleton className="inline h-4 w-3/4 rounded-lg md:hidden md:h-5" />
           </span>
           <span className="hidden md:grid md:gap-1.5">
-            <Skeleton className="h-3 w-full" />
-            <Skeleton className="h-3 w-3/4" />
+            <Skeleton className="h-3 w-full rounded-lg" />
+            <Skeleton className="h-3 w-3/4 rounded-lg" />
           </span>
-          <small className="flex items-center space-x-2">
+          <small className="flex items-center space-x-1.5">
             <Skeleton className="h-5 w-5 rounded-full" />
             <span className="opacity-90">
-              <Skeleton className="h-3 w-16" />
+              <Skeleton className="h-3 w-14 rounded-lg" />
             </span>
           </small>
         </section>
