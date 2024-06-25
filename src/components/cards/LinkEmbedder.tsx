@@ -30,13 +30,14 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
     ? faviconHref
     : `https://${domain}${faviconHref}`;
 
+  const isExternal =
+    isExternalPath(href) && !href.startsWith(process.env.NEXT_PUBLIC_ORIGIN_URL || "/");
+
   return (
     <Link
       as={NextLink}
       href={href}
-      isExternal={
-        isExternalPath(href) && !href.startsWith(process.env.NEXT_PUBLIC_ORIGIN_URL || "/")
-      }
+      isExternal={isExternal}
       title={title || undefined}
       className={cn(
         "h-fit w-full overflow-clip rounded-xl border-1 border-neutral-600/15 dark:border-neutral-400/15",
@@ -55,8 +56,8 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
               alt={title || "No Image"}
               sizes="(max-width: 768px) 50vw, 50vw"
               fill
-              priority
-              unoptimized
+              priority={false}
+              unoptimized={isExternal}
             />
           </div>
           <section className="grid h-full w-full place-content-center gap-3 px-6 py-3.5">
@@ -75,7 +76,7 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
                 width={16}
                 height={16}
                 sizes="16px"
-                unoptimized
+                unoptimized={isExternal}
               />
               <span className="line-clamp-1 text-xs font-light opacity-90">{domain}</span>
             </small>
