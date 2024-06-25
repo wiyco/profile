@@ -9,11 +9,11 @@ export function ImageBlock(props: React.ComponentProps<"img">) {
   return (
     <Image
       as={NextImage}
+      radius="none"
       classNames={{
-        wrapper: "mx-auto w-full",
-        img: "mx-auto max-h-full md:max-h-[384px] w-auto h-auto object-contain rounded-xl",
+        wrapper: "mx-auto w-full mb-8",
+        img: "mx-auto max-h-full md:max-h-[384px] w-auto h-auto object-contain rounded-lg",
       }}
-      className="mb-8"
       src={props.src}
       alt={props.alt}
       width={512}
