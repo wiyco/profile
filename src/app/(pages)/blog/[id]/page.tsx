@@ -11,6 +11,7 @@ import { MarkdownRenderer } from "@/components/renderers/MarkdownRenderer";
 import type { RouteParams } from "@/types";
 import { markdownToText } from "@/utils/converter/markdown-to-text";
 import { getPost } from "@/utils/fetcher/post";
+import { isExternalPath } from "@/utils/path";
 
 import { HeaderDate } from "./client";
 
@@ -88,6 +89,7 @@ export default async function Page({ params }: PageProps) {
             sizes="(max-width: 768px) 100vw, 50vw"
             fill
             priority
+            unoptimized={isExternalPath(post.thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK)}
           />
         </div>
         <h1>
