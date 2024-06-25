@@ -7,6 +7,7 @@ import NextImage from "next/image";
 import Link from "next/link";
 
 import { TimeDiffClient } from "@/components/times/TimeDiffClient";
+import { isExternalPath } from "@/utils/path";
 
 type CardPostProps = {
   title: string;
@@ -55,6 +56,7 @@ export function CardPost({ title, thumbnail, url, author, timestamp, animation }
                 sizes="(max-width: 768px) 100vw, 33vw"
                 fill
                 priority
+                unoptimized={isExternalPath(thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK)}
               />
             </div>
             <Avatar
@@ -70,7 +72,8 @@ export function CardPost({ title, thumbnail, url, author, timestamp, animation }
                   alt="turtle"
                   width={96}
                   height={96}
-                  priority
+                  priority={false}
+                  unoptimized={isExternalPath(ImageLinks.EMOJI_FALLBACK)}
                 />
               }
             />
