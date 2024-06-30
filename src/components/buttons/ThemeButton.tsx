@@ -33,6 +33,8 @@ export function ThemeButton({ className }: ThemeButtonProps) {
       </span>
     </button>
   ) : (
-    <Skeleton className="h-6 w-6 rounded-full" />
+    <span className={className}>
+      <Skeleton className="h-6 w-6 rounded-full" />
+    </span>
   );
 }
