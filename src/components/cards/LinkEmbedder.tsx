@@ -24,7 +24,12 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
   const image = metadata?.["og:image"] || ImageLinks.FALLBACK;
   const domain = linkToDomain(href);
   const faviconHref = metadata?.favicons.find(
-    (favicon) => favicon.type === "image/png" || favicon.rel === "icon" || favicon.sizes === "32x32"
+    (favicon) =>
+      favicon.type === "image/png" ||
+      favicon.rel === "icon" ||
+      favicon.sizes === "32x32" ||
+      favicon.href.match(/.+\.png$/) ||
+      favicon.href.match(/.+\.ico$/)
   )?.href;
   const favicon = isExternalPath(faviconHref || "/")
     ? faviconHref
