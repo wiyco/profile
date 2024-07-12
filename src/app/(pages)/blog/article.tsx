@@ -1,3 +1,5 @@
+import "@/styles/blog.scss";
+
 import { permanentRedirect, RedirectType } from "next/navigation";
 
 import { CardPost } from "@/components/cards/CardPost";
@@ -59,6 +61,7 @@ export async function Article({ searchParams }: ArticleProps) {
         {postsWithAvatar.map((item, index) => (
           <CardPost
             key={index}
+            className="blog-item-animation"
             title={item.title}
             thumbnail={item.thumbnail}
             url={`/blog/${item.id}`}
@@ -67,7 +70,6 @@ export async function Article({ searchParams }: ArticleProps) {
               avatar: item.user.avatar,
             }}
             timestamp={item.updatedAt}
-            animation={{ delay: index * 0.1 }}
           />
         ))}
       </section>

@@ -9,9 +9,16 @@ type PaginationProps = {
   count: number;
   itemsPerPage: number;
   initialPage: number;
+  isDisabled?: boolean;
 };
 
-export function Pagination({ className, count, itemsPerPage, initialPage }: PaginationProps) {
+export function Pagination({
+  className,
+  count,
+  itemsPerPage,
+  initialPage,
+  isDisabled,
+}: PaginationProps) {
   const router = useRouter();
 
   const pageNumber = useMemo(() => initialPage, [initialPage]);
@@ -21,6 +28,7 @@ export function Pagination({ className, count, itemsPerPage, initialPage }: Pagi
 
   return (
     <NextPagination
+      isDisabled={isDisabled}
       className={className}
       classNames={{
         wrapper: "gap-3",

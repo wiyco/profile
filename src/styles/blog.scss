@@ -1,9 +1,3 @@
-.header-wrap {
-  @apply relative mx-auto w-full text-neutral-900/75 dark:text-neutral-100/75;
-
-  &::before {
-    @apply absolute inset-x-0 -bottom-10 h-[1px] w-full rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
-
-    content: "";
-  }
+.blog-item-animation {
+  @apply origin-bottom scale-100 transition-transform duration-250 ease-in-out hover:scale-[1.0125] active:scale-[0.99];
 }
