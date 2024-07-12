@@ -103,6 +103,8 @@ export default function Page() {
             2000,
             '最近は専ら"Zenn"やインターンでのアウトプットにハマっています。',
             2500,
+            "",
+            1000,
           ]}
           wrapper="h1"
           cursor
