@@ -20,20 +20,20 @@ export async function Archive() {
           return (
             <section key={index} className="flex md:grid md:grid-cols-6">
               <aside className="timeline pl-2 md:col-span-1 md:pr-6"></aside>
-              {item.isEmbed || !item.title ? (
-                <article className="my-4 ml-6 md:col-span-5 md:ml-8">
+              <article className="my-4 ml-6 flex-1 md:col-span-5 md:ml-8">
+                {item.isEmbed || !item.title ? (
                   <LinkEmbedder href={item.url} className="timeline-item-animation" />
-                </article>
-              ) : (
-                <CardFull
-                  className="flex-1 py-4 pl-6 md:col-span-5 md:pl-8"
-                  title={item.title ?? ""}
-                  thumbnail={item.thumbnail || ""}
-                  isOGImage={item.isOGImage}
-                  url={item.url}
-                  isExternal={isExternalPath(item.url)}
-                />
-              )}
+                ) : (
+                  <CardFull
+                    className="timeline-item-animation"
+                    title={item.title ?? ""}
+                    thumbnail={item.thumbnail || ""}
+                    isOGImage={item.isOGImage}
+                    url={item.url}
+                    isExternal={isExternalPath(item.url)}
+                  />
+                )}
+              </article>
             </section>
           );
         }
@@ -49,20 +49,20 @@ export async function Archive() {
               </span>
               <section className="flex">
                 <aside className="timeline pl-2"></aside>
-                {item.isEmbed || !item.title ? (
-                  <article className="my-4 ml-6">
+                <article className="my-4 ml-6 flex-1">
+                  {item.isEmbed || !item.title ? (
                     <LinkEmbedder href={item.url} className="timeline-item-animation" />
-                  </article>
-                ) : (
-                  <CardFull
-                    className="flex-1 py-4 pl-6"
-                    title={item.title ?? ""}
-                    thumbnail={item.thumbnail || ""}
-                    isOGImage={item.isOGImage}
-                    url={item.url}
-                    isExternal={isExternalPath(item.url)}
-                  />
-                )}
+                  ) : (
+                    <CardFull
+                      className="timeline-item-animation"
+                      title={item.title ?? ""}
+                      thumbnail={item.thumbnail || ""}
+                      isOGImage={item.isOGImage}
+                      url={item.url}
+                      isExternal={isExternalPath(item.url)}
+                    />
+                  )}
+                </article>
               </section>
             </section>
             {/* Desktop */}
@@ -72,20 +72,20 @@ export async function Archive() {
                   {item.year || "Enigma"}
                 </span>
               </aside>
-              {item.isEmbed || !item.title ? (
-                <article className="col-span-5 my-4 ml-8">
+              <article className="col-span-5 my-4 ml-8 flex-1">
+                {item.isEmbed || !item.title ? (
                   <LinkEmbedder href={item.url} className="timeline-item-animation" />
-                </article>
-              ) : (
-                <CardFull
-                  className="col-span-5 py-4 pl-8"
-                  title={item.title ?? ""}
-                  thumbnail={item.thumbnail || ""}
-                  isOGImage={item.isOGImage}
-                  url={item.url}
-                  isExternal={isExternalPath(item.url)}
-                />
-              )}
+                ) : (
+                  <CardFull
+                    className="timeline-item-animation"
+                    title={item.title ?? ""}
+                    thumbnail={item.thumbnail || ""}
+                    isOGImage={item.isOGImage}
+                    url={item.url}
+                    isExternal={isExternalPath(item.url)}
+                  />
+                )}
+              </article>
             </section>
           </Fragment>
         );
