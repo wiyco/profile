@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { Suspense } from "react";
 
 import { LinkEmbedder } from "@/components/cards/LinkEmbedder";
+import { LinkEmbedderSkeleton } from "@/components/suspenses/ArchiveSuspense/LinkEmbedderSkeleton";
 import { isExternalPath } from "@/utils/path";
 
 export function LinkBlock(props: React.ComponentProps<"a">) {
@@ -17,7 +19,11 @@ export function LinkBlock(props: React.ComponentProps<"a">) {
    * https://github.com
    */
   if (props.children?.toString() === props.href) {
-    return <LinkEmbedder href={props.href} className="mb-8" />;
+    return (
+      <Suspense fallback={<LinkEmbedderSkeleton className="mb-8" />}>
+        <LinkEmbedder href={props.href} className="mb-8" />
+      </Suspense>
+    );
   }
 
   /**
