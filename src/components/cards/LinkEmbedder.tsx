@@ -45,7 +45,7 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
       isExternal={isExternal}
       title={title || undefined}
       className={cn(
-        "h-fit w-full overflow-clip rounded-xl border-1 border-neutral-600/15 dark:border-neutral-400/15",
+        "w-full overflow-clip rounded-xl border-1 border-neutral-600/15 dark:border-neutral-400/15",
         className
       )}
     >
@@ -65,7 +65,7 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
               unoptimized={isExternal}
             />
           </div>
-          <section className="grid h-full w-full place-content-center gap-3 px-6 py-3.5 md:gap-2.5">
+          <section className="grid h-full w-full content-center gap-3 px-6 py-3.5 md:gap-2.5">
             <span className="line-clamp-3 text-sm font-medium md:text-base lg:line-clamp-2">
               {title || domain}
             </span>
