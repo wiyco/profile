@@ -37,9 +37,8 @@ export function MarkdownRenderer({ children }: { children: string }) {
              */
             if (child.type === "element" && child.tagName === "a") {
               if (
-                child.children[0].type === "element" &&
-                child.children[0].children[0].type === "text" &&
-                child.children[0].children[0].value === props.content
+                child.children[0].type === "text" &&
+                child.children[0].value === child.properties.href
               ) {
                 return <>{props.children}</>;
               }
