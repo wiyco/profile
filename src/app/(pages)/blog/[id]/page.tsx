@@ -1,4 +1,4 @@
-import "@/styles/blog.scss";
+import "@/styles/article.scss";
 
 import { ImageLinks } from "@constants/links";
 import User from "@icons/user.svg";
