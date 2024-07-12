@@ -24,7 +24,12 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
   const image = metadata?.["og:image"] || ImageLinks.FALLBACK;
   const domain = linkToDomain(href);
   const faviconHref = metadata?.favicons.find(
-    (favicon) => favicon.type === "image/png" || favicon.rel === "icon" || favicon.sizes === "32x32"
+    (favicon) =>
+      favicon.type === "image/png" ||
+      favicon.rel === "icon" ||
+      favicon.sizes === "32x32" ||
+      favicon.href.match(/.+\.png$/) ||
+      favicon.href.match(/.+\.ico$/)
   )?.href;
   const favicon = isExternalPath(faviconHref || "/")
     ? faviconHref
@@ -60,7 +65,7 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
               unoptimized={isExternal}
             />
           </div>
-          <section className="grid h-full w-full place-content-center gap-3 px-6 py-3.5">
+          <section className="grid h-full w-full place-content-center gap-3 px-6 py-3.5 md:gap-2.5">
             <span className="line-clamp-3 text-sm font-medium md:text-base lg:line-clamp-2">
               {title || domain}
             </span>
