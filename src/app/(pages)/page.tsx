@@ -73,7 +73,7 @@ export default function Page() {
           )}
         </Canvas>
       </div>
-      <section className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <section className="fixed left-1/2 top-1/2 grid w-[82.5%] max-w-3xl -translate-x-1/2 -translate-y-1/2 place-content-center">
         <TypeAnimation
           className="inline-block text-center text-lg font-light text-neutral-800 dark:text-neutral-100"
           sequence={[
