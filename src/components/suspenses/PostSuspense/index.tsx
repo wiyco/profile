@@ -5,7 +5,7 @@ import { CardPostSkeleton } from "./CardPostSkeleton";
 export function PostSuspense() {
   return (
     <>
-      <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <CardPostSkeleton />
         <CardPostSkeleton />
         <CardPostSkeleton />
