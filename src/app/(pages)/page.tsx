@@ -13,6 +13,7 @@ import { easing } from "maath";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import { useTheme } from "next-themes";
 import { useMemo, useRef } from "react";
+import { TypeAnimation } from "react-type-animation";
 import * as THREE from "three";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
@@ -40,37 +41,77 @@ export default function Page() {
   });
 
   return (
-    <div className="h-screen w-full">
-      <Canvas camera={{ position: [0, 0, 5], fov: 90 }}>
-        {resolvedTheme === Themes.DARK ? (
-          <color attach="background" args={["#171717"]} />
-        ) : (
-          <color attach="background" args={["#f5f5f5"]} />
-        )}
-        <Lines
-          dash={dash}
-          count={count}
-          radius={radius}
-          colors={
-            resolvedTheme === Themes.DARK
-              ? [
-                  [5, 0.5, 1], // red
-                  [0.5, 1, 5], // blue
-                  [0.5, 5, 1], // green
-                  [5, 2, 0.5], // amber
-                  [2, 0.5, 5], // violet
-                ]
-              : ["#fca5a5", "#93c5fd", "#86efac", "#fcd34d", "#c4b5fd"]
-          }
+    <>
+      <div className="h-screen w-full blur-md">
+        <Canvas camera={{ position: [0, 0, 5], fov: 90 }}>
+          {resolvedTheme === Themes.DARK ? (
+            <color attach="background" args={["#171717"]} />
+          ) : (
+            <color attach="background" args={["#f5f5f5"]} />
+          )}
+          <Lines
+            dash={dash}
+            count={count}
+            radius={radius}
+            colors={
+              resolvedTheme === Themes.DARK
+                ? [
+                    [5, 0.5, 1], // red
+                    [0.5, 1, 5], // blue
+                    [0.5, 5, 1], // green
+                    [5, 2, 0.5], // amber
+                    [2, 0.5, 5], // violet
+                  ]
+                : ["#fca5a5", "#93c5fd", "#86efac", "#fcd34d", "#c4b5fd"]
+            }
+          />
+          <Rig />
+          {resolvedTheme === Themes.DARK && (
+            <EffectComposer>
+              <Bloom mipmapBlur luminanceThreshold={0.9} luminanceSmoothing={0.02} radius={0.25} />
+            </EffectComposer>
+          )}
+        </Canvas>
+      </div>
+      <section className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <TypeAnimation
+          className="inline-block text-center text-lg font-light text-neutral-800 dark:text-neutral-100"
+          sequence={[
+            "Hello!",
+            1500,
+            'I usually go by the name "wiyco."',
+            2000,
+            'I am continuously catching up every day to move away from being a "temporary" software engineer.',
+            3500,
+            "My interests include service design, team management, web development (full-stack), mobile development (front-end), UI/UX design, and animation.",
+            4000,
+            "I have obtained the Applied Information Technology Engineer certification.",
+            3000,
+            'Lately, I\'ve been really into producing content on "Zenn" and during my internships.',
+            3000,
+            "",
+            1000,
+            "こんにちは！",
+            1500,
+            '普段は"wiyco"という名前で活動しています。',
+            2000,
+            "ソフトウェアエンジニア（仮）から離脱するために、日々キャッチアップを続けています。",
+            3000,
+            "関心のあるものは、サービスデザイン・チームマネジメント・Web（フルスタック）・モバイル（フロント）・UI/UXデザイン・アニメーションです。",
+            3500,
+            "応用情報技術者を取得しています。",
+            2000,
+            '最近は専ら"Zenn"やインターンでのアウトプットにハマっています。',
+            2500,
+          ]}
+          wrapper="h1"
+          cursor
+          speed={55}
+          deletionSpeed={85}
+          repeat={Infinity}
         />
-        <Rig />
-        {resolvedTheme === Themes.DARK && (
-          <EffectComposer>
-            <Bloom mipmapBlur luminanceThreshold={0.9} luminanceSmoothing={0.02} radius={0.25} />
-          </EffectComposer>
-        )}
-      </Canvas>
-    </div>
+      </section>
+    </>
   );
 }
 
