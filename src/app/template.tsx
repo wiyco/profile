@@ -9,7 +9,7 @@ export default function Template({ children }: Readonly<{ children: React.ReactN
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       <TemplateMotion pathname={pathname}>{children}</TemplateMotion>
     </AnimatePresence>
   );
