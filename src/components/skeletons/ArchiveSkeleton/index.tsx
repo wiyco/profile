@@ -3,7 +3,7 @@ import "@/styles/timeline.scss";
 import { CardFullSkeleton } from "@/components/cards/CardFull/skeleton";
 import { LinkEmbedderSkeleton } from "@/components/cards/LinkEmbedder/skeleton";
 
-export function ArchiveSuspense() {
+export function ArchiveSkeleton() {
   return (
     <section className="grid grid-cols-1">
       <section className="flex md:grid md:grid-cols-6">

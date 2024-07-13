@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { ArchiveSuspense } from "@/components/skeletons/ArchiveSuspense";
+import { ArchiveSkeleton } from "@/components/skeletons/ArchiveSkeleton";
 
 import { Archive } from "./archive";
 
@@ -10,7 +10,7 @@ export default function Page() {
       <h1>
         <span>Archive</span>
       </h1>
-      <Suspense fallback={<ArchiveSuspense />}>
+      <Suspense fallback={<ArchiveSkeleton />}>
         <Archive />
       </Suspense>
     </div>
