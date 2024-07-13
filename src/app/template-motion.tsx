@@ -41,7 +41,7 @@ export function TemplateMotion({ children, pathname }: TemplateMotionProps) {
 
       if (pathname.match(/\/blog\/[a-zA-Z0-9_\-=]+/)) {
         animate(
-          ".header-wrap, .markdown-wrap > *",
+          ".header-wrap, .markdown-wrap > :nth-child(-n + 16)",
           { opacity: [0, 1] },
           {
             duration: 0.3,
