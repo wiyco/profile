@@ -101,7 +101,8 @@ export default function RootLayout({
           }}
         >
           <Header />
-          <main>{children}</main>
+          {/** @see TemplateMotion */}
+          {children}
           <Footer />
         </Providers>
         <Analytics />

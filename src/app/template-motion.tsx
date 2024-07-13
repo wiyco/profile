@@ -9,13 +9,13 @@ type TemplateMotionProps = Readonly<{
 
 export function TemplateMotion({ children, pathname }: TemplateMotionProps) {
   return (
-    <motion.div
+    <motion.main
       key={pathname}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       {children}
-    </motion.div>
+    </motion.main>
   );
 }
