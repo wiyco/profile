@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 import { LinkEmbedder } from "@/components/cards/LinkEmbedder";
-import { LinkEmbedderSkeleton } from "@/components/suspenses/ArchiveSuspense/LinkEmbedderSkeleton";
+import { LinkEmbedderSkeleton } from "@/components/skeletons/ArchiveSuspense/LinkEmbedderSkeleton";
 import { isExternalPath } from "@/utils/path";
 
 export function LinkBlock(props: React.ComponentProps<"a">) {

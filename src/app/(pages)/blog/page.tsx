@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { PostSuspense } from "@/components/suspenses/PostSuspense";
+import { PostSuspense } from "@/components/skeletons/PostSuspense";
 import type { SearchParams } from "@/types";
 
 import { Article } from "./article";

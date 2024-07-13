@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { ArchiveSuspense } from "@/components/suspenses/ArchiveSuspense";
+import { ArchiveSuspense } from "@/components/skeletons/ArchiveSuspense";
 
 import { Archive } from "./archive";
 
