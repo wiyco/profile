@@ -17,7 +17,7 @@ export function TemplateMotion({ children, pathname }: TemplateMotionProps) {
 
       if (pathname === "/archive") {
         animate(
-          ".timeline-item-animation",
+          ".timeline:nth-child(-n + 8), .timeline-item-animation:nth-child(-n + 8)",
           { opacity: [0, 1] },
           {
             duration: 0.3,
