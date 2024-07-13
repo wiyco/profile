@@ -3,7 +3,7 @@ import "@/styles/blog.scss";
 import { CardPostSkeleton } from "@/components/cards/CardPost/skeleton";
 import { Pagination } from "@/components/navigations/Pagination";
 
-export function PostSuspense() {
+export function ArticleSkeleton() {
   return (
     <>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">

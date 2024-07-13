@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { PostSuspense } from "@/components/skeletons/PostSuspense";
+import { ArticleSkeleton } from "@/components/skeletons/ArticleSkeleton";
 import type { SearchParams } from "@/types";
 
 import { Article } from "./article";
@@ -15,7 +15,7 @@ export default function Page({ searchParams }: PageProps) {
       <h1>
         <span>Blog</span>
       </h1>
-      <Suspense fallback={<PostSuspense />}>
+      <Suspense fallback={<ArticleSkeleton />}>
         <Article searchParams={searchParams} />
       </Suspense>
     </div>
