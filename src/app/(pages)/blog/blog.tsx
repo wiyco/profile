@@ -17,7 +17,7 @@ type ArticleProps = {
   searchParams: SearchParams;
 };
 
-export async function Article({ searchParams }: ArticleProps) {
+export async function Blog({ searchParams }: ArticleProps) {
   /** The `page` param is not set */
   if (!searchParams?.page) {
     return permanentRedirect(`?page=1`, RedirectType.replace);

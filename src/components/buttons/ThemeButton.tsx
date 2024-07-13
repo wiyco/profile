@@ -4,6 +4,7 @@ import { Themes } from "@constants/themes";
 import HalfMoon from "@icons/half-moon.svg";
 import SunLight from "@icons/sun-light.svg";
 import { Skeleton } from "@nextui-org/react";
+import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useLayoutEffect, useState } from "react";
 
@@ -21,7 +22,10 @@ export function ThemeButton({ className }: ThemeButtonProps) {
   }, []);
 
   return mounted ? (
-    <button
+    <motion.button
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: "linear" }}
       className={className}
       type="button"
       title="Color Theme"
@@ -31,7 +35,7 @@ export function ThemeButton({ className }: ThemeButtonProps) {
       <span className="stroke-current">
         {resolvedTheme === Themes.DARK ? <HalfMoon /> : <SunLight />}
       </span>
-    </button>
+    </motion.button>
   ) : (
     <span className={className}>
       <Skeleton className="h-6 w-6 rounded-full" />
