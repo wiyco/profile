@@ -13,11 +13,10 @@ export function TemplateMotion({ children, pathname }: TemplateMotionProps) {
 
   useEffect(() => {
     try {
-      if (pathname === "/") return;
-
+      /** @example /archive */
       if (pathname === "/archive") {
         animate(
-          ".timeline:nth-child(-n + 8), .timeline-item-animation:nth-child(-n + 8)",
+          ".timeline:nth-child(-n + 4), .timeline-item-animation:nth-child(-n + 4)",
           { opacity: [0, 1] },
           {
             duration: 0.3,
@@ -27,6 +26,7 @@ export function TemplateMotion({ children, pathname }: TemplateMotionProps) {
         );
       }
 
+      /** @example /blog */
       if (pathname === "/blog") {
         animate(
           ".blog-item-animation",
@@ -39,9 +39,10 @@ export function TemplateMotion({ children, pathname }: TemplateMotionProps) {
         );
       }
 
+      /** @example /blog/25bepuTC */
       if (pathname.match(/\/blog\/[a-zA-Z0-9_\-=]+/)) {
         animate(
-          ".header-wrap, .markdown-wrap > :nth-child(-n + 16)",
+          ".header-wrap, .markdown-wrap > :nth-child(-n + 12)",
           { opacity: [0, 1] },
           {
             duration: 0.3,
