@@ -25,6 +25,7 @@ export function ThemeButton({ className }: ThemeButtonProps) {
     <motion.button
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: "linear" }}
       className={className}
       type="button"
       title="Color Theme"
