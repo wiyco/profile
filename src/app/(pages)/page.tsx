@@ -77,6 +77,8 @@ export default function Page() {
         <TypeAnimation
           className="inline-block text-center text-lg font-light text-neutral-800 dark:text-neutral-100"
           sequence={[
+            "",
+            1000,
             "Hello!",
             1500,
             'I usually go by the name "wiyco."',
