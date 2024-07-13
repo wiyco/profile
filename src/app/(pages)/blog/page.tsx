@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { ArticleSkeleton } from "@/components/skeletons/ArticleSkeleton";
 import type { SearchParams } from "@/types";
 
-import { Article } from "./article";
+import { Blog } from "./blog";
 
 type PageProps = {
   searchParams: SearchParams;
@@ -16,7 +16,7 @@ export default function Page({ searchParams }: PageProps) {
         <span>Blog</span>
       </h1>
       <Suspense fallback={<ArticleSkeleton />}>
-        <Article searchParams={searchParams} />
+        <Blog searchParams={searchParams} />
       </Suspense>
     </div>
   );
