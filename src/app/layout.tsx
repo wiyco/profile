@@ -91,6 +91,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        {/* Prevents flicker in color mode */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `!function(){const e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",t=localStorage.getItem("theme"),o="system"===t||null==t?e:"dark"===t?"dark":"light";window.document.documentElement.dataset.colorMode=o}();`,
+          }}
+        />
+      </head>
       <body className={cn(inter.variable, notoSansJP.variable)}>
         <Providers
           nextThemeProviderProps={{
