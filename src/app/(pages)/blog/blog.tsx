@@ -22,6 +22,7 @@ export async function Blog({ searchParams }: ArticleProps) {
   if (!searchParams?.page) {
     return permanentRedirect(`?page=1`, RedirectType.replace);
   }
+  /** Parse query params related to pagination */
   const pagination = paginationApiRequest.parse({
     limit: paginationSettings.itemsPerPage,
     offset: searchParams.page,
@@ -33,7 +34,7 @@ export async function Blog({ searchParams }: ArticleProps) {
   }
   const limit = pagination.limit;
   const offset = (pageNumber - 1) * paginationSettings.itemsPerPage; // offset 0 = no offset
-
+  /** Fetch posts */
   const posts = await getPosts(limit, offset);
   /** The page number is out of range (max) */
   if (offset + 1 > posts.count) {
@@ -42,23 +43,24 @@ export async function Blog({ searchParams }: ArticleProps) {
       RedirectType.replace
     );
   }
-  /** Retrieve the avatar url for each post */
-  const postsWithAvatar = await Promise.all(
-    posts.results.map(async (item) => {
+
+  /** Remove duplicate avatar ids */
+  const uniqueAvatarIds = Array.from(new Set(posts.results.map((item) => item.user?.avatar)));
+  /** Record where keys are avatar ids and values are urls */
+  const avatarIdToUrlRecord: Record<string, string | null> = await Promise.all(
+    uniqueAvatarIds.map(async (avatarId) => {
       return {
-        ...item,
-        user: {
-          ...item.user,
-          avatar: await getAvatar(item.user?.avatar, "webp").then((res) => res),
-        },
+        [String(avatarId)]: avatarId
+          ? await getAvatar(avatarId, "webp").then((avatarUrl) => avatarUrl)
+          : null,
       };
     })
-  );
+  ).then((record) => Object.assign({}, ...record));
 
   return (
     <>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        {postsWithAvatar.map((item, index) => (
+        {posts.results.map((item, index) => (
           <CardPost
             key={index}
             className="blog-item-animation"
@@ -66,8 +68,8 @@ export async function Blog({ searchParams }: ArticleProps) {
             thumbnail={item.thumbnail}
             url={`/blog/${item.id}`}
             author={{
-              name: item.user.username,
-              avatar: item.user.avatar,
+              name: item.user?.username,
+              avatar: avatarIdToUrlRecord[String(item.user?.avatar)],
             }}
             timestamp={item.updatedAt}
           />
