@@ -9,17 +9,9 @@ import { navItems } from "@/components/layouts/Header/constants";
 export function Navbar() {
   return (
     <nav>
-      <ul className="flex items-center justify-center space-x-4 md:hidden">
-        <li>
-          <ThemeButton className="grid h-8 w-8 place-content-center rounded-xl" />
-        </li>
-        <li>
-          <MenuButton items={navItems} className="!grid !h-8 !w-8 place-content-center" />
-        </li>
-      </ul>
-      <ul className="hidden items-center justify-center space-x-4 md:flex">
+      <ul className="flex items-center justify-center space-x-4">
         {navItems.map((item, index) => (
-          <li key={index}>
+          <li key={index} className="hidden md:inline-block">
             <Link
               href={item.url}
               title={item.label.charAt(0).toUpperCase() + item.label.slice(1)}
@@ -31,6 +23,9 @@ export function Navbar() {
         ))}
         <li>
           <ThemeButton className="navbar-icon-wrap" />
+        </li>
+        <li className="inline-block md:hidden">
+          <MenuButton items={navItems} className="!grid !h-8 !w-8 place-content-center" />
         </li>
       </ul>
     </nav>
