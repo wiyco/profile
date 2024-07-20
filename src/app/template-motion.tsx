@@ -51,8 +51,8 @@ export function TemplateMotion({ children, pathname }: TemplateMotionProps) {
           }
         );
       }
-    } catch (e) {
-      console.error(e);
+    } catch (_) {
+      console.log("No animated elements found.");
     }
   }, [animate, pathname]);
 
