@@ -1,4 +1,5 @@
 import { ImageLinks } from "@constants/links";
+import User from "@icons/user.svg";
 import { Avatar, Card, CardBody, CardFooter, CardHeader, Image, Link } from "@nextui-org/react";
 import NextImage from "next/image";
 import NextLink from "next/link";
@@ -56,15 +57,9 @@ export function CardPost({ title, thumbnail, url, author, timestamp, className }
             alt={author?.name || undefined}
             showFallback
             fallback={
-              <Image
-                as={NextImage}
-                src={ImageLinks.EMOJI_FALLBACK}
-                alt="turtle"
-                width={96}
-                height={96}
-                priority={false}
-                unoptimized={isExternalPath(ImageLinks.EMOJI_FALLBACK)}
-              />
+              <span className="animate-pulse stroke-current">
+                <User />
+              </span>
             }
           />
         </CardHeader>
