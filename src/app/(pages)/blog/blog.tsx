@@ -1,6 +1,6 @@
 import "@/styles/blog.scss";
 
-import { permanentRedirect, RedirectType } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 
 import { CardPost } from "@/components/cards/CardPost";
 import { Pagination } from "@/components/navigations/Pagination";
@@ -19,8 +19,8 @@ type ArticleProps = {
 
 export async function Blog({ searchParams }: ArticleProps) {
   /** The `page` param is not set */
-  if (!searchParams?.page) {
-    return permanentRedirect(`?page=1`, RedirectType.replace);
+  if (searchParams?.page === undefined || searchParams?.page === "") {
+    return redirect(`?page=1`, RedirectType.replace);
   }
   /** Parse query params related to pagination */
   const pagination = paginationApiRequest.parse({
@@ -30,7 +30,7 @@ export async function Blog({ searchParams }: ArticleProps) {
   const pageNumber = pagination.offset;
   /** The page number is out of range (min) */
   if (pageNumber < 1) {
-    return permanentRedirect(`?page=1`, RedirectType.replace);
+    return redirect(`?page=1`, RedirectType.replace);
   }
   const limit = pagination.limit;
   const offset = (pageNumber - 1) * paginationSettings.itemsPerPage; // offset 0 = no offset
@@ -38,7 +38,7 @@ export async function Blog({ searchParams }: ArticleProps) {
   const posts = await getPosts(limit, offset);
   /** The page number is out of range (max) */
   if (offset + 1 > posts.count) {
-    return permanentRedirect(
+    return redirect(
       `?page=${Math.ceil(posts.count / paginationSettings.itemsPerPage)}`,
       RedirectType.replace
     );
