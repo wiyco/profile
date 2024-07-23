@@ -1,13 +1,17 @@
+import { countGrapheme } from "@/utils/count-grapheme";
+
 /**
  * Part of this code is taken from `remove-markdown` 🐢
  * @link https://github.com/stiang/remove-markdown
  */
-function markdownToText(markdown: string, maxLength: number = 200) {
+function markdownToText(markdown: string, maxLength: number = 250) {
   // Remove horizontal rules (stripListHeaders conflict with this rule, which is why it has been moved to the top)
   markdown = markdown.replace(/^(-\s*?|\*\s*?|_\s*?){3,}\s*/gm, "");
 
-  // Remove HTML tags
   markdown = markdown
+    // Replace list leaders
+    .replace(/^([\s\t]*)([*\-+]|\d+\.)\s+/gm, "•$1")
+    // Remove HTML tags
     .replace(/<[^>]*>/g, "")
     // Remove setext-style headers
     .replace(/^[=-]{2,}\s*$/g, "")
@@ -16,7 +20,7 @@ function markdownToText(markdown: string, maxLength: number = 200) {
     .replace(/\s{0,2}\[.*?\]: .*?$/g, "")
     // Remove images
     .replace(/!\[(.*?)\][[(].*?[\])]/g, "$1")
-    // Remove inline links
+    // Remove inline links (use `$2` to replace with URL)
     .replace(/\[([^\]]*?)\][[(].*?[\])]/g, "$1")
     // Remove blockquotes
     .replace(/^(\n)?\s{0,3}>\s?/gm, "$1")
@@ -37,14 +41,14 @@ function markdownToText(markdown: string, maxLength: number = 200) {
     // Replace two or more newlines with exactly two? Not entirely sure this belongs here...
     .replace(/\n{2,}/g, "\n\n")
     // Remove newlines in a paragraph
-    .replace(/(\S+)\n\s*(\S+)/g, "$1 $2")
+    // .replace(/(\S+)\n\s*(\S+)/g, "$1 $2")
     // Replace strike through
     .replace(/~(.*?)~/g, "$1");
 
   // Replace a newline with a space
-  markdown = markdown.replace(/\n/g, " ");
+  // markdown = markdown.replace(/\n/g, " ");
 
-  return markdown.slice(0, maxLength) + (markdown.length > maxLength ? "..." : "");
+  return markdown.substring(0, maxLength) + (countGrapheme(markdown) > maxLength ? "..." : "");
 }
 
 export { markdownToText };
