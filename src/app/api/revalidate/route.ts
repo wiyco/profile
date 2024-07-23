@@ -20,11 +20,12 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  revalidatePath(path.startsWith("/") ? path : `/${path}`, "page");
+  const targetPath = path.startsWith("/") ? path : `/${path}`;
+  revalidatePath(targetPath);
   return NextResponse.json(
     {
       revalidated: true,
-      message: `Revalidated path: ${path}`,
+      message: `Revalidated path: ${targetPath}`,
       now: new Date(),
     },
     { status: 200 }
