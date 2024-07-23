@@ -4,6 +4,11 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import type { RouteParams } from "@/types";
 
+/** @see {@link https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config} */
+export const dynamic = "auto";
+export const revalidate = 600;
+export const maxDuration = 10;
+
 export async function GET(request: NextRequest, { params }: { params: RouteParams }) {
   const { id } = params;
 
@@ -20,5 +25,9 @@ export async function GET(request: NextRequest, { params }: { params: RouteParam
     },
   });
 
-  return NextResponse.json(post);
+  if (!post) {
+    return NextResponse.json(null, { status: 404 });
+  }
+
+  return NextResponse.json(post, { status: 200 });
 }
