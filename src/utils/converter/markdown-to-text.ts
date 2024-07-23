@@ -9,8 +9,8 @@ function markdownToText(markdown: string, maxLength: number = 250) {
   markdown = markdown.replace(/^(-\s*?|\*\s*?|_\s*?){3,}\s*/gm, "");
 
   markdown = markdown
-    // Replace list leaders
-    .replace(/^([\s\t]*)([*\-+]|\d+\.)\s+/gm, "•$1")
+    // Strip list leaders
+    .replace(/^([\s\t]*)([*\-+]|\d+\.)\s+/gm, "$1")
     // Remove HTML tags
     .replace(/<[^>]*>/g, "")
     // Remove setext-style headers
