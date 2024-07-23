@@ -38,8 +38,8 @@ function markdownToText(markdown: string, maxLength: number = 250) {
     .replace(/(`{3,})(.*?)\1/gm, "$2")
     // Remove inline code
     .replace(/`(.+?)`/g, "$1")
-    // Replace two or more newlines with exactly two? Not entirely sure this belongs here...
-    .replace(/\n{2,}/g, "\n\n")
+    // Replace two or more newlines with a newline
+    .replace(/\n{2,}/g, "\n")
     // Remove newlines in a paragraph
     // .replace(/(\S+)\n\s*(\S+)/g, "$1 $2")
     // Replace strike through
