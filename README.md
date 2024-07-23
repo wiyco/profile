@@ -31,6 +31,50 @@ end;
 $$;
 ```
 
+## API
+
+API specifications that are likely to be used frequently.
+
+### Revalidate path
+
+Used to revalidate a specific path. (e.g. `/archive`, `/blog`, `/blog/abcde`)
+
+```shell
+GET /api/revalidate
+```
+
+#### Parameters
+
+| Name | Description | Required |
+| --- | --- | --- |
+| path | The path you want to revalidate | Yes |
+
+#### Responses
+
+| Name | Description | Required |
+| --- | --- | --- |
+| revalidated | The revalidate was successful or not | Boolean |
+| message | Message from the Server | String |
+| now | Date and time executed | String |
+
+#### Sample
+
+```shell
+GET /api/revalidate?path=/blog/abcde
+```
+
+```json
+{
+  "revalidated": true,
+  "message": "Revalidated path: /blog/abcde",
+  "now": "2024-07-23T09:16:28.558Z"
+}
+```
+
+> [!TIP]
+>
+> The slash `/` at the beginning of the path can be omitted.
+
 ---
 
 🐢

@@ -3,6 +3,8 @@ import type { User } from "@/lib/zod/schema";
 
 type ImageExtension = "png" | "jpg" | "jpeg" | "webp" | "svg";
 
+/** @see {@link https://supabase.com/docs/reference/javascript/storage-from-getpublicurl} */
+
 async function getAvatar(
   id: User["avatar"] | undefined,
   extension: ImageExtension

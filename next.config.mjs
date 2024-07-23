@@ -12,7 +12,7 @@ const nextConfig = {
   },
   images: {
     /** @see {@link https://nextjs.org/docs/app/api-reference/components/image#minimumcachettl} */
-    minimumCacheTTL: 14400, // 4 hours
+    minimumCacheTTL: 1800, // 30 minutes
     remotePatterns: [
       /** @see {@link https://github.com/wiyco/fluentui-emoji} */
       {
