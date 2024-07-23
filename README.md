@@ -51,7 +51,7 @@ GET /api/revalidate
 
 #### Responses
 
-| Name | Description | Required |
+| Name | Description | Type |
 | --- | --- | --- |
 | revalidated | The revalidate was successful or not | Boolean |
 | message | Message from the Server | String |
