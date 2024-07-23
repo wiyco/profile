@@ -5,7 +5,6 @@ import type { Archive } from "@/types";
 async function getArchives(): Promise<Archive[]> {
   try {
     const res = await fetch(process.env.NEXT_PUBLIC_ARCHIVE_URL!, {
-      cache: "force-cache",
       next: { revalidate: 600 },
     });
     if (!res.ok) {
