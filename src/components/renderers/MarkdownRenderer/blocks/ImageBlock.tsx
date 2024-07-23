@@ -11,8 +11,8 @@ export function ImageBlock(props: React.ComponentProps<"img">) {
       as={NextImage}
       radius="none"
       classNames={{
-        wrapper: "mx-auto w-full mb-8",
-        img: "mx-auto max-h-full md:max-h-[384px] w-auto h-auto object-contain rounded-lg",
+        wrapper: "mx-auto mb-8 w-full",
+        img: "mx-auto !h-auto max-h-full w-auto rounded-lg object-contain md:max-h-[384px]",
       }}
       src={props.src}
       alt={props.alt}
