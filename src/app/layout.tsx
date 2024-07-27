@@ -95,7 +95,7 @@ export default function RootLayout({
         {/* Prevents flicker in color mode */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `!function(){try{const e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light",t=localStorage.getItem("theme"),a="system"===t||null==t?e:"dark"===t?"dark":"light";document.documentElement.classList.add(a)}catch(_){console.warn("Failed to initialize color mode.")}}();`,
+            __html: `!function(){try{const e=document.documentElement,t=e.classList;t.remove("light","dark");const o=localStorage.getItem("theme");if("system"!==o&&o)o&&t.add(o||"");else{const o="(prefers-color-scheme: dark)",c=window.matchMedia(o);c.media!==o||c.matches?(e.style.colorScheme="dark",t.add("dark")):(e.style.colorScheme="light",t.add("light"))}"light"!==o&&"dark"!==o||(e.style.colorScheme=o)}catch(e){console.warn("Failed to initialize color mode.")}}();`,
           }}
         />
       </head>
