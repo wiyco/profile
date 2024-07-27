@@ -4,16 +4,25 @@
  */
 (function () {
   try {
-    const prefers = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    /** next-themes color theme key */
-    const fromStorage = localStorage.getItem("theme");
-    const colorMode: "light" | "dark" =
-      fromStorage === "system" || fromStorage == null
-        ? prefers
-        : fromStorage === "dark"
-          ? "dark"
-          : "light";
-    document.documentElement.classList.add(colorMode);
+    const documentElement = document.documentElement,
+      classList = documentElement.classList;
+    classList.remove("light", "dark");
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "system" || (!storedTheme && true)) {
+      const prefersTheme = "(prefers-color-scheme: dark)",
+        prefersMedia = window.matchMedia(prefersTheme);
+      if (prefersMedia.media !== prefersTheme || prefersMedia.matches) {
+        documentElement.style.colorScheme = "dark";
+        classList.add("dark");
+      } else {
+        documentElement.style.colorScheme = "light";
+        classList.add("light");
+      }
+    } else if (storedTheme) {
+      classList.add(storedTheme || "");
+    }
+    if (storedTheme === "light" || storedTheme === "dark")
+      documentElement.style.colorScheme = storedTheme;
   } catch (_) {
     console.warn("Failed to initialize color mode.");
   }
