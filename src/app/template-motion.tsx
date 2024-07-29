@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, stagger, useAnimate } from "framer-motion";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 type TemplateMotionProps = Readonly<{
@@ -10,7 +10,6 @@ type TemplateMotionProps = Readonly<{
 
 export function TemplateMotion({ children }: TemplateMotionProps) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -56,7 +55,7 @@ export function TemplateMotion({ children }: TemplateMotionProps) {
     } catch (_) {
       console.log("No animated elements found.");
     }
-  }, [pathname, searchParams, animate]);
+  }, [pathname, animate]);
 
   return (
     <motion.main
