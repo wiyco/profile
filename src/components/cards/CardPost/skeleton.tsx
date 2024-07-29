@@ -18,7 +18,7 @@ export function CardPostSkeleton({ className }: CardPostSkeletonProps) {
       className={cn("bg-neutral-400/10 dark:bg-neutral-600/10", className)}
     >
       <CardHeader>
-        <Skeleton className="h-24 w-full rounded-full" />
+        <Skeleton className="h-24 w-full rounded-medium" />
         <Skeleton classNames={{ base: "absolute right-3 top-3 z-10 w-8 h-8 rounded-full" }} />
       </CardHeader>
       <CardBody>
