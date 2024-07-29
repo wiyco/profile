@@ -1,8 +1,8 @@
 "use client";
 
 import { Pagination as NextPagination } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
+
+import { usePagination } from "./hooks";
 
 type PaginationProps = {
   className?: string;
@@ -19,19 +19,11 @@ export function Pagination({
   initialPage,
   isDisabled,
 }: PaginationProps) {
-  const router = useRouter();
-
-  const pageNumber = useMemo(() => initialPage, [initialPage]);
-  const totalPageNumber = useMemo(() => {
-    return Math.ceil(count / itemsPerPage);
-  }, [count, itemsPerPage]);
-
-  const handlePageChange = useCallback(
-    (page: number) => {
-      router.push(`?page=${page}`);
-    },
-    [router]
-  );
+  const { pageNumber, totalPageNumber, handlePageChange } = usePagination({
+    count,
+    itemsPerPage,
+    initialPage,
+  });
 
   return (
     <NextPagination
