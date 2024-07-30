@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, stagger, useAnimate } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 type TemplateMotionProps = Readonly<{
@@ -10,6 +10,7 @@ type TemplateMotionProps = Readonly<{
 
 export function TemplateMotion({ children }: TemplateMotionProps) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export function TemplateMotion({ children }: TemplateMotionProps) {
       }
 
       /** @example /blog */
-      if (pathname === "/blog") {
+      if (pathname === "/blog" && searchParams.has("page")) {
         animate(
           ".blog-item-animation",
           { opacity: [0, 1] },
@@ -55,7 +56,7 @@ export function TemplateMotion({ children }: TemplateMotionProps) {
     } catch (_) {
       console.log("No animated elements found.");
     }
-  }, [pathname, animate]);
+  }, [pathname, searchParams, animate]);
 
   return (
     <motion.main
