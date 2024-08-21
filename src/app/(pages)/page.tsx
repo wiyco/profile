@@ -4,6 +4,7 @@
  */
 "use client";
 
+import { R3F_SOURCE_CODE } from "@constants/profile";
 import { Themes } from "@constants/themes";
 import type { Color } from "@react-three/fiber";
 import { Canvas, extend, ReactThreeFiber, useFrame } from "@react-three/fiber";
@@ -15,6 +16,9 @@ import { useTheme } from "next-themes";
 import { useMemo, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import * as THREE from "three";
+
+import { jetBrainsMono } from "@/styles/fonts";
+import { cn } from "@/utils/cn";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -73,13 +77,17 @@ export default function Page() {
           )}
         </Canvas>
       </div>
-      <section className="fixed left-1/2 top-1/2 grid w-[82.5%] max-w-2xl -translate-x-1/2 -translate-y-1/2 place-content-center">
+      <section className="fixed left-1/2 top-1/2 grid max-h-[calc((100dvh-3.5rem-6rem)*.8)] w-4/5 max-w-4xl -translate-x-1/2 -translate-y-1/2 content-start overflow-y-auto rounded-xl border-1 border-neutral-600/15 shadow-md backdrop-blur-xl dark:border-neutral-400/15">
         <TypeAnimation
-          className="inline-block text-left text-base font-light leading-casual text-neutral-800 dark:text-neutral-100"
-          style={{ whiteSpace: "pre-line" }}
+          className={cn(
+            "block h-max w-full px-4 py-3 text-left text-xs font-light leading-relaxed text-neutral-800 dark:text-neutral-100",
+            jetBrainsMono.className
+          )}
+          style={{ whiteSpace: "pre-wrap" }}
           sequence={[
             "",
-            // 1000,
+            1000,
+            R3F_SOURCE_CODE,
             // getProfile("en").bio.join("\n"),
             // 5000,
             // "",
@@ -91,8 +99,8 @@ export default function Page() {
           ]}
           wrapper="h1"
           cursor
-          speed={50}
-          deletionSpeed={80}
+          speed={60}
+          deletionSpeed={90}
           repeat={0}
         />
       </section>
