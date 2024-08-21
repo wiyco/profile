@@ -73,46 +73,27 @@ export default function Page() {
           )}
         </Canvas>
       </div>
-      <section className="fixed left-1/2 top-1/2 grid w-[82.5%] max-w-3xl -translate-x-1/2 -translate-y-1/2 place-content-center">
+      <section className="fixed left-1/2 top-1/2 grid w-[82.5%] max-w-2xl -translate-x-1/2 -translate-y-1/2 place-content-center">
         <TypeAnimation
-          className="inline-block text-center text-lg font-light text-neutral-800 dark:text-neutral-100"
+          className="inline-block text-left text-base font-light leading-casual text-neutral-800 dark:text-neutral-100"
+          style={{ whiteSpace: "pre-line" }}
           sequence={[
             "",
-            1000,
-            "Hello!",
-            1500,
-            'I usually go by the name "wiyco."',
-            2000,
-            'I am continuously catching up every day to move away from being a "temporary" software engineer.',
-            3500,
-            "My interests include service design, team management, web development (full-stack), mobile development (front-end), UI/UX design, and animation.",
-            4000,
-            "I have obtained the Applied Information Technology Engineer certification.",
-            3000,
-            'Lately, I\'ve been really into producing content on "Zenn" and during my internships.',
-            3000,
-            "",
-            1000,
-            "こんにちは！",
-            1500,
-            '普段は"wiyco"という名前で活動しています。',
-            2000,
-            "ソフトウェアエンジニア（仮）から離脱するために、日々キャッチアップを続けています。",
-            3000,
-            "関心のあるものは、サービスデザイン・チームマネジメント・Web（フルスタック）・モバイル（フロント）・UI/UXデザイン・アニメーションです。",
-            3500,
-            "応用情報技術者を取得しています。",
-            2000,
-            '最近は専ら"Zenn"やインターンでのアウトプットにハマっています。',
-            2500,
-            "",
-            1000,
+            // 1000,
+            // getProfile("en").bio.join("\n"),
+            // 5000,
+            // "",
+            // 1000,
+            // getProfile("ja").bio.join("\n"),
+            // 5000,
+            // "",
+            // 1000,
           ]}
           wrapper="h1"
           cursor
-          speed={55}
-          deletionSpeed={85}
-          repeat={Infinity}
+          speed={50}
+          deletionSpeed={80}
+          repeat={0}
         />
       </section>
     </>
