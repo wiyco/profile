@@ -24,7 +24,7 @@ export function Footer() {
       )}
     >
       <div className="mt-5 grid gap-6 text-sm">
-        <NavExpander navItems={navItems} enableDarkMode={isRoot} />
+        {!isRoot && <NavExpander navItems={navItems} enableDarkMode={isRoot} />}
         <section className="flex items-center justify-between">
           <span>&copy; {new Date().getFullYear()} wiyco</span>
           <ul className="flex items-center justify-center space-x-4 text-lg">
