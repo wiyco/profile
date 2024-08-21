@@ -4,6 +4,8 @@ import { motion, stagger, useAnimate } from "framer-motion";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
+import { usePath } from "@/hooks/usePath";
+
 type TemplateMotionProps = Readonly<{
   children?: React.ReactNode;
 }>;
@@ -13,10 +15,11 @@ export function TemplateMotion({ children }: TemplateMotionProps) {
   const searchParams = useSearchParams();
   const [scope, animate] = useAnimate();
 
+  const { isArchive, isBlog, isBlogPost } = usePath();
+
   useEffect(() => {
     try {
-      /** @example /archive */
-      if (pathname === "/archive") {
+      if (isArchive) {
         animate(
           ".timeline-item-animation:nth-child(-n+8)",
           { opacity: [0, 1] },
@@ -28,8 +31,7 @@ export function TemplateMotion({ children }: TemplateMotionProps) {
         );
       }
 
-      /** @example /blog */
-      if (pathname === "/blog" && searchParams.has("page")) {
+      if (isBlog && searchParams.has("page")) {
         animate(
           ".blog-item-animation",
           { opacity: [0, 1] },
@@ -41,8 +43,7 @@ export function TemplateMotion({ children }: TemplateMotionProps) {
         );
       }
 
-      /** @example /blog/25bepuTC */
-      if (pathname.match(/\/blog\/[a-zA-Z0-9_\-=]+/)) {
+      if (isBlogPost) {
         animate(
           ".header-wrap, .markdown-wrap > :nth-child(-n+12)",
           { opacity: [0, 1] },
@@ -56,7 +57,7 @@ export function TemplateMotion({ children }: TemplateMotionProps) {
     } catch (_) {
       console.log("No animated elements found.");
     }
-  }, [pathname, searchParams, animate]);
+  }, [isArchive, isBlog, isBlogPost, searchParams, animate]);
 
   return (
     <motion.main

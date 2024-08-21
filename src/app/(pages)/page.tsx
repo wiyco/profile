@@ -4,6 +4,7 @@
  */
 "use client";
 
+import { R3F_SOURCE_CODE } from "@constants/profile";
 import { Themes } from "@constants/themes";
 import type { Color } from "@react-three/fiber";
 import { Canvas, extend, ReactThreeFiber, useFrame } from "@react-three/fiber";
@@ -15,6 +16,9 @@ import { useTheme } from "next-themes";
 import { useMemo, useRef } from "react";
 import { TypeAnimation } from "react-type-animation";
 import * as THREE from "three";
+
+import { jetBrainsMono } from "@/styles/fonts";
+import { cn } from "@/utils/cn";
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
@@ -73,46 +77,31 @@ export default function Page() {
           )}
         </Canvas>
       </div>
-      <section className="fixed left-1/2 top-1/2 grid w-[82.5%] max-w-3xl -translate-x-1/2 -translate-y-1/2 place-content-center">
+      <section className="fixed left-1/2 top-1/2 grid max-h-[calc((100dvh-3.5rem-6rem)*.8)] w-4/5 max-w-4xl -translate-x-1/2 -translate-y-1/2 content-start overflow-y-auto rounded-xl border-1 border-neutral-600/15 shadow-md backdrop-blur-xl dark:border-neutral-400/15">
         <TypeAnimation
-          className="inline-block text-center text-lg font-light text-neutral-800 dark:text-neutral-100"
+          className={cn(
+            "block h-max w-full px-4 py-3 text-left text-xs font-light leading-relaxed text-neutral-800 dark:text-neutral-100",
+            jetBrainsMono.className
+          )}
+          style={{ whiteSpace: "pre-wrap" }}
           sequence={[
             "",
             1000,
-            "Hello!",
-            1500,
-            'I usually go by the name "wiyco."',
-            2000,
-            'I am continuously catching up every day to move away from being a "temporary" software engineer.',
-            3500,
-            "My interests include service design, team management, web development (full-stack), mobile development (front-end), UI/UX design, and animation.",
-            4000,
-            "I have obtained the Applied Information Technology Engineer certification.",
-            3000,
-            'Lately, I\'ve been really into producing content on "Zenn" and during my internships.',
-            3000,
-            "",
-            1000,
-            "こんにちは！",
-            1500,
-            '普段は"wiyco"という名前で活動しています。',
-            2000,
-            "ソフトウェアエンジニア（仮）から離脱するために、日々キャッチアップを続けています。",
-            3000,
-            "関心のあるものは、サービスデザイン・チームマネジメント・Web（フルスタック）・モバイル（フロント）・UI/UXデザイン・アニメーションです。",
-            3500,
-            "応用情報技術者を取得しています。",
-            2000,
-            '最近は専ら"Zenn"やインターンでのアウトプットにハマっています。',
-            2500,
-            "",
-            1000,
+            R3F_SOURCE_CODE,
+            // getProfile("en").bio.join("\n"),
+            // 5000,
+            // "",
+            // 1000,
+            // getProfile("ja").bio.join("\n"),
+            // 5000,
+            // "",
+            // 1000,
           ]}
           wrapper="h1"
           cursor
-          speed={55}
-          deletionSpeed={85}
-          repeat={Infinity}
+          speed={60}
+          deletionSpeed={90}
+          repeat={0}
         />
       </section>
     </>
