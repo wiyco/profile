@@ -20,9 +20,10 @@ export type { NavItem };
 type NavExpanderProps = {
   navItems: NavItem[];
   enableDarkMode?: boolean;
+  className?: string;
 };
 
-export function NavExpander({ navItems, enableDarkMode }: NavExpanderProps) {
+export function NavExpander({ navItems, enableDarkMode, className }: NavExpanderProps) {
   const navOpenState = useMemo(
     () => navItems.map((item) => ({ [item.header]: false })),
     [navItems]
@@ -31,7 +32,7 @@ export function NavExpander({ navItems, enableDarkMode }: NavExpanderProps) {
   const [isOpen, setIsOpen] = useState<typeof navOpenState>(navOpenState);
 
   return (
-    <nav>
+    <nav className={className}>
       <ul className="grid grid-cols-3 justify-items-center">
         {navItems.map((item, itemIndex) => (
           <Fragment key={itemIndex}>
