@@ -1,14 +1,14 @@
 # wiyco
 
-A profile site w/ Vercel & Supabase.
+wiyco's personal website w/ Supabase & Vercel.
 
-## Blog
+## Database
 
-About the blog page.
+About the Database.
 
 ### Original ID
 
-I have configured an original ID generation function as the default value in the database.
+An original ID generation function is defined in the database.
 
 ```sql
 create or replace function public.id_generate_v1(length integer)
@@ -33,11 +33,11 @@ $$;
 
 ## API
 
-API specifications that are likely to be used frequently.
+About the API.
 
-### Revalidate path
+### Revalidate Path
 
-Used to revalidate a specific path. (e.g. `/archive`, `/blog`, `/blog/abcde`)
+Used when revalidating a specific path. (e.g. `/archive`, `/blog`, `/blog/abcde`)
 
 ```shell
 GET /api/revalidate
@@ -45,17 +45,17 @@ GET /api/revalidate
 
 #### Parameters
 
-| Name | Description | Required |
-| --- | --- | --- |
-| path | The path you want to revalidate | Yes |
+| Name | Description                     | Required |
+| :--: | ------------------------------- | :------: |
+| path | The path you want to revalidate |   Yes    |
 
 #### Responses
 
-| Name | Description | Type |
-| --- | --- | --- |
+|    Name     | Description                          |  Type   |
+| :---------: | ------------------------------------ | :-----: |
 | revalidated | The revalidate was successful or not | Boolean |
-| message | Message from the Server | String |
-| now | Date and time executed | String |
+|   message   | Message from the server              | String  |
+|     now     | Date and time executed               | String  |
 
 #### Sample
 
