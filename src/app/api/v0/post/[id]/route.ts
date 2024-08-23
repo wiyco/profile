@@ -2,18 +2,24 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/prisma";
-import type { RouteParams } from "@/types";
+import { type Post, PostSchema } from "@/lib/zod/schema";
 
 /** @see {@link https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config} */
 export const dynamic = "auto";
 export const revalidate = 600;
 export const maxDuration = 10;
 
+type RouteParams = Pick<Post, "id">;
+
 export async function GET(request: NextRequest, { params }: { params: RouteParams }) {
-  const { id } = params;
+  const safeParsedParams = PostSchema.shape.id.safeParse(params.id);
+
+  if (!safeParsedParams.success) {
+    return NextResponse.json(null, { status: 400 });
+  }
 
   const post = await prisma.post.findUnique({
-    where: { id },
+    where: { id: safeParsedParams.data },
     select: {
       id: true,
       createdAt: true,
