@@ -6,7 +6,7 @@ import { type Post, PostSchema } from "@/lib/zod/schema";
 
 /** @see {@link https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config} */
 export const dynamic = "auto";
-export const revalidate = 600;
+export const revalidate = 3600;
 export const maxDuration = 10;
 
 type RouteParams = Pick<Post, "id">;
