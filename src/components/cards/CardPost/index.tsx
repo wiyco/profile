@@ -18,13 +18,23 @@ type CardPostProps = {
   };
   timestamp?: Date;
   className?: string;
+  prefetch?: React.ComponentProps<typeof NextLink>["prefetch"];
 };
 
-export function CardPost({ title, thumbnail, url, author, timestamp, className }: CardPostProps) {
+export function CardPost({
+  title,
+  thumbnail,
+  url,
+  author,
+  timestamp,
+  className,
+  prefetch,
+}: CardPostProps) {
   return (
     <Link
       as={NextLink}
       href={url}
+      prefetch={prefetch}
       className={cn("w-full overflow-clip rounded-xl shadow-md", className)}
     >
       <Card
