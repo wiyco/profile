@@ -72,6 +72,7 @@ export async function Blog({ searchParams }: ArticleProps) {
               avatar: avatarIdToUrlRecord[String(item.user?.avatar)],
             }}
             timestamp={item.updatedAt}
+            prefetch={true}
           />
         ))}
       </section>
