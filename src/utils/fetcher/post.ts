@@ -10,7 +10,7 @@ async function getPosts(
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_ORIGIN_URL}/api/v0/posts?limit=${limit}&offset=${offset}`,
-      { next: { revalidate: 600 } }
+      { next: { revalidate: 3600 } }
     );
     if (!res.ok) {
       console.error(res.statusText);
@@ -27,7 +27,7 @@ async function getPosts(
 async function getPost(id: PostWithRelations["id"]): Promise<PostWithRelations | null> {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_ORIGIN_URL}/api/v0/post/${id}`, {
-      next: { revalidate: 600 },
+      next: { revalidate: 3600 },
     });
     if (!res.ok) {
       console.error(res.statusText);
