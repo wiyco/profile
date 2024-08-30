@@ -20,8 +20,8 @@ export function LinkBlock(props: React.ComponentProps<"a">) {
    */
   if (props.children?.toString() === props.href) {
     return (
-      <Suspense fallback={<LinkEmbedderSkeleton className="mb-8" />}>
-        <LinkEmbedder href={props.href} className="mb-8" />
+      <Suspense fallback={<LinkEmbedderSkeleton className="mb-9" />}>
+        <LinkEmbedder href={props.href} className="mb-9" />
       </Suspense>
     );
   }
