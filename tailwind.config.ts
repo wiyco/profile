@@ -28,7 +28,7 @@ const config: Config = {
         md: ["1.075rem", "1.5rem"],
       },
       lineHeight: {
-        casual: "1.75",
+        casual: "1.875",
       },
     },
   },
