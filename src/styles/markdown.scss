@@ -94,7 +94,7 @@
       &::before {
         @apply absolute inset-y-0 -left-[1.125rem] text-neutral-600/40 dark:text-neutral-400/40;
 
-        content: counter(orderedlist) ".";
+        content: counter(orderedlist, decimal) ".";
         counter-increment: orderedlist;
       }
     }
