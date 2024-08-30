@@ -2,7 +2,7 @@
   @apply grid h-full w-full content-start py-5 text-neutral-800/80 dark:text-neutral-200/80;
 
   h2 {
-    @apply relative mb-9 mt-4 w-fit py-1.5 pr-[5%] text-xl font-semibold;
+    @apply relative mb-8 mt-4 w-fit py-1.5 pr-[5%] text-xl font-semibold;
 
     &::before {
       @apply absolute inset-x-0 -bottom-1 h-[2px] w-full rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
@@ -12,7 +12,7 @@
   }
 
   h3 {
-    @apply relative mb-8 mt-2 w-fit py-1 pr-[3%] text-lg font-semibold;
+    @apply relative mb-7 mt-2 w-fit py-1 pr-[3%] text-lg font-semibold;
 
     &::before {
       @apply absolute inset-x-0 -bottom-1 h-[1.5px] w-full rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
@@ -22,7 +22,7 @@
   }
 
   h4 {
-    @apply relative mb-7 mt-1 w-fit py-1 pr-[1%] text-md font-semibold;
+    @apply relative mb-6 mt-1 w-fit py-1 pr-[1%] text-md font-semibold;
 
     &::before {
       @apply absolute inset-x-0 -bottom-1 h-[1.5px] w-full rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
@@ -43,7 +43,7 @@
   }
 
   p {
-    @apply mb-9 leading-casual;
+    @apply mb-[1.875rem] leading-casual;
   }
 
   :not(pre) > code {
@@ -51,7 +51,7 @@
   }
 
   blockquote {
-    @apply relative mb-9 ml-2 w-11/12 pl-5 text-neutral-600/80 dark:text-neutral-400/80;
+    @apply relative mb-[1.875rem] ml-2 w-11/12 pl-5 text-neutral-600/80 dark:text-neutral-400/80;
 
     &::before {
       @apply absolute inset-y-0 left-0 h-full w-[3px] rounded-full bg-neutral-600/25 dark:bg-neutral-400/25;
@@ -70,7 +70,7 @@
   }
 
   ul:not(.contains-task-list) {
-    @apply mb-9 ml-[1.375rem];
+    @apply mb-[1.875rem] ml-[1.375rem];
 
     & > li {
       @apply relative leading-casual;
@@ -84,7 +84,7 @@
   }
 
   ol:not(.contains-task-list) {
-    @apply mb-9 ml-[1.375rem];
+    @apply mb-[1.875rem] ml-[1.375rem];
 
     counter-reset: orderedlist;
 
@@ -125,7 +125,7 @@
   }
 
   table {
-    @apply mb-9 w-fit border-collapse;
+    @apply mb-[1.875rem] w-fit border-collapse;
 
     th,
     td {
