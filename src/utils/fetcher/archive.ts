@@ -1,4 +1,4 @@
-import type { Archive } from "@/types";
+import type { Archive } from "@/types/data";
 
 /** @see {@link https://nextjs.org/docs/app/api-reference/functions/fetch} */
 

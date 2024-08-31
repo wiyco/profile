@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
 import { BlogSkeleton } from "@/components/skeletons/BlogSkeleton";
-import type { SearchParams } from "@/types";
+import type { SearchParams } from "@/types/next";
 
 import { Blog } from "./blog";
 

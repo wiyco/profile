@@ -2,7 +2,7 @@
 
 import { Pagination as NextPagination } from "@nextui-org/react";
 
-import { usePagination } from "./hooks";
+import { usePagination } from "./Pagination.hooks";
 
 type PaginationProps = {
   className?: string;

@@ -2,10 +2,8 @@ import "@/styles/timeline.scss";
 
 import { Fragment, Suspense } from "react";
 
-import { CardFull } from "@/components/cards/CardFull";
-import { CardFullSkeleton } from "@/components/cards/CardFull/skeleton";
-import { LinkEmbedder } from "@/components/cards/LinkEmbedder";
-import { LinkEmbedderSkeleton } from "@/components/cards/LinkEmbedder/skeleton";
+import { CardFull, CardFullSkeleton } from "@/components/cards/CardFull";
+import { LinkEmbedder, LinkEmbedderSkeleton } from "@/components/cards/LinkEmbedder";
 import { cn } from "@/utils/cn";
 import { getArchives } from "@/utils/fetcher/archive";
 import { isExternalPath } from "@/utils/path";

@@ -4,8 +4,8 @@ import { redirect, RedirectType } from "next/navigation";
 
 import { CardPost } from "@/components/cards/CardPost";
 import { Pagination } from "@/components/navigations/Pagination";
-import type { SearchParams } from "@/types";
 import { paginationApiRequest } from "@/types/api/pagination";
+import type { SearchParams } from "@/types/next";
 import { getAvatar } from "@/utils/fetcher/avatar";
 import { getPosts } from "@/utils/fetcher/post";
 

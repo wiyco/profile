@@ -8,7 +8,7 @@ import NextImage from "next/image";
 import { notFound } from "next/navigation";
 
 import { MarkdownRenderer } from "@/components/renderers/MarkdownRenderer";
-import type { RouteParams } from "@/types";
+import type { RouteParams } from "@/types/next";
 import { markdownToText } from "@/utils/converter/markdown-to-text";
 import { getPost } from "@/utils/fetcher/post";
 import { isExternalPath } from "@/utils/path";

@@ -1,6 +1,6 @@
 import "@/styles/blog.scss";
 
-import { CardPostSkeleton } from "@/components/cards/CardPost/skeleton";
+import { CardPostSkeleton } from "@/components/cards/CardPost";
 import { Pagination } from "@/components/navigations/Pagination";
 
 export function BlogSkeleton() {

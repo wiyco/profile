@@ -1,7 +1,7 @@
 import "@/styles/timeline.scss";
 
-import { CardFullSkeleton } from "@/components/cards/CardFull/skeleton";
-import { LinkEmbedderSkeleton } from "@/components/cards/LinkEmbedder/skeleton";
+import { CardFullSkeleton } from "@/components/cards/CardFull";
+import { LinkEmbedderSkeleton } from "@/components/cards/LinkEmbedder";
 
 export function ArchiveSkeleton() {
   return (
