@@ -16,9 +16,9 @@ type LinkEmbedderProps = {
 };
 
 export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
-  /** If the link is a YouTube link, sleep for 1 second to prevent 429 error */
+  /** If the link is a YouTube link, sleep for 2 second to prevent 429 error */
   if (isYouTubeLink(href)) {
-    await sleep(1000);
+    await sleep(2000);
   }
   const metadata = await getMetadataFromUrlWithCache(href);
   const title = metadata?.title || metadata?.["og:title"] || metadata?.["twitter:title"] || null;
