@@ -46,7 +46,7 @@ export { getProfile };
 export const R3F_SOURCE_CODE = `type LineProps = {
   dash: number;
   count: number;
-  colors: FatlineProps["color"][];
+  colors: React.ComponentProps<typeof Fatline>["color"][];
   radius: number;
   rand?: typeof THREE.MathUtils.randFloatSpread;
 };
