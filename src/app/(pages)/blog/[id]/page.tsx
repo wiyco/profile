@@ -18,7 +18,7 @@ import { HeaderDate } from "./client";
 /** @see {@link https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config} */
 export const dynamic = "auto";
 export const dynamicParams = true;
-export const revalidate = 600;
+export const revalidate = 3600;
 export const maxDuration = 10;
 
 type MetadataProps = {
