@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 
-import { Navbar } from "@/components/layouts/Header/Navbar";
 import { usePath } from "@/hooks/usePath";
 import { raleway } from "@/styles/fonts";
 import { cn } from "@/utils/cn";
+
+import { Navbar } from "./Navbar";
 
 export function Header() {
   const { isRoot } = usePath();

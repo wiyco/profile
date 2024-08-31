@@ -8,10 +8,11 @@ import Instagram from "@icons/instagram.svg";
 import X from "@icons/x.svg";
 import Link from "next/link";
 
-import { navItems } from "@/components/layouts/Footer/constants";
-import { NavExpander } from "@/components/layouts/Footer/NavExpander";
 import { usePath } from "@/hooks/usePath";
 import { cn } from "@/utils/cn";
+
+import { navItems } from "./constants";
+import { NavExpander } from "./NavExpander";
 
 export function Footer() {
   const { isRoot } = usePath();

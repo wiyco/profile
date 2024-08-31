@@ -4,7 +4,8 @@ import Link from "next/link";
 
 import { MenuButton } from "@/components/buttons/MenuButton";
 import { ThemeButton } from "@/components/buttons/ThemeButton";
-import { navItems } from "@/components/layouts/Header/constants";
+
+import { navItems } from "./constants";
 
 export function Navbar() {
   return (
