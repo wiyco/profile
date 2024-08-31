@@ -4,7 +4,7 @@ import ArrowLeftCircle from "@icons/arrow-left-circle.svg";
 import { useRouter } from "next/navigation";
 
 type HistoryBackButtonProps = {
-  className?: React.HTMLAttributes<HTMLButtonElement>["className"];
+  className?: string;
 };
 
 export function HistoryBackButton({ className }: HistoryBackButtonProps) {

@@ -4,7 +4,7 @@ import { getDiffDateTime } from "@/utils/formatter/datetime-diff";
 
 type TimeDiffClientProps = {
   timestamp: Parameters<typeof getDiffDateTime>[0];
-  className?: React.ComponentProps<"time">["className"];
+  className?: string;
 };
 
 export function TimeDiffClient({ timestamp, className }: TimeDiffClientProps) {

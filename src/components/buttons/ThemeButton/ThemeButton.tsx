@@ -9,7 +9,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useMemo, useState } from "react";
 
 type ThemeButtonProps = {
-  className?: React.HTMLAttributes<HTMLButtonElement>["className"];
+  className?: string;
 };
 
 export function ThemeButton({ className }: ThemeButtonProps) {
