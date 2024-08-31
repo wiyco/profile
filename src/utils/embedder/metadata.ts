@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import urlMetadata from "url-metadata";
 
 type ExtractedMetadata = {
@@ -38,4 +39,12 @@ async function getMetadataFromUrl(url: string): Promise<ExtractedMetadata | null
   }
 }
 
-export { getMetadataFromUrl };
+async function getMetadataFromUrlWithCache(href: string) {
+  const fetcher = unstable_cache(async () => await getMetadataFromUrl(href), [`metadata-${href}`], {
+    revalidate: 3600,
+    tags: [`metadata-${href}`],
+  });
+  return fetcher();
+}
+
+export { getMetadataFromUrlWithCache };
