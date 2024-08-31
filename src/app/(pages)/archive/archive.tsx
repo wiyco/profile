@@ -22,7 +22,7 @@ export async function Archive() {
               <aside className="timeline pl-2 md:col-span-1 md:pr-6"></aside>
               <article className="my-4 ml-6 flex-1 md:col-span-5 md:ml-8">
                 {item.isEmbed || !item.title ? (
-                  <Suspense fallback={<LinkEmbedderSkeleton />}>
+                  <Suspense fallback={<LinkEmbedderSkeleton className="timeline-item-animation" />}>
                     <LinkEmbedder href={item.url} className="timeline-item-animation" />
                   </Suspense>
                 ) : (
@@ -53,7 +53,9 @@ export async function Archive() {
                 <aside className="timeline pl-2"></aside>
                 <article className="my-4 ml-6 flex-1">
                   {item.isEmbed || !item.title ? (
-                    <Suspense fallback={<LinkEmbedderSkeleton />}>
+                    <Suspense
+                      fallback={<LinkEmbedderSkeleton className="timeline-item-animation" />}
+                    >
                       <LinkEmbedder href={item.url} className="timeline-item-animation" />
                     </Suspense>
                   ) : (
@@ -78,7 +80,7 @@ export async function Archive() {
               </aside>
               <article className="col-span-5 my-4 ml-8 flex-1">
                 {item.isEmbed || !item.title ? (
-                  <Suspense fallback={<LinkEmbedderSkeleton />}>
+                  <Suspense fallback={<LinkEmbedderSkeleton className="timeline-item-animation" />}>
                     <LinkEmbedder href={item.url} className="timeline-item-animation" />
                   </Suspense>
                 ) : (
