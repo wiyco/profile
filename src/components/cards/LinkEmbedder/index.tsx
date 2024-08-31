@@ -5,8 +5,10 @@ import NextLink from "next/link";
 
 import { cn } from "@/utils/cn";
 import { linkToDomain } from "@/utils/converter/link-to-domain";
-import { getMetadataFromUrl } from "@/utils/embedder/metadata";
+import { getMetadataFromUrlWithCache } from "@/utils/embedder/metadata";
+import { isYouTubeLink } from "@/utils/embedder/youtube";
 import { isExternalPath } from "@/utils/path";
+import { sleep } from "@/utils/sleep";
 
 type LinkEmbedderProps = {
   href: string;
@@ -14,7 +16,11 @@ type LinkEmbedderProps = {
 };
 
 export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
-  const metadata = await getMetadataFromUrl(href);
+  /** If the link is a YouTube link, sleep for 1 second to prevent 429 error */
+  if (isYouTubeLink(href)) {
+    await sleep(1000);
+  }
+  const metadata = await getMetadataFromUrlWithCache(href);
   const title = metadata?.title || metadata?.["og:title"] || metadata?.["twitter:title"] || null;
   const description =
     metadata?.description ||
