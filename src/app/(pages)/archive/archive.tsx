@@ -1,9 +1,11 @@
 import "@/styles/timeline.scss";
 
-import { Fragment } from "react";
+import { Fragment, Suspense } from "react";
 
 import { CardFull } from "@/components/cards/CardFull";
+import { CardFullSkeleton } from "@/components/cards/CardFull/skeleton";
 import { LinkEmbedder } from "@/components/cards/LinkEmbedder";
+import { LinkEmbedderSkeleton } from "@/components/cards/LinkEmbedder/skeleton";
 import { cn } from "@/utils/cn";
 import { getArchives } from "@/utils/fetcher/archive";
 import { isExternalPath } from "@/utils/path";
@@ -22,16 +24,20 @@ export async function Archive() {
               <aside className="timeline pl-2 md:col-span-1 md:pr-6"></aside>
               <article className="my-4 ml-6 flex-1 md:col-span-5 md:ml-8">
                 {item.isEmbed || !item.title ? (
-                  <LinkEmbedder href={item.url} className="timeline-item-animation" />
+                  <Suspense fallback={<LinkEmbedderSkeleton />}>
+                    <LinkEmbedder href={item.url} className="timeline-item-animation" />
+                  </Suspense>
                 ) : (
-                  <CardFull
-                    className="timeline-item-animation"
-                    title={item.title ?? ""}
-                    thumbnail={item.thumbnail || ""}
-                    isOGImage={item.isOGImage}
-                    url={item.url}
-                    isExternal={isExternalPath(item.url)}
-                  />
+                  <Suspense fallback={<CardFullSkeleton />}>
+                    <CardFull
+                      className="timeline-item-animation"
+                      title={item.title ?? ""}
+                      thumbnail={item.thumbnail || ""}
+                      isOGImage={item.isOGImage}
+                      url={item.url}
+                      isExternal={isExternalPath(item.url)}
+                    />
+                  </Suspense>
                 )}
               </article>
             </section>
@@ -51,16 +57,20 @@ export async function Archive() {
                 <aside className="timeline pl-2"></aside>
                 <article className="my-4 ml-6 flex-1">
                   {item.isEmbed || !item.title ? (
-                    <LinkEmbedder href={item.url} className="timeline-item-animation" />
+                    <Suspense fallback={<LinkEmbedderSkeleton />}>
+                      <LinkEmbedder href={item.url} className="timeline-item-animation" />
+                    </Suspense>
                   ) : (
-                    <CardFull
-                      className="timeline-item-animation"
-                      title={item.title ?? ""}
-                      thumbnail={item.thumbnail || ""}
-                      isOGImage={item.isOGImage}
-                      url={item.url}
-                      isExternal={isExternalPath(item.url)}
-                    />
+                    <Suspense fallback={<CardFullSkeleton />}>
+                      <CardFull
+                        className="timeline-item-animation"
+                        title={item.title ?? ""}
+                        thumbnail={item.thumbnail || ""}
+                        isOGImage={item.isOGImage}
+                        url={item.url}
+                        isExternal={isExternalPath(item.url)}
+                      />
+                    </Suspense>
                   )}
                 </article>
               </section>
@@ -74,16 +84,20 @@ export async function Archive() {
               </aside>
               <article className="col-span-5 my-4 ml-8 flex-1">
                 {item.isEmbed || !item.title ? (
-                  <LinkEmbedder href={item.url} className="timeline-item-animation" />
+                  <Suspense fallback={<LinkEmbedderSkeleton />}>
+                    <LinkEmbedder href={item.url} className="timeline-item-animation" />
+                  </Suspense>
                 ) : (
-                  <CardFull
-                    className="timeline-item-animation"
-                    title={item.title ?? ""}
-                    thumbnail={item.thumbnail || ""}
-                    isOGImage={item.isOGImage}
-                    url={item.url}
-                    isExternal={isExternalPath(item.url)}
-                  />
+                  <Suspense fallback={<CardFullSkeleton />}>
+                    <CardFull
+                      className="timeline-item-animation"
+                      title={item.title ?? ""}
+                      thumbnail={item.thumbnail || ""}
+                      isOGImage={item.isOGImage}
+                      url={item.url}
+                      isExternal={isExternalPath(item.url)}
+                    />
+                  </Suspense>
                 )}
               </article>
             </section>
