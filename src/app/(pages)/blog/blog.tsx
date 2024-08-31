@@ -1,8 +1,9 @@
 import "@/styles/blog.scss";
 
 import { redirect, RedirectType } from "next/navigation";
+import { Suspense } from "react";
 
-import { CardPost } from "@/components/cards/CardPost";
+import { CardPost, CardPostSkeleton } from "@/components/cards/CardPost";
 import { Pagination } from "@/components/navigations/Pagination";
 import { paginationApiRequest } from "@/types/api/pagination";
 import type { SearchParams } from "@/types/next";
@@ -57,24 +58,31 @@ export async function Blog({ searchParams }: ArticleProps) {
     })
   ).then((record) => Object.assign({}, ...record));
 
+  /** Create array of skeleton cards */
+  const skeletons = Array.from({ length: paginationSettings.itemsPerPage }).map((_, index) => (
+    <CardPostSkeleton key={index} className="blog-item-animation" />
+  ));
+
   return (
     <>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        {posts.results.map((item, index) => (
-          <CardPost
-            key={index}
-            className="blog-item-animation"
-            title={item.title}
-            thumbnail={item.thumbnail}
-            url={`/blog/${item.id}`}
-            author={{
-              name: item.user?.username,
-              avatar: avatarIdToUrlRecord[String(item.user?.avatar)],
-            }}
-            timestamp={item.updatedAt}
-            prefetch={true}
-          />
-        ))}
+        <Suspense fallback={skeletons}>
+          {posts.results.map((item, index) => (
+            <CardPost
+              key={index}
+              className="blog-item-animation"
+              title={item.title}
+              thumbnail={item.thumbnail}
+              url={`/blog/${item.id}`}
+              author={{
+                name: item.user?.username,
+                avatar: avatarIdToUrlRecord[String(item.user?.avatar)],
+              }}
+              timestamp={item.updatedAt}
+              prefetch={true}
+            />
+          ))}
+        </Suspense>
       </section>
       <Pagination
         className="mx-auto"
