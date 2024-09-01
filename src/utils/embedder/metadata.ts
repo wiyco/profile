@@ -28,7 +28,7 @@ async function getMetadataFromUrl(url: string): Promise<ExtractedMetadata | null
   try {
     /** @see {@link https://github.com/laurengarcia/url-metadata?tab=readme-ov-file#usage} */
     const metadata = await urlMetadata(url, {
-      cache: "no-cache",
+      cache: "no-store",
       mode: "cors",
       descriptionLength: 200,
     });
