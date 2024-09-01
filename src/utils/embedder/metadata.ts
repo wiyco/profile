@@ -40,9 +40,9 @@ async function getMetadataFromUrl(url: string): Promise<ExtractedMetadata | null
 }
 
 async function getMetadataFromUrlWithCache(href: string) {
-  const fetcher = unstable_cache(async () => await getMetadataFromUrl(href), [`metadata-${href}`], {
+  const fetcher = unstable_cache(async () => await getMetadataFromUrl(href), [href], {
     revalidate: 3600,
-    tags: [`metadata-${href}`],
+    tags: [`cached-metadata:${href}`],
   });
   return fetcher();
 }
