@@ -47,4 +47,4 @@ async function getMetadataFromUrlWithCache(href: string) {
   return fetcher();
 }
 
-export { getMetadataFromUrlWithCache };
+export { getMetadataFromUrl, getMetadataFromUrlWithCache };
