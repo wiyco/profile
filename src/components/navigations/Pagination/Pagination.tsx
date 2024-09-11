@@ -1,6 +1,7 @@
 "use client";
 
 import { Pagination as NextPagination } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 import { usePagination } from "./Pagination.hooks";
 
@@ -19,7 +20,10 @@ export function Pagination({
   initialPage,
   isDisabled,
 }: PaginationProps) {
+  const router = useRouter();
+
   const { pageNumber, totalPageNumber, handlePageChange } = usePagination({
+    router,
     count,
     itemsPerPage,
     initialPage,
