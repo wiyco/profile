@@ -1,14 +1,16 @@
-import { ImageLinks } from "@constants/links";
-import { Card, CardBody, Image, Link } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/card";
+import { Image } from "@nextui-org/image";
+import { Link } from "@nextui-org/link";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
 import { cn } from "@/utils/cn";
-import { linkToDomain } from "@/utils/converter/link-to-domain";
 import { getMetadataFromUrlWithCache } from "@/utils/embedder/metadata";
 import { isYouTubeLink } from "@/utils/embedder/youtube";
 import { isExternalPath } from "@/utils/path";
 import { sleep } from "@/utils/sleep";
+
+import { metadataSnippet } from "./metadata";
 
 type LinkEmbedderProps = {
   href: string;
@@ -20,26 +22,10 @@ export async function LinkEmbedder({ href, className }: LinkEmbedderProps) {
   if (isYouTubeLink(href)) {
     await sleep(2000);
   }
+
   const metadata = await getMetadataFromUrlWithCache(href);
-  const title = metadata?.title || metadata?.["og:title"] || metadata?.["twitter:title"] || null;
-  const description =
-    metadata?.description ||
-    metadata?.["og:description"] ||
-    metadata?.["twitter:description"] ||
-    null;
-  const image = metadata?.["og:image"] || ImageLinks.FALLBACK;
-  const domain = linkToDomain(href);
-  const faviconHref = metadata?.favicons.find(
-    (favicon) =>
-      favicon.type === "image/png" ||
-      favicon.rel === "icon" ||
-      favicon.sizes === "32x32" ||
-      favicon.href.match(/.+\.png$/) ||
-      favicon.href.match(/.+\.ico$/)
-  )?.href;
-  const favicon = isExternalPath(faviconHref || "/")
-    ? faviconHref
-    : `https://${domain}${faviconHref}`;
+
+  const { title, description, image, favicon, domain } = metadataSnippet({ href, metadata });
 
   const isExternal =
     isExternalPath(href) && !href.startsWith(process.env.NEXT_PUBLIC_ORIGIN_URL || "/");
