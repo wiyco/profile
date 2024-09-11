@@ -109,7 +109,6 @@ export default function RootLayout({
           }}
         >
           <Header />
-          {/** @see TemplateMotion */}
           {children}
           <Footer />
         </Providers>
