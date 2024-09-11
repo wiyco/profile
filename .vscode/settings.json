@@ -45,5 +45,6 @@
   },
 
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "stylelint.validate": ["css", "scss"]
+  "stylelint.validate": ["css", "scss"],
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true
 }
