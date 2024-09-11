@@ -1,4 +1,4 @@
-import { Snippet } from "@nextui-org/react";
+import { Snippet } from "@nextui-org/snippet";
 
 export function PreBlock(props: React.ComponentProps<"pre">) {
   return (

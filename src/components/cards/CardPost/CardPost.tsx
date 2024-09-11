@@ -1,12 +1,16 @@
 import { ImageLinks } from "@constants/links";
 import User from "@icons/user.svg";
-import { Avatar, Card, CardBody, CardFooter, CardHeader, Image, Link } from "@nextui-org/react";
+import { Avatar } from "@nextui-org/avatar";
+import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { Image } from "@nextui-org/image";
+import { Link } from "@nextui-org/link";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
-import { TimeDiffClient } from "@/components/times/TimeDiffClient";
 import { cn } from "@/utils/cn";
 import { isExternalPath } from "@/utils/path";
+
+import { TimeDiff } from "./TimeDiff";
 
 type CardPostProps = {
   title: string;
@@ -82,10 +86,7 @@ export function CardPost({
           <div className="grid w-full grid-cols-2 items-end gap-2.5 text-small text-neutral-500 dark:text-neutral-400">
             <span className="break-words text-start">{author?.name || ""}</span>
             {timestamp && (
-              <TimeDiffClient
-                timestamp={timestamp}
-                className="place-self-end break-words text-end"
-              />
+              <TimeDiff timestamp={timestamp} className="place-self-end break-words text-end" />
             )}
           </div>
         </CardFooter>

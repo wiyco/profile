@@ -1,13 +1,11 @@
-"use client";
-
 import { getDiffDateTime } from "@/utils/formatter/datetime-diff";
 
-type TimeDiffClientProps = {
+type TimeDiffProps = {
   timestamp: Parameters<typeof getDiffDateTime>[0];
   className?: string;
 };
 
-export function TimeDiffClient({ timestamp, className }: TimeDiffClientProps) {
+export function TimeDiff({ timestamp, className }: TimeDiffProps) {
   const diff = getDiffDateTime(new Date(timestamp), new Date());
 
   return (

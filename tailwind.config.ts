@@ -1,5 +1,5 @@
 /** @see {@link https://nextui.org/docs/guide/installation#tailwind-css-setup} */
-import { nextui } from "@nextui-org/react";
+import { nextui } from "@nextui-org/theme";
 import type { Config } from "tailwindcss";
 
 const config: Config = {

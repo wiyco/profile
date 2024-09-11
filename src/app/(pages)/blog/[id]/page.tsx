@@ -2,7 +2,7 @@ import "@/styles/article.scss";
 
 import { ImageLinks } from "@constants/links";
 import User from "@icons/user.svg";
-import { Image } from "@nextui-org/react";
+import { Image } from "@nextui-org/image";
 import type { Metadata } from "next";
 import NextImage from "next/image";
 import { notFound } from "next/navigation";

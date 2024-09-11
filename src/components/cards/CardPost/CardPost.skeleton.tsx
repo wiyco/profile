@@ -1,4 +1,5 @@
-import { Card, CardBody, CardFooter, CardHeader, Skeleton } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { Skeleton } from "@nextui-org/skeleton";
 
 import { cn } from "@/utils/cn";
 

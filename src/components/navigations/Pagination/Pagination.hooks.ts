@@ -1,17 +1,14 @@
-"use client";
-
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
 export type PaginationProps = {
+  router: ReturnType<typeof useRouter>;
   count: number;
   itemsPerPage: number;
   initialPage: number;
 };
 
-export function usePagination({ count, itemsPerPage, initialPage }: PaginationProps) {
-  const router = useRouter();
-
+export function usePagination({ router, count, itemsPerPage, initialPage }: PaginationProps) {
   const pageNumber = useMemo(() => initialPage, [initialPage]);
 
   const totalPageNumber = useMemo(() => {

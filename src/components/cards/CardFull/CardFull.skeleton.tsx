@@ -1,4 +1,5 @@
-import { Card, Skeleton } from "@nextui-org/react";
+import { Card } from "@nextui-org/card";
+import { Skeleton } from "@nextui-org/skeleton";
 
 import { cn } from "@/utils/cn";
 
