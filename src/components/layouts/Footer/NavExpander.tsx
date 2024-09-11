@@ -1,11 +1,14 @@
 "use client";
 
 import NavArrowDown from "@icons/nav-arrow-down.svg";
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/dropdown";
 import Link from "next/link";
-import { Fragment, useMemo, useState } from "react";
+import { Fragment } from "react";
 
 import { cn } from "@/utils/cn";
+
+import { useNavExpander } from "./NavExpander.hooks";
 
 type NavItem = {
   header: string;
@@ -19,17 +22,11 @@ export type { NavItem };
 
 type NavExpanderProps = {
   navItems: NavItem[];
-  enableDarkMode?: boolean;
   className?: string;
 };
 
-export function NavExpander({ navItems, enableDarkMode, className }: NavExpanderProps) {
-  const navOpenState = useMemo(
-    () => navItems.map((item) => ({ [item.header]: false })),
-    [navItems]
-  );
-
-  const [isOpen, setIsOpen] = useState<typeof navOpenState>(navOpenState);
+export function NavExpander({ navItems, className }: NavExpanderProps) {
+  const { isOpen, handleOpenChange } = useNavExpander({ navItems });
 
   return (
     <nav className={className}>
@@ -38,26 +35,20 @@ export function NavExpander({ navItems, enableDarkMode, className }: NavExpander
           <Fragment key={itemIndex}>
             {/* Mobile */}
             <li className="block md:hidden">
-              <Dropdown
-                onOpenChange={(isOpen) => setIsOpen((prev) => ({ ...prev, [item.header]: isOpen }))}
-              >
+              <Dropdown onOpenChange={(isOpen) => handleOpenChange({ key: item.header, isOpen })}>
                 <DropdownTrigger>
                   <Button
                     disableRipple
-                    className={cn(
-                      "bg-transparent p-0 font-semibold data-[hover=true]:bg-transparent",
-                      enableDarkMode ? "text-black dark:text-white" : "text-white"
-                    )}
+                    className="bg-transparent p-0 font-semibold text-white data-[hover=true]:bg-transparent"
                     variant="light"
                     radius="sm"
                     endContent={
                       <span
                         className={cn(
-                          "text-tiny transition-transform duration-150 ease-in-out",
-                          isOpen[item.header as keyof typeof navOpenState]
+                          "stroke-white text-tiny transition-transform duration-150 ease-in-out",
+                          isOpen[item.header as keyof typeof isOpen]
                             ? "translate-y-px rotate-180"
-                            : "translate-y-0 rotate-90",
-                          enableDarkMode ? "stroke-black dark:stroke-white" : "stroke-white"
+                            : "translate-y-0 rotate-90"
                         )}
                       >
                         <NavArrowDown />
