@@ -3,12 +3,14 @@
 import Check from "@icons/check.svg";
 import Menu from "@icons/menu.svg";
 import Xmark from "@icons/xmark.svg";
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/dropdown";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 import { cn } from "@/utils/cn";
 import { isCurrentPath } from "@/utils/path";
+
+import { useMenuButton } from "./MenuButton.hooks";
 
 type MenuButtonProps = {
   items?: {
@@ -22,10 +24,10 @@ type MenuButtonProps = {
 export function MenuButton({ items = [], className }: MenuButtonProps) {
   const pathname = usePathname();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, handleOpenChange } = useMenuButton();
 
   return (
-    <Dropdown backdrop="blur" onOpenChange={(isOpen) => setIsOpen(isOpen)}>
+    <Dropdown backdrop="blur" onOpenChange={(isOpen) => handleOpenChange(isOpen)}>
       <DropdownTrigger>
         <Button
           disableRipple
