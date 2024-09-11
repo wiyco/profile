@@ -1,6 +1,6 @@
 "use client";
 
-import { Pagination as NextPagination } from "@nextui-org/react";
+import { Pagination as NextPagination } from "@nextui-org/pagination";
 import { useRouter } from "next/navigation";
 
 import { usePagination } from "./Pagination.hooks";
