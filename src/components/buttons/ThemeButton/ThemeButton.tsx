@@ -3,33 +3,26 @@
 import { Themes } from "@constants/themes";
 import HalfMoon from "@icons/half-moon.svg";
 import SunLight from "@icons/sun-light.svg";
-import { Skeleton } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { useEffect, useMemo, useState } from "react";
 
-type ThemeButtonProps = {
-  className?: string;
-};
+import { useThemeButton } from "./ThemeButton.hooks";
 
-export function ThemeButton({ className }: ThemeButtonProps) {
+type ThemeButtonProps = React.ComponentProps<"button">;
+
+export function ThemeButton({ className, ...props }: ThemeButtonProps) {
   const { setTheme, resolvedTheme } = useTheme();
 
-  const [mounted, setMounted] = useState(false);
+  const { isDarkTheme, handleClick } = useThemeButton({ setTheme, resolvedTheme });
 
-  const isDarkTheme = useMemo(() => resolvedTheme === Themes.DARK, [resolvedTheme]);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  return mounted ? (
+  return (
     <button
+      {...props}
       className={className}
       type="button"
       title="Color Theme"
       aria-label="Switch Theme"
-      onClick={() => setTheme(isDarkTheme ? Themes.LIGHT : Themes.DARK)}
+      onClick={() => handleClick()}
     >
       <span className="stroke-current">
         {isDarkTheme ? (
@@ -55,9 +48,5 @@ export function ThemeButton({ className }: ThemeButtonProps) {
         )}
       </span>
     </button>
-  ) : (
-    <span className={className}>
-      <Skeleton className="h-6 w-6 rounded-full" />
-    </span>
   );
 }
