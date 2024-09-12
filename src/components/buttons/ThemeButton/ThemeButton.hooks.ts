@@ -11,8 +11,8 @@ function useThemeButton({ setTheme, resolvedTheme }: UseThemeButtonProps) {
   const isDarkTheme = useMemo(() => resolvedTheme === Themes.DARK, [resolvedTheme]);
 
   const handleClick = useCallback(() => {
-    setTheme(isDarkTheme ? Themes.LIGHT : Themes.DARK);
-  }, [isDarkTheme, setTheme]);
+    setTheme((prev) => (prev === Themes.DARK ? Themes.LIGHT : Themes.DARK));
+  }, [setTheme]);
 
   return { isDarkTheme, handleClick };
 }
