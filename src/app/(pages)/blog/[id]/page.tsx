@@ -1,6 +1,7 @@
 import "@/styles/article.scss";
 
 import { ImageLinks } from "@constants/links";
+import { getArticleMetadata } from "@constants/metadata/article";
 import User from "@icons/user.svg";
 import { Image } from "@nextui-org/image";
 import type { Metadata } from "next";
@@ -36,42 +37,14 @@ export async function generateMetadata({ params }: MetadataProps): Promise<Metad
   const description = markdownToText(post.content);
   const imageUrl = post.thumbnail || ImageLinks.EMOJI_ANIMATE_FALLBACK;
 
-  return {
+  return getArticleMetadata({
     title: post.title,
-    description: description,
-    openGraph: {
-      title: `${post.title} @ Blog – wiyco`,
-      description: description,
-      type: "article",
-      url: `/blog/${post.id}`,
-      siteName: "wiyco",
-      images: [
-        {
-          type: "image/png",
-          url: imageUrl,
-          width: 512,
-          height: 512,
-          alt: post.title,
-        },
-      ],
-      publishedTime: String(post.createdAt),
-      modifiedTime: String(post.updatedAt),
-    },
-    twitter: {
-      card: "summary",
-      title: `${post.title} @ Blog – wiyco`,
-      description: description,
-      images: [
-        {
-          type: "image/png",
-          url: imageUrl,
-          width: 512,
-          height: 512,
-          alt: post.title,
-        },
-      ],
-    },
-  };
+    description,
+    id: post.id,
+    imageUrl,
+    createdAt: post.createdAt,
+    updatedAt: post.updatedAt,
+  });
 }
 
 type PageProps = {
