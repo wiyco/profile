@@ -8,13 +8,15 @@ type UseThemeButtonProps = {
 };
 
 function useThemeButton({ setTheme, resolvedTheme }: UseThemeButtonProps) {
+  const isMounted = useMemo(() => resolvedTheme !== undefined, [resolvedTheme]);
+
   const isDarkTheme = useMemo(() => resolvedTheme === Themes.DARK, [resolvedTheme]);
 
   const handleClick = useCallback(() => {
-    setTheme((prev) => (prev === Themes.DARK ? Themes.LIGHT : Themes.DARK));
-  }, [setTheme]);
+    setTheme(isDarkTheme ? Themes.LIGHT : Themes.DARK);
+  }, [isDarkTheme, setTheme]);
 
-  return { isDarkTheme, handleClick };
+  return { isMounted, isDarkTheme, handleClick };
 }
 
 export { useThemeButton };
