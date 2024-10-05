@@ -66,7 +66,7 @@ export function CardPost({
           </div>
           <Avatar
             size="sm"
-            classNames={{ base: "absolute right-3 top-3 z-10" }}
+            classNames={{ base: "absolute left-3 top-3 z-10" }}
             src={author?.avatar || undefined}
             alt={author?.name || undefined}
             showFallback
