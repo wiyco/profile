@@ -3,12 +3,12 @@ import "@/styles/blog.scss";
 import { redirect, RedirectType } from "next/navigation";
 import { Suspense } from "react";
 
-import { CardPost, CardPostSkeleton } from "@/components/cards/CardPost";
 import { Pagination } from "@/components/navigations/Pagination";
 import { paginationApiRequest } from "@/types/api/pagination";
 import type { SearchParams } from "@/types/next";
-import { getAvatar } from "@/utils/fetcher/avatar";
 import { getPosts } from "@/utils/fetcher/post";
+
+import { BlogPosts, BlogPostsSkeleton } from "./blog.posts";
 
 const paginationSettings = {
   itemsPerPage: Number(process.env.NEXT_PUBLIC_PAGINATION_LIMIT) || 3,
@@ -45,43 +45,14 @@ export async function Blog({ searchParams }: ArticleProps) {
     );
   }
 
-  /** Remove duplicate avatar ids */
-  const uniqueAvatarIds = Array.from(new Set(posts.results.map((item) => item.user?.avatar)));
-  /** Record where keys are avatar ids and values are urls */
-  const avatarIdToUrlRecord: Record<string, string | null> = await Promise.all(
-    uniqueAvatarIds.map(async (avatarId) => {
-      return {
-        [String(avatarId)]: avatarId
-          ? await getAvatar(avatarId, "webp").then((avatarUrl) => avatarUrl)
-          : null,
-      };
-    })
-  ).then((record) => Object.assign({}, ...record));
-
-  /** Create array of skeleton cards */
-  const skeletons = Array.from({ length: paginationSettings.itemsPerPage }).map((_, index) => (
-    <CardPostSkeleton key={index} className="blog-item-animation" />
-  ));
-
   return (
     <>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <Suspense fallback={skeletons}>
-          {posts.results.map((item, index) => (
-            <CardPost
-              key={index}
-              className="blog-item-animation"
-              title={item.title}
-              thumbnail={item.thumbnail}
-              url={`/blog/${item.id}`}
-              author={{
-                name: item.user?.username,
-                avatar: avatarIdToUrlRecord[String(item.user?.avatar)],
-              }}
-              timestamp={item.updatedAt}
-              prefetch={true}
-            />
-          ))}
+        <Suspense
+          key={pageNumber}
+          fallback={<BlogPostsSkeleton itemsNumber={paginationSettings.itemsPerPage} />}
+        >
+          <BlogPosts posts={posts.results} />
         </Suspense>
       </section>
       <Pagination
