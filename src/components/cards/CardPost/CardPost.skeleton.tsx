@@ -20,7 +20,7 @@ export function CardPostSkeleton({ className }: CardPostSkeletonProps) {
     >
       <CardHeader>
         <Skeleton className="h-24 w-full rounded-medium" />
-        <Skeleton classNames={{ base: "absolute right-3 top-3 z-10 w-8 h-8 rounded-full" }} />
+        <Skeleton classNames={{ base: "absolute left-3 top-3 z-10 w-8 h-8 rounded-full" }} />
       </CardHeader>
       <CardBody>
         <Skeleton className="h-6 w-full rounded-full" />
