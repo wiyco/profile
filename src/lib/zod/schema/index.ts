@@ -88,7 +88,7 @@ export const PostOptionalDefaultsWithRelationsSchema: z.ZodType<PostOptionalDefa
 export const UserSchema = z.object({
   id: z.string(),
   username: z.string(),
-  avatar: z.string(),
+  avatar: z.string().nullable(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
 })
@@ -101,7 +101,6 @@ export type User = z.infer<typeof UserSchema>
 export const UserOptionalDefaultsSchema = UserSchema.merge(z.object({
   id: z.string().optional(),
   username: z.string().optional(),
-  avatar: z.string().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
 }))

@@ -7,7 +7,7 @@ datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
-  schemas   = ["public", "auth"]
+  schemas   = ["public"]
 }
 
 // https://github.com/chrishoermann/zod-prisma-types?tab=readme-ov-file#usage
@@ -36,9 +36,9 @@ model Post {
 }
 
 model User {
-  id       String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  username String @default("")
-  avatar   String @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  id       String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  username String  @default("")
+  avatar   String?
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(3)
