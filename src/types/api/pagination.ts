@@ -9,10 +9,10 @@ const paginationApiRequest = z.object({
 type PaginationApiRequest = z.infer<typeof paginationApiRequest>;
 type PaginationApiRequestParams = keyof PaginationApiRequest;
 
-type PaginationApiResponce<T> = {
+type PaginationApiResponse<T> = {
   results: T[];
   count: number;
 };
 
 export { paginationApiRequest };
-export type { PaginationApiRequest, PaginationApiRequestParams, PaginationApiResponce };
+export type { PaginationApiRequest, PaginationApiRequestParams, PaginationApiResponse };

@@ -1,12 +1,12 @@
 import type { PostWithRelations } from "@/lib/zod/schema";
-import type { PaginationApiRequest, PaginationApiResponce } from "@/types/api/pagination";
+import type { PaginationApiRequest, PaginationApiResponse } from "@/types/api/pagination";
 
 /** @see {@link https://nextjs.org/docs/app/api-reference/functions/fetch} */
 
 async function getPosts(
   limit: PaginationApiRequest["limit"],
   offset: PaginationApiRequest["offset"]
-): Promise<PaginationApiResponce<PostWithRelations>> {
+): Promise<PaginationApiResponse<PostWithRelations>> {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_ORIGIN_URL}/api/v0/posts?limit=${limit}&offset=${offset}`,
@@ -16,7 +16,7 @@ async function getPosts(
       console.error(res.statusText);
       return { results: [], count: 0 };
     }
-    const data: PaginationApiResponce<PostWithRelations> = await res.json();
+    const data: PaginationApiResponse<PostWithRelations> = await res.json();
     return data;
   } catch (e) {
     console.error(e);
