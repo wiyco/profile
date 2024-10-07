@@ -1,6 +1,3 @@
--- CreateSchema
-CREATE SCHEMA IF NOT EXISTS "auth";
-
 -- CreateTable
 CREATE TABLE "public"."posts" (
     "id" TEXT NOT NULL DEFAULT public.id_generate_v1(8),
@@ -18,7 +15,7 @@ CREATE TABLE "public"."posts" (
 CREATE TABLE "public"."users" (
     "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
     "username" TEXT NOT NULL DEFAULT '',
-    "avatar" UUID NOT NULL DEFAULT uuid_generate_v4(),
+    "avatar" TEXT,
     "created_at" TIMESTAMPTZ(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMPTZ(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
