@@ -31,7 +31,6 @@ export function Pagination({
 
   return (
     <NextPagination
-      isDisabled={isDisabled}
       className={className}
       classNames={{
         wrapper: "gap-3",
@@ -47,10 +46,11 @@ export function Pagination({
       size="lg"
       radius="full"
       variant="light"
-      initialPage={initialPage ?? 1}
+      initialPage={initialPage || 1}
       total={totalPageNumber}
       page={pageNumber}
       onChange={(page) => handlePageChange(page)}
+      isDisabled={isDisabled}
     />
   );
 }
