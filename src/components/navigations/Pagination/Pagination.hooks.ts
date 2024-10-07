@@ -11,10 +11,7 @@ export type PaginationProps = {
 export function usePagination({ router, count, itemsPerPage, initialPage }: PaginationProps) {
   const pageNumber = useMemo(() => initialPage, [initialPage]);
 
-  const totalPageNumber = useMemo(
-    () => Math.ceil(count / itemsPerPage) || 1,
-    [count, itemsPerPage]
-  );
+  const totalPageNumber = useMemo(() => Math.ceil(count / itemsPerPage), [count, itemsPerPage]);
 
   const handlePageChange = useCallback(
     (page: number) => {
