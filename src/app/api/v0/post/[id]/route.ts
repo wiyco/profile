@@ -18,7 +18,7 @@ export async function GET(request: NextRequest, { params }: { params: RouteParam
   }
 
   const post = await prisma.post.findUnique({
-    where: { id: safeParsedParams.data },
+    where: { id: safeParsedParams.data, status: "public" },
     select: {
       id: true,
       createdAt: true,
