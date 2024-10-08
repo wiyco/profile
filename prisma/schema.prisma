@@ -19,11 +19,20 @@ generator zod {
   createRelationValuesTypes        = true
 }
 
+enum Status {
+  private
+  public
+
+  @@map("status")
+  @@schema("public")
+}
+
 model Post {
-  id        String @id @default(dbgenerated("public.id_generate_v1(8)")) /// @zod.string.regex(/^[a-zA-Z0-9_\-=]+$/).length(8)
+  id        String @id @default(dbgenerated("id_generate_v1(8)")) /// @zod.string.regex(/^[a-zA-Z0-9_\-=]+$/).length(8)
   title     String @default("")
   content   String @default("")
   thumbnail String @default("")
+  status    Status @default(private)
 
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(3)

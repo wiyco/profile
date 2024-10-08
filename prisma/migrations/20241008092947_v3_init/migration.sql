@@ -1,9 +1,13 @@
+-- CreateEnum
+CREATE TYPE "public"."status" AS ENUM ('private', 'public');
+
 -- CreateTable
 CREATE TABLE "public"."posts" (
-    "id" TEXT NOT NULL DEFAULT public.id_generate_v1(8),
+    "id" TEXT NOT NULL DEFAULT id_generate_v1(8),
     "title" TEXT NOT NULL DEFAULT '',
     "content" TEXT NOT NULL DEFAULT '',
     "thumbnail" TEXT NOT NULL DEFAULT '',
+    "status" "public"."status" NOT NULL DEFAULT 'private',
     "created_at" TIMESTAMPTZ(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMPTZ(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "user_id" UUID,

@@ -12,7 +12,7 @@ import type { Prisma } from '@prisma/client';
 
 export const TransactionIsolationLevelSchema = z.enum(['ReadUncommitted','ReadCommitted','RepeatableRead','Serializable']);
 
-export const PostScalarFieldEnumSchema = z.enum(['id','title','content','thumbnail','createdAt','updatedAt','userId']);
+export const PostScalarFieldEnumSchema = z.enum(['id','title','content','thumbnail','status','createdAt','updatedAt','userId']);
 
 export const UserScalarFieldEnumSchema = z.enum(['id','username','avatar','createdAt','updatedAt']);
 
@@ -21,6 +21,11 @@ export const SortOrderSchema = z.enum(['asc','desc']);
 export const QueryModeSchema = z.enum(['default','insensitive']);
 
 export const NullsOrderSchema = z.enum(['first','last']);
+
+export const StatusSchema = z.enum(['private','public']);
+
+export type StatusType = `${z.infer<typeof StatusSchema>}`
+
 /////////////////////////////////////////
 // MODELS
 /////////////////////////////////////////
@@ -30,6 +35,7 @@ export const NullsOrderSchema = z.enum(['first','last']);
 /////////////////////////////////////////
 
 export const PostSchema = z.object({
+  status: StatusSchema,
   id: z.string().regex(/^[a-zA-Z0-9_\-=]+$/).length(8),
   title: z.string(),
   content: z.string(),
@@ -45,6 +51,7 @@ export type Post = z.infer<typeof PostSchema>
 //------------------------------------------------------
 
 export const PostOptionalDefaultsSchema = PostSchema.merge(z.object({
+  status: StatusSchema.optional(),
   id: z.string().regex(/^[a-zA-Z0-9_\-=]+$/).length(8).optional(),
   title: z.string().optional(),
   content: z.string().optional(),
