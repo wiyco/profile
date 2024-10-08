@@ -1,6 +1,6 @@
 {
   "name": "wiyco-profile",
-  "version": "6.5.1",
+  "version": "6.5.3",
   "private": true,
   "scripts": {
     "dev": "next dev",
