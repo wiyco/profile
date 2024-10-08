@@ -1,13 +1,11 @@
 import { CardPostSkeleton } from "@/components/cards/CardPost";
 
-type BlogPostsSkeletonProps = {
-  itemsNumber: number;
-};
+import { paginationSettings } from "./constants";
 
-export function BlogPostsSkeleton({ itemsNumber }: BlogPostsSkeletonProps) {
+export function BlogPostsSkeleton() {
   return (
     <>
-      {Array.from({ length: itemsNumber }).map((_, index) => (
+      {Array.from({ length: paginationSettings.itemsPerPage }).map((_, index) => (
         <CardPostSkeleton key={index} />
       ))}
     </>

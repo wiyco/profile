@@ -10,12 +10,13 @@ import { Pagination } from "@/components/navigations/Pagination";
 
 import { useBlog } from "./blog.hooks";
 import { BlogPostsSkeleton } from "./blog.skeleton";
+import { paginationSettings } from "./constants";
 
-const paginationSettings = {
-  itemsPerPage: Number(process.env.NEXT_PUBLIC_PAGINATION_LIMIT) || 3,
+type BlogProps = {
+  count: number;
 };
 
-export function Blog() {
+export function Blog({ count }: BlogProps) {
   const searchParams = useSearchParams();
 
   const page = searchParams.get("page");
@@ -33,12 +34,15 @@ export function Blog() {
 
   /**
    * The total number of posts
-   * Prevent the count from being 0 when the data is not loaded
+   * If server side `count` is not equal to client side `data.count`,
+   * then use the client side `data.count` as the total number of posts
+   * || Prevent the count from being 0 when the data is not loaded
    * (safekeeping total page number of pagination to show the cursor)
    */
-  const count = useMemo(
-    () => data.count || pageNumber * paginationSettings.itemsPerPage,
-    [data.count, pageNumber]
+  const validatedCount = useMemo(
+    () =>
+      count !== data.count ? data.count || pageNumber * paginationSettings.itemsPerPage : count,
+    [count, data.count, pageNumber]
   );
 
   /** @todo Warning: Cannot update a component (`Router`) while rendering a different component */
@@ -59,7 +63,9 @@ export function Blog() {
     console.error(error);
     return (
       <section className="grid place-content-center">
-        <p className="text-center">Failed to load posts</p>
+        <p className="text-center text-neutral-800/80 dark:text-neutral-200/80">
+          Failed to load posts
+        </p>
       </section>
     );
   }
@@ -68,7 +74,7 @@ export function Blog() {
     <>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {isLoading ? (
-          <BlogPostsSkeleton itemsNumber={paginationSettings.itemsPerPage} />
+          <BlogPostsSkeleton />
         ) : (
           data.results.map((item, index) => (
             <CardPost
@@ -89,7 +95,7 @@ export function Blog() {
       </section>
       <Pagination
         className="mx-auto"
-        count={count}
+        count={validatedCount}
         itemsPerPage={paginationSettings.itemsPerPage}
         initialPage={pageNumber}
         isDisabled={isLoading}

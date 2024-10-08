@@ -2,7 +2,7 @@ import { Suspense } from "react";
 
 import { BlogSkeleton } from "@/components/skeletons/BlogSkeleton";
 
-import { Blog } from "./blog";
+import { BlogServer } from "./blog.server";
 
 export default function Page() {
   return (
@@ -11,7 +11,7 @@ export default function Page() {
         <span>Blog</span>
       </h1>
       <Suspense fallback={<BlogSkeleton />}>
-        <Blog />
+        <BlogServer />
       </Suspense>
     </div>
   );
