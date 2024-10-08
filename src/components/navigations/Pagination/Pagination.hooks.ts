@@ -15,7 +15,7 @@ export function usePagination({ router, count, itemsPerPage, initialPage }: Pagi
 
   const handlePageChange = useCallback(
     (page: number) => {
-      router.push(`?page=${page}`);
+      router.push(`?page=${page}`, { scroll: false });
     },
     [router]
   );
