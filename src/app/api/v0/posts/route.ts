@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
         take: limit,
         skip: offset,
       }),
-      prisma.post.count(),
+      prisma.post.count({ where: { status: "public" } }),
     ]);
 
     return NextResponse.json({ results, count }, { status: 200 });
