@@ -18,6 +18,7 @@ export async function GET(request: NextRequest) {
   try {
     const [results, count] = await prisma.$transaction([
       prisma.post.findMany({
+        where: { status: "public" },
         select: {
           id: true,
           createdAt: true,
