@@ -1,65 +1,98 @@
+"use client";
+
 import "@/styles/blog.scss";
 
-import { redirect, RedirectType } from "next/navigation";
-import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 
+import { CardPost } from "@/components/cards/CardPost";
 import { Pagination } from "@/components/navigations/Pagination";
-import { paginationApiRequest } from "@/types/api/pagination";
-import type { SearchParams } from "@/types/next";
-import { getPosts } from "@/utils/fetcher/post";
 
-import { BlogPosts, BlogPostsSkeleton } from "./blog.posts";
+import { useBlog } from "./blog.hooks";
+import { BlogPostsSkeleton } from "./blog.skeleton";
 
 const paginationSettings = {
   itemsPerPage: Number(process.env.NEXT_PUBLIC_PAGINATION_LIMIT) || 3,
 };
 
-type ArticleProps = {
-  searchParams: SearchParams;
-};
+export function Blog() {
+  const searchParams = useSearchParams();
 
-export async function Blog({ searchParams }: ArticleProps) {
-  /** The `page` param is not set */
-  if (searchParams?.page === undefined || searchParams?.page === "") {
-    return redirect(`?page=1`, RedirectType.replace);
-  }
-  /** Parse query params related to pagination */
-  const pagination = paginationApiRequest.parse({
-    limit: paginationSettings.itemsPerPage,
-    offset: searchParams.page,
+  const page = searchParams.get("page");
+  /** Number(null) will return 0 */
+  const pageParsed = useMemo(() => Number(page), [page]);
+  const pageNumber = useMemo(
+    () => (pageParsed < 1 || isNaN(pageParsed) ? 1 : pageParsed),
+    [pageParsed]
+  );
+
+  const { data, error, isLoading } = useBlog({
+    pageNumber: pageNumber,
+    itemsPerPage: paginationSettings.itemsPerPage,
   });
-  const pageNumber = pagination.offset;
-  /** The page number is out of range (min) */
-  if (pageNumber < 1) {
-    return redirect(`?page=1`, RedirectType.replace);
-  }
-  const limit = pagination.limit;
-  const offset = (pageNumber - 1) * paginationSettings.itemsPerPage; // offset 0 = no offset
-  /** Fetch posts */
-  const posts = await getPosts(limit, offset);
-  /** The page number is out of range (max) */
-  if (offset + 1 > posts.count) {
-    return redirect(
-      `?page=${Math.ceil(posts.count / paginationSettings.itemsPerPage)}`,
-      RedirectType.replace
+
+  /**
+   * The total number of posts
+   * Prevent the count from being 0 when the data is not loaded
+   * (safekeeping total page number of pagination to show the cursor)
+   */
+  const count = useMemo(
+    () => data.count || pageNumber * paginationSettings.itemsPerPage,
+    [data.count, pageNumber]
+  );
+
+  /** @todo Warning: Cannot update a component (`Router`) while rendering a different component */
+  // /** The page number is out of range (min) */
+  // if (typeof page !== "number" || pageParsed < 1) {
+  //   router.replace(`?page=${pageNumber}`, {
+  //     scroll: false,
+  //   });
+  // }
+  // /** The page number is out of range (max) */
+  // if (offset > count) {
+  //   router.replace(`?page=${Math.ceil(count / paginationSettings.itemsPerPage)}`, {
+  //     scroll: false,
+  //   });
+  // }
+
+  if (error) {
+    console.error(error);
+    return (
+      <section className="grid place-content-center">
+        <p className="text-center">Failed to load posts</p>
+      </section>
     );
   }
 
   return (
     <>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <Suspense
-          key={pageNumber}
-          fallback={<BlogPostsSkeleton itemsNumber={paginationSettings.itemsPerPage} />}
-        >
-          <BlogPosts posts={posts.results} />
-        </Suspense>
+        {isLoading ? (
+          <BlogPostsSkeleton itemsNumber={paginationSettings.itemsPerPage} />
+        ) : (
+          data.results.map((item, index) => (
+            <CardPost
+              key={index}
+              className="blog-item-animation"
+              title={item.title}
+              thumbnail={item.thumbnail}
+              url={`/blog/${item.id}`}
+              author={{
+                name: item.user?.username,
+                avatar: item.user?.avatar,
+              }}
+              timestamp={item.updatedAt}
+              prefetch={true}
+            />
+          ))
+        )}
       </section>
       <Pagination
         className="mx-auto"
-        count={posts.count}
+        count={count}
         itemsPerPage={paginationSettings.itemsPerPage}
         initialPage={pageNumber}
+        isDisabled={isLoading}
       />
     </>
   );
