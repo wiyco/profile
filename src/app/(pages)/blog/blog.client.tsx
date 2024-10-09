@@ -30,6 +30,7 @@ export function Blog({ count }: BlogProps) {
   const { data, error, isLoading } = useBlog({
     pageNumber: pageNumber,
     itemsPerPage: paginationSettings.itemsPerPage,
+    serverSideCount: count,
   });
 
   /**

@@ -7,9 +7,10 @@ import { getPosts } from "@/utils/fetcher/post";
 type UseBlogProps = {
   pageNumber: number;
   itemsPerPage: number;
+  serverSideCount: number;
 };
 
-function useBlog({ pageNumber, itemsPerPage }: UseBlogProps) {
+function useBlog({ pageNumber, itemsPerPage, serverSideCount }: UseBlogProps) {
   const offset = useMemo(() => (pageNumber - 1) * itemsPerPage, [pageNumber, itemsPerPage]); // offset 0 = no offset
 
   const { data, error, isLoading } = useSWR<Awaited<ReturnType<typeof getPosts>>>(
@@ -24,7 +25,7 @@ function useBlog({ pageNumber, itemsPerPage }: UseBlogProps) {
     offset,
     data: {
       results: data?.results ?? [],
-      count: data?.count ?? 0,
+      count: data?.count ?? serverSideCount,
     },
     error,
     isLoading,
