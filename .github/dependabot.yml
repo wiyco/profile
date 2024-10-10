@@ -15,10 +15,96 @@ updates:
     open-pull-requests-limit: 10
     target-branch: "develop"
     groups:
-      minor-and-patch:
+      next-patch:
         applies-to: version-updates
+        update-types:
+          - "patch"
         patterns:
-          - "*"
+          - "@next/*"
+          - "next"
+          - "eslint-*-next"
+      supabase-patch:
+        applies-to: version-updates
+        update-types:
+          - "patch"
+        patterns:
+          - "@supabase/*"
+      prisma-patch:
+        applies-to: version-updates
+        update-types:
+          - "patch"
+        patterns:
+          - "@prisma/*"
+          - "prisma"
+          - "zod-prisma-types"
+      three-patch:
+        applies-to: version-updates
+        update-types:
+          - "patch"
+        patterns:
+          - "@react-three/*"
+          - "three"
+          - "@types/three"
+          - "leva"
+          - "meshline"
+      ui-patch:
+        applies-to: version-updates
+        update-types:
+          - "patch"
+        patterns:
+          - "@nextui-org/*"
+          - "react-type-animation"
+          - "react-markdown"
+          - "rehype-*"
+          - "remark-*"
+          - "framer-motion"
+          - "tailwindcss"
+          - "prettier-*-tailwindcss"
+          - "tailwind-merge"
+          - "autoprefixer"
+      lint-patch:
+        applies-to: version-updates
+        update-types:
+          - "patch"
+        patterns:
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "stylelint*"
+          - "prettier*"
+        exclude-patterns:
+          - "eslint-*-next"
+          - "prettier-*-tailwindcss"
+      deps-patch:
+        applies-to: version-updates
         update-types:
           - "minor"
           - "patch"
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "@next/*"
+          - "next"
+          - "eslint-*-next"
+          - "@supabase/*"
+          - "@prisma/*"
+          - "prisma"
+          - "zod-prisma-types"
+          - "@react-three/*"
+          - "three"
+          - "@types/three"
+          - "leva"
+          - "meshline"
+          - "@nextui-org/*"
+          - "react-type-animation"
+          - "react-markdown"
+          - "rehype-*"
+          - "remark-*"
+          - "framer-motion"
+          - "tailwindcss"
+          - "prettier-*-tailwindcss"
+          - "tailwind-merge"
+          - "autoprefixer"
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "stylelint*"
+          - "prettier*"
