@@ -15,42 +15,47 @@ updates:
     open-pull-requests-limit: 10
     target-branch: "develop"
     groups:
-      next-patch:
+      next:
         applies-to: version-updates
         update-types:
           - "patch"
+          - "minor"
         patterns:
           - "@next/*"
           - "next"
           - "eslint-*-next"
-      supabase-patch:
+      supabase:
         applies-to: version-updates
         update-types:
           - "patch"
+          - "minor"
         patterns:
           - "@supabase/*"
-      prisma-patch:
+      prisma:
         applies-to: version-updates
         update-types:
           - "patch"
+          - "minor"
         patterns:
           - "@prisma/*"
           - "prisma"
           - "zod-prisma-types"
-      three-patch:
+      three:
         applies-to: version-updates
         update-types:
           - "patch"
+          - "minor"
         patterns:
           - "@react-three/*"
           - "three"
           - "@types/three"
           - "leva"
           - "meshline"
-      ui-patch:
+      ui:
         applies-to: version-updates
         update-types:
           - "patch"
+          - "minor"
         patterns:
           - "@nextui-org/*"
           - "react-type-animation"
@@ -62,10 +67,11 @@ updates:
           - "prettier-*-tailwindcss"
           - "tailwind-merge"
           - "autoprefixer"
-      lint-patch:
+      lint:
         applies-to: version-updates
         update-types:
           - "patch"
+          - "minor"
         patterns:
           - "@typescript-eslint/*"
           - "eslint*"
@@ -74,11 +80,47 @@ updates:
         exclude-patterns:
           - "eslint-*-next"
           - "prettier-*-tailwindcss"
-      deps-patch:
+      deps:
         applies-to: version-updates
         update-types:
           - "minor"
           - "patch"
+        dependency-type: production
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "@next/*"
+          - "next"
+          - "eslint-*-next"
+          - "@supabase/*"
+          - "@prisma/*"
+          - "prisma"
+          - "zod-prisma-types"
+          - "@react-three/*"
+          - "three"
+          - "@types/three"
+          - "leva"
+          - "meshline"
+          - "@nextui-org/*"
+          - "react-type-animation"
+          - "react-markdown"
+          - "rehype-*"
+          - "remark-*"
+          - "framer-motion"
+          - "tailwindcss"
+          - "prettier-*-tailwindcss"
+          - "tailwind-merge"
+          - "autoprefixer"
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "stylelint*"
+          - "prettier*"
+      dev-deps:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
+        dependency-type: development
         patterns:
           - "*"
         exclude-patterns:
