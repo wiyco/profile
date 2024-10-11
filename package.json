@@ -48,7 +48,7 @@
     "rehype-raw": "^7",
     "remark-breaks": "^4",
     "remark-gfm": "^4",
-    "remark-unwrap-images": "^4",
+    "remark-unwrap-images": "^5",
     "swr": "^2",
     "tailwind-merge": "^2",
     "three": "^0",
