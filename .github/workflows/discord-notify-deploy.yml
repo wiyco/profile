@@ -14,6 +14,12 @@ jobs:
         uses: tsickert/discord-webhook@v6.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL_WORKFLOW }}
+          username: ${{ github.event.deployment.creator.login }}
+          avatar-url: ${{ github.event.deployment.creator.avatar_url }}
           embed-title: "🛠️ Deploy ${{ github.event.deployment.environment }}"
           embed-description: "Status: ${{ job.status }} ${{ job.status == 'success' && '✅' || job.status == 'failure' && '🛑' || '🟨' }}\n${{ github.event.deployment.description }}"
           embed-color: ${{ job.status == 'success' && '2278750' || job.status == 'failure' && '15680580' || '15381256' }}
+          embed-author-name: ${{ github.event.deployment.creator.login }}
+          embed-author-icon-url: ${{ github.event.deployment.creator.avatar_url }}
+          embed-author-url: ${{ github.event.deployment.creator.html_url }}
+          embed-url: ${{ github.event.deployment.url }}
